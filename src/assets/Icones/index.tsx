@@ -97,3 +97,19 @@ export const ExpansibleIcon: FC<IIconProps> = (props) => {
 		</svg>
 	);
 };
+
+export const BannerArrow: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<circle cx="31.5" cy="31.5" r="30.5" stroke="white" strokeOpacity="0.3" strokeWidth="2" />
+			<path d="M31.998 41V22" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M37.4266 35.5714L31.998 41" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M26.5703 35.5714L31.9989 41" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};

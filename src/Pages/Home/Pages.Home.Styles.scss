@@ -1,0 +1,78 @@
+.banner-section {
+	padding-top: 220px;
+
+    @media screen and (max-width: 600px) {
+        padding-top: 160px;
+    }
+
+	h1 {
+		color: #fff;
+		font-size: 48px;
+		font-style: normal;
+		inline-size: 460px;
+		font-weight: 700;
+		line-height: 130%; /* 62.4px */
+
+        @media screen and (max-width: 600px) {
+            font-size: 28px;
+            inline-size: 100%;
+        }
+	}
+
+	p {
+		color: #fff;
+		font-size: 20px;
+		inline-size: 420px;
+		font-style: normal;
+		margin-top: 30px;
+		margin-bottom: 100px;
+		line-height: 150%; /* 30px */
+		font-weight: 400;
+
+        @media screen and (max-width: 600px) {
+            font-size: 14px;
+            margin-top: 15px;
+            margin-bottom: 50px;
+            inline-size: 100%;
+        }
+	}
+
+	a {
+		text-decoration: none;
+		color: #0a1521;
+		text-align: center;
+		font-size: 14px;
+		font-style: normal;
+		line-height: 24px; /* 171.429% */
+	}
+
+	button {
+		border-radius: 4px;
+		background: #00d6b6;
+		border: none;
+		padding-block: 17px;
+		padding-inline: 35px;
+        font-weight: 600;
+        transition: 0.4s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+        &:hover {
+            background: #00ac92;
+        }
+
+        @media screen and (max-width: 600px) {
+            font-size: 14px;
+            padding-block: 12px;
+        }
+	}
+
+    .icon {
+        margin-top: 80px;
+
+        @media screen and (max-width: 600px) {
+            margin-top: 50px;
+        }
+    }
+}
