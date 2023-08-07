@@ -1,0 +1,29 @@
+.footer {
+    height: 65px;
+    background: #23292c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 60px;
+    color: white;
+
+    .navigation {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover {
+                color: rgba(245, 245, 245, 0.894);
+            }
+
+        }
+
+        .selected-link {
+            border-bottom: solid 1px white;
+        }
+    }
+  }
