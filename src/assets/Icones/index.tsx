@@ -113,3 +113,55 @@ export const BannerArrow: FC<IIconProps> = (props) => {
 		</svg>
 	);
 };
+
+export const PlayModalVideoIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<path
+				d="M17.6 13.2C16.9408 12.7056 16 13.176 16 14V25C16 25.824 16.9408 26.2944 17.6 25.8L24.9333 20.3C25.4667 19.9 25.4667 19.1 24.9333 18.7L17.6 13.2Z"
+				stroke="#00D6B6"
+				strokeWidth="1.2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<circle cx="19.5" cy="19.5" r="18.5" stroke="url(#paint0_linear_656_12)" strokeWidth="2" />
+			<defs>
+				<linearGradient id="paint0_linear_656_12" x1="19.5" y1="0" x2="19.5" y2="39" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#00D6B6" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};
+
+export const PlayVideoIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<path
+				d="M17.6 13.2C16.9408 12.7056 16 13.176 16 14V25C16 25.824 16.9408 26.2944 17.6 25.8L24.9333 20.3C25.4667 19.9 25.4667 19.1 24.9333 18.7L17.6 13.2Z"
+				stroke="#00D6B6"
+				strokeWidth="1.2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<circle cx="19.5" cy="19.5" r="18.5" stroke="url(#paint0_linear_667_18)" strokeOpacity="0.8" strokeWidth="2" />
+			<defs>
+				<linearGradient id="paint0_linear_667_18" x1="19.5" y1="0" x2="19.5" y2="39" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#00D6B6" stopOpacity="0" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};
