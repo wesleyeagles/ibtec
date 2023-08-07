@@ -70,18 +70,17 @@
 	background: #0a1521;
 	padding-left: 100px;
 	padding-top: 50px;
-    
 
 	.menu-btn {
 		display: flex;
 		justify-content: end;
-        align-items: center;
+		align-items: center;
 
-        a {
+		a {
 			text-decoration: none;
 		}
 
-        .btn-area {
+		.btn-area {
 			background-color: transparent;
 			border: solid #fff 1px;
 			border-radius: 4px;
@@ -115,9 +114,9 @@
 				}
 			}
 
-            @media screen and (max-width: 600px) {
-                display: flex;
-            }
+			@media screen and (max-width: 600px) {
+				display: flex;
+			}
 		}
 
 		@media screen and (max-width: 600px) {
@@ -132,7 +131,7 @@
 	@media screen and (max-width: 600px) {
 		width: 100%;
 		padding-left: 20px;
-        padding-top: 20px;
+		padding-top: 20px;
 	}
 
 	.offcanvas-body {
@@ -179,11 +178,21 @@
 				border: none;
 			}
 
-            @media screen and (max-width: 600px) {
-                margin-top: 2.5rem;
-            }
+			@media screen and (max-width: 600px) {
+				margin-top: 2.5rem;
+			}
 		}
 	}
+
+	.offcanvas-body::-webkit-scrollbar {
+		width: 6px; /* Total width including `border-width` of scrollbar thumb */
+	}
+
+	.offcanvas-body::-webkit-scrollbar-thumb {
+		height: 1em;
+		background-color: rgba(0, 0, 0, 0.15);
+	}
+
 }
 
 .offcanvas-backdrop.show {
@@ -202,7 +211,7 @@
 		display: block;
 	}
 
-    @media screen and (max-width: 600px) {
-        margin-top: 1.5rem;
-    }
+	@media screen and (max-width: 600px) {
+		margin-top: 1.5rem;
+	}
 }
