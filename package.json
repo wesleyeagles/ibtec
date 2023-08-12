@@ -1,6 +1,6 @@
 {
   "name": "ibtec",
-  "private": true,
+  "homepage": "http://dev.ibtec.org.br/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

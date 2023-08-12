@@ -4,9 +4,17 @@
 	box-sizing: border-box;
 }
 
+html {
+	overflow-x: hidden;
+	width: 100%;
+}
+
 body {
 	background-color: #0A1521;
 	font-family: 'Poppins', sans-serif;
+	overflow-x: hidden;
+	width: 100%;
+	position:relative;
 }
 
 .modal-title {

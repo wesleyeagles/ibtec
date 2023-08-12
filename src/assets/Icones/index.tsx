@@ -165,3 +165,123 @@ export const PlayVideoIcon: FC<IIconProps> = (props) => {
 		</svg>
 	);
 };
+
+export const SustentabilidadeIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<rect width="48" height="48" rx="5" fill="#171F2B" />
+			<path d="M17 32C17.5 27.5 19.5 24 24 22" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path
+				d="M21.3227 29C27.9236 29 32.4692 25.9469 33 17.8571V16H28.7389C19.1847 16 16.0149 19.7143 16 24.3571C16 25.2857 16 27.1429 18.1231 29H21.3079H21.3227Z"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};
+
+export const InovacaoIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<rect width="48" height="48" rx="5" fill="#171F2B" />
+			<path
+				d="M10.8008 23.1918H12.2174M23.5508 10.8008V12.1776M34.8841 23.1918H36.3008M14.4841 14.3804L15.4758 15.3442M32.6174 14.3804L31.6258 15.3442"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M19.3001 28.6996C18.1108 27.8327 17.2323 26.6241 16.789 25.2451C16.3457 23.866 16.3602 22.3863 16.8303 21.0156C17.3004 19.6449 18.2024 18.4528 19.4084 17.608C20.6145 16.7632 22.0635 16.3086 23.5501 16.3086C25.0368 16.3086 26.4858 16.7632 27.6918 17.608C28.8979 18.4528 29.7998 19.6449 30.27 21.0156C30.7401 22.3863 30.7545 23.866 30.3113 25.2451C29.868 26.6241 28.9895 27.8327 27.8001 28.6996C27.247 29.2317 26.8306 29.8829 26.5844 30.6004C26.3383 31.318 26.2695 32.0818 26.3835 32.83C26.3835 33.5602 26.085 34.2606 25.5536 34.777C25.0222 35.2934 24.3016 35.5835 23.5501 35.5835C22.7987 35.5835 22.078 35.2934 21.5467 34.777C21.0153 34.2606 20.7168 33.5602 20.7168 32.83C20.8308 32.0818 20.7619 31.318 20.5158 30.6004C20.2697 29.8829 19.8532 29.2317 19.3001 28.6996"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M20.293 30.0762H26.8096" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const TecnologiaIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<rect width="48" height="48" rx="5" fill="#171F2B" />
+			<path
+				d="M31.4996 14.5273H15.8996C15.1816 14.5273 14.5996 15.093 14.5996 15.7907V30.9515C14.5996 31.6493 15.1816 32.2149 15.8996 32.2149H31.4996C32.2176 32.2149 32.7996 31.6493 32.7996 30.9515V15.7907C32.7996 15.093 32.2176 14.5273 31.4996 14.5273Z"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M19.7988 19.5801H27.5988V27.1605H19.7988V19.5801Z" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M12 20.8438H14.6" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M12 25.8965H14.6" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M21.1016 12V14.5268" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M26.2988 12V14.5268" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M35.4008 20.8438H32.8008" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M35.4008 25.8965H32.8008" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M26.2988 34.7416V32.2148" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M21.1016 34.7416V32.2148" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const SegurancaIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<path d="M0 5C0 2.23858 2.23858 0 5 0H43C45.7614 0 48 2.23858 48 5V43C48 45.7614 45.7614 48 43 48H5C2.23858 48 0 45.7614 0 43V5Z" fill="#171F2B" />
+			<path
+				d="M24.0504 13.1992C26.7758 15.5426 30.3328 16.7626 33.9679 16.601C34.4972 18.3506 34.6591 20.1858 34.4441 21.9975C34.2291 23.8092 33.6416 25.5604 32.7165 27.147C31.7913 28.7337 30.5474 30.1234 29.0587 31.2336C27.57 32.3439 25.8668 33.1519 24.0504 33.6098C22.234 33.1519 20.5308 32.3439 19.0421 31.2336C17.5534 30.1234 16.3095 28.7337 15.3843 27.147C14.4592 25.5604 13.8716 23.8092 13.6566 21.9975C13.4417 20.1858 13.6036 18.3506 14.1328 16.601C17.7679 16.7626 21.325 15.5426 24.0504 13.1992"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M24.0496 23.4046C24.694 23.4046 25.2164 22.8969 25.2164 22.2706C25.2164 21.6444 24.694 21.1367 24.0496 21.1367C23.4052 21.1367 22.8828 21.6444 22.8828 22.2706C22.8828 22.8969 23.4052 23.4046 24.0496 23.4046Z"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M24.0508 23.4043V26.2391" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const PointIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<circle cx="12" cy="12" r="12" fill="#1CA591" fillOpacity="0.2" />
+			<circle cx="12" cy="12" r="6" fill="#1CA591" />
+		</svg>
+	);
+};
