@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import BannerContainer from "../../Components/BannerContainer/BannerContainer";
 import GridContainer from "../../Components/GridContainer/GridContainer";
 import "./Pages.Home.Styles.scss";
-import { BannerArrow, InovacaoIcon, PlayVideoIcon, PointIcon, SegurancaIcon, SustentabilidadeIcon, TecnologiaIcon } from "../../assets/Icones";
+import { BannerArrow, InovacaoIcon, PlayVideoIcon, PointIcon, SegurancaIcon, SliderNextIcon, SliderPrevIcon, SustentabilidadeIcon, TecnologiaIcon } from "../../assets/Icones";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import { useState } from "react";
 import VideoModal from "./Components/VideoModal";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
 	const isMedia600px = useMediaQuery("(max-width: 600px)");
@@ -13,6 +16,26 @@ const Home = () => {
 	const [isShowVideo, setShowVideo] = useState(false);
 
 	const handleShow = () => setShowVideo(true);
+
+	const [sliderRef, setSliderRef] = useState<Slider | null>(null);
+
+	const settings = {
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		arrows: false, // Desativa as flechas padrão
+	};
+
+	const goToPrevSlide = () => {
+		if (sliderRef) {
+			sliderRef.slickPrev();
+		}
+	};
+
+	const goToNextSlide = () => {
+		if (sliderRef) {
+			sliderRef.slickNext();
+		}
+	};
 
 	return (
 		<>
@@ -135,6 +158,33 @@ const Home = () => {
 				<div className="content">
 					<img className="light-effect" src="light-effect.webp" />
 				</div>
+			</div>
+			<div className="mercados">
+				<GridContainer>
+					<div className="wrapper">
+						<div className="label">
+							<h2>Alguns mercados que atendemos</h2>
+						</div>
+						<div className="functions">
+							<small>Veja todos os setores passando os slides</small>
+							<div className="slider-btns">
+								<SliderPrevIcon onClick={goToPrevSlide} size={"2.5em"} />
+								<SliderNextIcon onClick={goToNextSlide} size={"2.5em"} />
+							</div>
+						</div>
+					</div>
+					<div className="slider-wrapper">
+						<div className="slider-container">
+							<Slider ref={(slider) => setSliderRef(slider)} {...settings}>
+								<div>Slide 1</div>
+								<div>Slide 2</div>
+								<div>Slide 3</div>
+								<div>Slide 4</div>
+								{/* Adicione mais slides conforme necessário */}
+							</Slider>
+						</div>
+					</div>
+				</GridContainer>
 			</div>
 			<VideoModal videoSrc="../videoinstitucional.mp4" handleShow={handleShow} show={isShowVideo} setShow={setShowVideo} />
 		</>

@@ -285,3 +285,33 @@ export const PointIcon: FC<IIconProps> = (props) => {
 		</svg>
 	);
 };
+
+export const SliderPrevIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<rect x="1" y="1" width="38" height="38" rx="4" stroke="#1CA591" strokeOpacity="0.2" strokeWidth="2" />
+			<path d="M17 19.832L23 25.6631" stroke="#1CA591" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M17 19.8311L23 14" stroke="#1CA591" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const SliderNextIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<rect x="1" y="1" width="38" height="38" rx="4" stroke="#1CA591" strokeOpacity="0.2" strokeWidth="2" />
+			<path d="M23 19.832L17 25.6631" stroke="#1CA591" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M23 19.8311L17 14" stroke="#1CA591" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
