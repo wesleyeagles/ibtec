@@ -2,16 +2,18 @@ import { Link } from "react-router-dom";
 import BannerContainer from "../../Components/BannerContainer/BannerContainer";
 import GridContainer from "../../Components/GridContainer/GridContainer";
 import "./Pages.Home.Styles.scss";
-import { BannerArrow, InovacaoIcon, PlayVideoIcon, PointIcon, SegurancaIcon, SliderNextIcon, SliderPrevIcon, SustentabilidadeIcon, TecnologiaIcon } from "../../assets/Icones";
+import { ArrowRightIcon, BannerArrow, InovacaoIcon, PlayVideoIcon, PointIcon, SegurancaIcon, SliderNextIcon, SliderPrevIcon, SustentabilidadeIcon, TecnologiaIcon } from "../../assets/Icones";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import { useState } from "react";
 import VideoModal from "./Components/VideoModal";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import TabsComponent from "./Components/TabsComponent";
 
 const Home = () => {
 	const isMedia600px = useMediaQuery("(max-width: 600px)");
+	const isMedia1024px = useMediaQuery("(max-width: 1024px)");
 
 	const [isShowVideo, setShowVideo] = useState(false);
 
@@ -20,7 +22,7 @@ const Home = () => {
 	const [sliderRef, setSliderRef] = useState<Slider | null>(null);
 
 	const settings = {
-		slidesToShow: 3,
+		slidesToShow: isMedia600px ? 1 : isMedia1024px ? 2 : 3,
 		slidesToScroll: 1,
 		arrows: false, // Desativa as flechas padrão
 	};
@@ -168,22 +170,73 @@ const Home = () => {
 						<div className="functions">
 							<small>Veja todos os setores passando os slides</small>
 							<div className="slider-btns">
-								<SliderPrevIcon onClick={goToPrevSlide} size={"2.5em"} />
-								<SliderNextIcon onClick={goToNextSlide} size={"2.5em"} />
+								<SliderPrevIcon onClick={goToPrevSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
+								<SliderNextIcon onClick={goToNextSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
 							</div>
 						</div>
 					</div>
 					<div className="slider-wrapper">
 						<div className="slider-container">
 							<Slider ref={(slider) => setSliderRef(slider)} {...settings}>
-								<div>Slide 1</div>
-								<div>Slide 2</div>
-								<div>Slide 3</div>
-								<div>Slide 4</div>
+								<div className="slide industria-textil">
+									<Link to="">
+										<div className="label-container">
+											<div className="label">INDÚSTRIA TÊXTIL</div>
+											<div className="icon">
+												<ArrowRightIcon />
+											</div>
+										</div>
+									</Link>
+								</div>
+								<div className="slide calcados">
+									<Link to="">
+										<div className="label-container">
+											<div className="label">CALÇADOS, COUROS E COMPONENTES</div>
+											<div className="icon">
+												<ArrowRightIcon />
+											</div>
+										</div>
+									</Link>
+								</div>
+								<div className="slide equipamentos-de-protecao">
+									<Link to="">
+										<div className="label-container">
+											<div className="label">EQUIPAMENTOS DE PROTEÇÃO</div>
+											<div className="icon">
+												<ArrowRightIcon />
+											</div>
+										</div>
+									</Link>
+								</div>
+								<div className="slide containers">
+									<Link to="">
+										<div className="label-container">
+											<div className="label">CONTAINERS</div>
+											<div className="icon">
+												<ArrowRightIcon />
+											</div>
+										</div>
+									</Link>
+								</div>
+								<div className="slide banheiros-quimicos">
+									<Link to="">
+										<div className="label-container">
+											<div className="label">BANHEIROS QUÍMICOS</div>
+											<div className="icon">
+												<ArrowRightIcon />
+											</div>
+										</div>
+									</Link>
+								</div>
 								{/* Adicione mais slides conforme necessário */}
 							</Slider>
 						</div>
 					</div>
+				</GridContainer>
+			</div>
+			<div className="solucoes">
+				<GridContainer>
+					<TabsComponent />
 				</GridContainer>
 			</div>
 			<VideoModal videoSrc="../videoinstitucional.mp4" handleShow={handleShow} show={isShowVideo} setShow={setShowVideo} />

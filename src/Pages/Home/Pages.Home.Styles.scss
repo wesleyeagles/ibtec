@@ -509,7 +509,7 @@
 		justify-content: space-between;
 
 		@media screen and (max-width: 1024px) {
-			justify-content: start;
+			align-items: start;
 			flex-direction: column;
 		}
 	}
@@ -533,13 +533,25 @@
 				font-size: 30px;
 			}
 		}
-
 	}
 
 	.functions {
 		display: flex;
 		align-items: center;
 		gap: 80px;
+
+		@media screen and (max-width: 1024px) {
+			justify-content: space-between;
+			width: 100%;
+			gap: 0;
+		}
+
+		@media screen and (max-width: 600px) {
+			justify-content: space-between;
+			margin-top: 16px;
+			width: 100%;
+			gap: 0;
+		}
 
 		.slider-btns {
 			display: flex;
@@ -548,6 +560,15 @@
 
 			svg {
 				cursor: pointer;
+				transition: 0.4s;
+
+				&:hover {
+					fill: #1CA591;
+
+					path {
+						stroke: white!important;
+					}
+				}
 			}
 		}
 	}
@@ -559,6 +580,97 @@
 		font-weight: 500;
 		line-height: normal;
 		line-height: 130%; /* 20.8px */
+
+		@media screen and (max-width: 600px) {
+			font-size: 14px;
+		}
 	}
 
+	.slider-container {
+		margin-top: 67px;
+
+		@media screen and (max-width: 600px) {
+			margin-top: 32px;
+		}
+		.slide {
+			height: 500px;
+			border-radius: 6px;
+			position: relative;
+
+			a {
+				text-decoration: none;
+				color: #fff;
+				font-size: 15px;
+				font-style: normal;
+				font-weight: 600;
+
+				&:hover {
+					.label-container {
+						background-color: #1c222c;
+					}
+				}
+			}
+		}
+
+		.slick-slide {
+			padding: 0 2rem;
+			box-sizing: border-box;
+
+			@media screen and (max-width: 1368px) {
+				padding: 0 1rem;
+			}
+		}
+
+		.slick-list {
+			margin: 0 -2rem;
+
+			@media screen and (max-width: 1368px) {
+				margin: 0 -1rem;
+			}
+		}
+
+		.industria-textil {
+			background-image: url("/public/mercados-slider/industria-textil.webp");
+			background-size: cover;
+		}
+
+		.calcados {
+			background-image: url("/public/mercados-slider/calcados.webp");
+			background-size: cover;
+		}
+
+		.equipamentos-de-protecao {
+			background-image: url("/public/mercados-slider/equipamentos-de-protecao.webp");
+			background-size: cover;
+		}
+
+		.containers {
+			background-image: url("/public/mercados-slider/containers.webp");
+			background-size: cover;
+		}
+
+		.banheiros-quimicos {
+			background-image: url("/public/mercados-slider/banheiro-quimico.webp");
+			background-size: cover;
+		}
+
+		.label-container {
+			position: absolute;
+			display: flex;
+			transition: 0.4s;
+			align-items: center;
+			padding-inline: 17px;
+			justify-content: space-between;
+			bottom: 38px;
+			right: 0;
+			width: 308px;
+			height: 75px;
+			background-color: #2a3547;
+			border-left: 5px solid #00d6b6;
+
+			@media screen and (max-width: 1368px) {
+				width: 90%;
+			}
+		}
+	}
 }
