@@ -1,0 +1,112 @@
+.newsletter {
+	background-color: #2a3547;
+	display: flex;
+	align-items: center;
+	height: 100px;
+
+    @media screen and (max-width: 600px) {
+        height: 150px;
+    }
+
+	.wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+		.label {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+
+            @media screen and (max-width: 1280px) {
+                inline-size: 250px;
+            }
+
+			h3 {
+				color: #fff;
+				font-size: 22px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 130%; /* 28.6px */
+				margin: 0;
+
+                @media screen and (max-width: 1024px) {
+                    font-size: 16px;
+                }
+
+			}
+		}
+
+        fieldset {
+            @media screen and (max-width: 600px) {
+                gap: 6px!important;
+            }
+        }
+
+		input {
+			background-color: transparent;
+			border-radius: 4px;
+			font-size: 14px;
+			width: 215px;
+			border: 1px solid #fff;
+			color: #fff;
+			height: 38px;
+			font-weight: 300;
+
+            @media screen and (max-width: 600px) {
+                width: 160px;
+            }
+
+			&::placeholder {
+				color: #ffffff95;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 130%; /* 20.8px */
+			}
+		}
+
+		button {
+			border-radius: 4px;
+			background: #fff;
+			color: #2a3547;
+			text-align: center;
+			padding-block: 8px;
+			padding-inline: 40px;
+			height: 39px;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 130%; /* 20.8px */
+
+			&:disabled {
+				background: #ffffff8a;
+			}
+		}
+
+		.invalid-feedback {
+			display: block;
+		}
+	}
+
+	.social {
+        @media screen and (max-width: 1024px) {
+            display: none!important;
+        }
+		p {
+			color: #fff;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+            margin: 0;
+			line-height: 130%; /* 20.8px */
+            inline-size: 75px;
+		}
+	}
+}
