@@ -1,0 +1,333 @@
+.biomecanica {
+	.banner-container {
+		@media screen and (max-width: 600px) {
+			height: auto !important;
+			background-position: -387px center !important;
+			margin-bottom: 60px;
+		}
+	}
+	.banner-section {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 300px;
+
+		@media screen and (max-width: 600px) {
+			padding-top: 180px;
+		}
+
+		h1 {
+			color: #fff;
+
+			font-size: 64px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 130%; /* 83.2px */
+			margin-bottom: 2rem;
+
+			@media screen and (max-width: 1280px) {
+				font-size: 50px;
+			}
+
+			@media screen and (max-width: 600px) {
+				font-size: 36px;
+			}
+		}
+
+		p {
+			color: #bbb;
+
+			font-size: 16px;
+			inline-size: 500px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 150%; /* 24px */
+
+			@media screen and (max-width: 600px) {
+				inline-size: 100%;
+				font-size: 14px;
+			}
+		}
+
+		img {
+			@media screen and (max-width: 1280px) {
+				width: 100%;
+			}
+
+			@media screen and (max-width: 1024px) {
+				display: none;
+			}
+		}
+
+		.icon {
+			margin-top: auto;
+			justify-self: end;
+
+			@media screen and (max-width: 1024px) {
+				margin-top: 60px;
+			}
+		}
+	}
+
+	.ensaios {
+		.ensaios-container {
+			display: flex;
+			justify-content: space-between;
+            margin-bottom: 180px;
+
+            @media screen and (max-width: 1024px) {
+                flex-direction: column-reverse;
+
+                .images {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 60px;
+                    
+                    img {
+                        width: 48%;
+                    }
+                }
+            }
+
+            @media screen and (max-width: 1024px) {
+                margin-bottom: 160px;
+            }
+		}
+
+		.images {
+			img {
+				&:nth-last-child(1) {
+					margin-top: 40px;
+
+                    @media screen and (max-width: 1024px) {
+                        margin-top: 0;
+                    }
+				}
+			}
+		}
+
+		@keyframes pointer {
+			from {
+				opacity: 0.6;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		.label {
+			width: 60%;
+
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+            }
+
+			.ensaios-holder {
+				margin-top: 3rem;
+				margin-bottom: 4rem;
+
+				.ensaio-single {
+					display: flex;
+					gap: 10px;
+
+					.point {
+						animation: pointer 1s alternate-reverse infinite;
+					}
+
+					strong {
+						color: #1ca591;
+
+						font-size: 16px;
+						font-style: normal;
+						font-weight: 700;
+						line-height: 150%; /* 24px */
+                        margin-right: 5px;
+
+                        @media screen and (max-width: 600px) {
+                            font-size: 14px;
+                        }
+					}
+
+					span {
+						color: #bbb;
+						font-size: 16px;
+						font-style: normal;
+						font-weight: 400;
+						line-height: 150%;
+
+                        @media screen and (max-width: 600px) {
+                            font-size: 14px;
+                        }
+					}
+				}
+			}
+
+			h3 {
+				color: #fff;
+
+				font-size: 40px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 130%; /* 52px */
+				margin-bottom: 2.2rem;
+
+                @media screen and (max-width: 600px) {
+                    font-size: 28px;
+                }
+			}
+
+			p {
+				color: #bbb;
+
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 150%; /* 24px */
+
+                @media screen and (max-width: 600px) {
+                    font-size: 14px;
+                }
+			}
+		}
+	}
+
+    .functions {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+
+        small {
+			color: #00d6b6;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			line-height: 130%; /* 20.8px */
+
+			@media screen and (max-width: 600px) {
+				font-size: 14px;
+			}
+		}
+
+        @media screen and (max-width: 1024px) {
+            justify-content: space-between;
+            width: 100%;
+            gap: 0;
+        }
+
+        @media screen and (max-width: 600px) {
+            justify-content: space-between;
+            margin-top: 16px;
+            gap: 18px;
+            width: 100%;
+        }
+
+        .slider-btns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            svg {
+                cursor: pointer;
+                transition: 0.4s;
+
+                &:hover {
+                    fill: #1ca591;
+
+                    path {
+                        stroke: white !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .slider-container {
+        margin-top: 67px;
+        margin-bottom: 180px;
+
+        @media screen and (max-width: 600px) {
+            margin-top: 32px;
+        }
+        .slide {
+            height: 500px;
+            border-radius: 6px;
+            position: relative;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 600;
+
+                &:hover {
+                    .label-container {
+                        background-color: #1c222c;
+                    }
+                }
+            }
+        }
+
+        .slick-slide {
+            padding: 0 2rem;
+            box-sizing: border-box;
+
+            @media screen and (max-width: 1368px) {
+                padding: 0 1rem;
+            }
+        }
+
+        .slick-list {
+            margin: 0 -2rem;
+
+            @media screen and (max-width: 1368px) {
+                margin: 0 -1rem;
+            }
+        }
+
+        .industria-textil {
+            background-image: url("/public/mercados-slider/industria-textil.webp");
+            background-size: cover;
+        }
+
+        .calcados {
+            background-image: url("/public/mercados-slider/calcados.webp");
+            background-size: cover;
+        }
+
+        .equipamentos-de-protecao {
+            background-image: url("/public/mercados-slider/equipamentos-de-protecao.webp");
+            background-size: cover;
+        }
+
+        .containers {
+            background-image: url("/public/mercados-slider/containers.webp");
+            background-size: cover;
+        }
+
+        .banheiros-quimicos {
+            background-image: url("/public/mercados-slider/banheiro-quimico.webp");
+            background-size: cover;
+        }
+
+        .label-container {
+            position: absolute;
+            display: flex;
+            transition: 0.4s;
+            align-items: center;
+            padding-inline: 17px;
+            justify-content: space-between;
+            bottom: 38px;
+            right: 0;
+            width: 308px;
+            height: 75px;
+            background-color: #2a3547;
+            border-left: 5px solid #00d6b6;
+
+            @media screen and (max-width: 1368px) {
+                width: 90%;
+            }
+        }
+    }
+}

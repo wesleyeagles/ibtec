@@ -1,0 +1,94 @@
+.timeline-slider {
+	position: relative;
+	overflow: visible;
+	margin-top: 130px;
+	margin-bottom: 200px;
+
+	@media screen and (max-width: 600px) {
+		margin-top: 60px;
+        margin-bottom: 100px;
+	}
+	h3 {
+		color: #fff;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 130%; /* 46.8px */
+
+		@media screen and (max-width: 600px) {
+			text-align: center;
+		}
+	}
+}
+
+.timeline-slider .slick-list {
+	padding: 0;
+	margin: 0 -30px; /* Adicione margens negativas para espaçamento entre os slides */
+
+	@media screen and (max-width: 600px) {
+		margin: 0 0;
+	}
+}
+
+.timeline-slider .slick-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	outline: none;
+	padding: 0 30px; /* Adicione espaçamento entre os slides */
+	cursor: grab;
+
+	@media screen and (max-width: 600px) {
+		padding: 0 0;
+	}
+}
+
+.timeline-line {
+	position: absolute;
+	width: 150%;
+	height: 2px; /* Defina a altura da linha */
+	background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	bottom: calc(75% - 1px); /* Ajuste a posição vertical da linha */
+	z-index: -1; /* Coloque a linha atrás dos slides */
+}
+
+.timeline-bullet {
+	position: relative;
+	left: 22px;
+	top: 8px;
+	border-radius: 50%;
+	z-index: 1; /* Certifique-se de que as bolinhas apareçam acima dos slides */
+	animation: point-fadein 1s infinite alternate-reverse;
+
+	@media screen and (max-width: 600px) {
+		display: flex;
+		justify-content: center;
+		left: 0;
+	}
+
+	@keyframes point-fadein {
+		from {
+			opacity: 0.3;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+.timeline-date {
+	text-align: start;
+	margin-bottom: 20px;
+}
+
+.event-description {
+	margin-top: 60px;
+
+	inline-size: 260px;
+	color: #bbb;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 150%; /* 24px */
+}

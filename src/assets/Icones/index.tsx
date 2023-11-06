@@ -842,3 +842,544 @@ export const EaglesLogoIcon: FC<IIconProps> = (props) => {
 		</svg>
 	);
 };
+
+export const MouseHandIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<path
+				d="M7 14.1991V3.9992C7 3.52182 7.18964 3.06398 7.5272 2.72642C7.86477 2.38886 8.3226 2.19922 8.79998 2.19922C9.27737 2.19922 9.7352 2.38886 10.0728 2.72642C10.4103 3.06398 10.6 3.52182 10.6 3.9992V12.9991"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M10.5996 12.3992V9.9992C10.5996 9.52182 10.7892 9.06398 11.1268 8.72642C11.4644 8.38886 11.9222 8.19922 12.3996 8.19922C12.877 8.19922 13.3348 8.38886 13.6724 8.72642C14.0099 9.06398 14.1996 9.52182 14.1996 9.9992V12.9992"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M14.1992 11.2004C14.1992 10.723 14.3889 10.2652 14.7264 9.92759C15.064 9.59003 15.5218 9.40039 15.9992 9.40039C16.4766 9.40039 16.9344 9.59003 17.272 9.92759C17.6095 10.2652 17.7992 10.723 17.7992 11.2004V13.0004"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M17.7993 12.3996C17.7993 11.9222 17.9889 11.4644 18.3265 11.1268C18.6641 10.7892 19.1219 10.5996 19.5993 10.5996C20.0767 10.5996 20.5345 10.7892 20.8721 11.1268C21.2096 11.4644 21.3993 11.9222 21.3993 12.3996V17.7995C21.3993 19.7091 20.6407 21.5404 19.2905 22.8907C17.9402 24.2409 16.1089 24.9995 14.1993 24.9995H11.7993H12.0489C10.8566 24.9997 9.68279 24.7037 8.63304 24.1382C7.58328 23.5727 6.69041 22.7553 6.0346 21.7595L5.7994 21.3995C5.42501 20.8247 4.11102 18.5339 1.85624 14.526C1.62638 14.1174 1.56498 13.6353 1.6851 13.1822C1.80521 12.729 2.09737 12.3406 2.49943 12.0996C2.92768 11.8426 3.42951 11.7361 3.92521 11.797C4.42091 11.8579 4.88206 12.0826 5.23541 12.4356L6.99939 14.1996"
+				stroke="#00D6B6"
+				strokeWidth="1.8"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M3.39921 2.19999L2.19922 1" stroke="#00D6B6" strokeOpacity="0.5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M2.19999 7H1" stroke="#00D6B6" strokeOpacity="0.5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M14.1992 2.19999L15.3992 1" stroke="#00D6B6" strokeOpacity="0.5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M15.4004 5.80078H16.6004" stroke="#00D6B6" strokeOpacity="0.5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const CheckIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" {...newProps}>
+			<path
+				d="M1 11C1 12.3132 1.25866 13.6136 1.7612 14.8268C2.26375 16.0401 3.00035 17.1425 3.92893 18.0711C4.85752 18.9997 5.95991 19.7363 7.17317 20.2388C8.38642 20.7413 9.68678 21 11 21C12.3132 21 13.6136 20.7413 14.8268 20.2388C16.0401 19.7363 17.1425 18.9997 18.0711 18.0711C18.9997 17.1425 19.7363 16.0401 20.2388 14.8268C20.7413 13.6136 21 12.3132 21 11C21 9.68678 20.7413 8.38642 20.2388 7.17317C19.7363 5.95991 18.9997 4.85752 18.0711 3.92893C17.1425 3.00035 16.0401 2.26375 14.8268 1.7612C13.6136 1.25866 12.3132 1 11 1C9.68678 1 8.38642 1.25866 7.17317 1.7612C5.95991 2.26375 4.85752 3.00035 3.92893 3.92893C3.00035 4.85752 2.26375 5.95991 1.7612 7.17317C1.25866 8.38642 1 9.68678 1 11Z"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M7.66602 10.9996L9.88824 13.2218L14.3327 8.77734" stroke="#00D6B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const VideoModalBtn: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="79" height="79" viewBox="0 0 79 79" fill="none" {...newProps}>
+			<g filter="url(#filter0_b_776_4)">
+				<circle cx="39.5" cy="39.5" r="39.5" fill="#D9D9D9" fillOpacity="0.1" />
+				<circle cx="39.5" cy="39.5" r="37.5" stroke="url(#paint0_linear_776_4)" strokeWidth="4" />
+			</g>
+			<path
+				d="M35.6178 30.2711C34.9617 29.7556 34 30.223 34 31.0575V48.9425C34 49.777 34.9617 50.2444 35.6178 49.7289L46.9992 40.7863C47.5088 40.3859 47.5088 39.6141 46.9992 39.2137L35.6178 30.2711Z"
+				fill="white"
+				stroke="white"
+				strokeWidth="1.2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<defs>
+				<filter id="filter0_b_776_4" x="-4" y="-4" width="87" height="87" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+					<feFlood floodOpacity="0" result="BackgroundImageFix" />
+					<feGaussianBlur in="BackgroundImageFix" stdDeviation="2" />
+					<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_776_4" />
+					<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_776_4" result="shape" />
+				</filter>
+				<linearGradient id="paint0_linear_776_4" x1="39.5" y1="0" x2="39.5" y2="79" gradientUnits="userSpaceOnUse">
+					<stop stopColor="white" />
+					<stop offset="1" stopColor="white" stopOpacity="0" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};
+
+export const Pontilhado: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="222" height="40" viewBox="0 0 222 40" fill="none" {...newProps}>
+			<path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M0.903027 1.29063V0.890625L0.103027 0.890625L0.103027 1.29063L0.103028 4.40854C0.103028 4.62946 0.282114 4.80854 0.503028 4.80854C0.723942 4.80854 0.903028 4.62946 0.903028 4.40854L0.903027 1.29063ZM0.903029 10.6444C0.903029 10.4235 0.723943 10.2444 0.503029 10.2444C0.282115 10.2444 0.103029 10.4235 0.103029 10.6444L0.10303 16.8802C0.10303 17.1011 0.282116 17.2802 0.50303 17.2802C0.723944 17.2802 0.90303 17.1011 0.90303 16.8802L0.903029 10.6444ZM0.903031 23.1161C0.903031 22.8951 0.723945 22.7161 0.503031 22.7161C0.282117 22.7161 0.103031 22.8951 0.103031 23.1161L0.103032 29.3519C0.103032 29.5728 0.282118 29.7519 0.503032 29.7519C0.723946 29.7519 0.903032 29.5728 0.903032 29.3519L0.903031 23.1161ZM0.903033 35.5877C0.903033 35.3668 0.723947 35.1877 0.503033 35.1877C0.282119 35.1877 0.103033 35.3668 0.103033 35.5877L0.103034 38.6729C0.10206 38.6843 0.101562 38.6959 0.101562 38.7075C0.101562 38.7191 0.10206 38.7307 0.103034 38.742L0.103034 39.1056H0.462921C0.475637 39.1069 0.488527 39.1075 0.501562 39.1075H3.55865C3.77957 39.1075 3.95865 38.9284 3.95865 38.7075C3.95865 38.4866 3.77957 38.3075 3.55865 38.3075H0.903034L0.903033 35.5877ZM9.67283 38.3075C9.45192 38.3075 9.27283 38.4866 9.27283 38.7075C9.27283 38.9284 9.45192 39.1075 9.67283 39.1075H15.787C16.0079 39.1075 16.187 38.9284 16.187 38.7075C16.187 38.4866 16.0079 38.3075 15.787 38.3075H9.67283ZM21.9012 38.3075C21.6803 38.3075 21.5012 38.4866 21.5012 38.7075C21.5012 38.9284 21.6803 39.1075 21.9012 39.1075H28.0154C28.2363 39.1075 28.4154 38.9284 28.4154 38.7075C28.4154 38.4866 28.2363 38.3075 28.0154 38.3075H21.9012ZM34.1295 38.3075C33.9086 38.3075 33.7295 38.4866 33.7295 38.7075C33.7295 38.9284 33.9086 39.1075 34.1295 39.1075H40.2437C40.4646 39.1075 40.6437 38.9284 40.6437 38.7075C40.6437 38.4866 40.4646 38.3075 40.2437 38.3075H34.1295ZM46.3579 38.3075C46.137 38.3075 45.9579 38.4866 45.9579 38.7075C45.9579 38.9284 46.137 39.1075 46.3579 39.1075H52.4721C52.693 39.1075 52.8721 38.9284 52.8721 38.7075C52.8721 38.4866 52.693 38.3075 52.4721 38.3075H46.3579ZM58.5863 38.3075C58.3653 38.3075 58.1863 38.4866 58.1863 38.7075C58.1863 38.9284 58.3653 39.1075 58.5863 39.1075H64.7004C64.9213 39.1075 65.1004 38.9284 65.1004 38.7075C65.1004 38.4866 64.9213 38.3075 64.7004 38.3075H58.5863ZM70.8146 38.3075C70.5937 38.3075 70.4146 38.4866 70.4146 38.7075C70.4146 38.9284 70.5937 39.1075 70.8146 39.1075H76.9288C77.1497 39.1075 77.3288 38.9284 77.3288 38.7075C77.3288 38.4866 77.1497 38.3075 76.9288 38.3075H70.8146ZM83.043 38.3075C82.8221 38.3075 82.643 38.4866 82.643 38.7075C82.643 38.9284 82.8221 39.1075 83.043 39.1075H89.1572C89.3781 39.1075 89.5572 38.9284 89.5572 38.7075C89.5572 38.4866 89.3781 38.3075 89.1572 38.3075H83.043ZM95.2713 38.3075C95.0504 38.3075 94.8713 38.4866 94.8713 38.7075C94.8713 38.9284 95.0504 39.1075 95.2713 39.1075H101.386C101.606 39.1075 101.786 38.9284 101.786 38.7075C101.786 38.4866 101.606 38.3075 101.386 38.3075H95.2713ZM107.5 38.3075C107.279 38.3075 107.1 38.4866 107.1 38.7075C107.1 38.9284 107.279 39.1075 107.5 39.1075H113.614C113.835 39.1075 114.014 38.9284 114.014 38.7075C114.014 38.4866 113.835 38.3075 113.614 38.3075H107.5ZM119.728 38.3075C119.507 38.3075 119.328 38.4866 119.328 38.7075C119.328 38.9284 119.507 39.1075 119.728 39.1075H125.842C126.063 39.1075 126.242 38.9284 126.242 38.7075C126.242 38.4866 126.063 38.3075 125.842 38.3075H119.728ZM131.956 38.3075C131.736 38.3075 131.556 38.4866 131.556 38.7075C131.556 38.9284 131.736 39.1075 131.956 39.1075H138.071C138.292 39.1075 138.471 38.9284 138.471 38.7075C138.471 38.4866 138.292 38.3075 138.071 38.3075H131.956ZM144.185 38.3075C143.964 38.3075 143.785 38.4866 143.785 38.7075C143.785 38.9284 143.964 39.1075 144.185 39.1075H150.299C150.52 39.1075 150.699 38.9284 150.699 38.7075C150.699 38.4866 150.52 38.3075 150.299 38.3075H144.185ZM156.413 38.3075C156.192 38.3075 156.013 38.4866 156.013 38.7075C156.013 38.9284 156.192 39.1075 156.413 39.1075H162.527C162.748 39.1075 162.927 38.9284 162.927 38.7075C162.927 38.4866 162.748 38.3075 162.527 38.3075H156.413ZM168.642 38.3075C168.421 38.3075 168.242 38.4866 168.242 38.7075C168.242 38.9284 168.421 39.1075 168.642 39.1075H174.756C174.977 39.1075 175.156 38.9284 175.156 38.7075C175.156 38.4866 174.977 38.3075 174.756 38.3075H168.642ZM180.87 38.3075C180.649 38.3075 180.47 38.4866 180.47 38.7075C180.47 38.9284 180.649 39.1075 180.87 39.1075H186.984C187.205 39.1075 187.384 38.9284 187.384 38.7075C187.384 38.4866 187.205 38.3075 186.984 38.3075H180.87ZM193.098 38.3075C192.877 38.3075 192.698 38.4866 192.698 38.7075C192.698 38.9284 192.877 39.1075 193.098 39.1075H199.212C199.433 39.1075 199.612 38.9284 199.612 38.7075C199.612 38.4866 199.433 38.3075 199.212 38.3075H193.098ZM205.327 38.3075C205.106 38.3075 204.927 38.4866 204.927 38.7075C204.927 38.9284 205.106 39.1075 205.327 39.1075H211.441C211.662 39.1075 211.841 38.9284 211.841 38.7075C211.841 38.4866 211.662 38.3075 211.441 38.3075H205.327ZM217.555 38.3075C217.334 38.3075 217.155 38.4866 217.155 38.7075C217.155 38.9284 217.334 39.1075 217.555 39.1075H220.612C220.833 39.1075 221.012 38.9284 221.012 38.7075C221.012 38.4866 220.833 38.3075 220.612 38.3075H217.555Z"
+				fill="white"
+				fillOpacity="0.6"
+			/>
+		</svg>
+	);
+};
+
+export const PontilhadoMobile: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg width="2" height="45" viewBox="0 0 2 60" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
+			<path d="M1 1L1.00001 38.415" stroke="white" strokeOpacity="0.8" strokeWidth="0.8" strokeLinecap="square" strokeDasharray="8 8" />
+		</svg>
+	);
+};
+
+export const MissaoIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="35" height="34" viewBox="0 0 35 34" fill="none" {...newProps}>
+			<path
+				d="M15.2285 17.0024C15.2285 17.4739 15.4158 17.9261 15.7492 18.2595C16.0826 18.5929 16.5348 18.7802 17.0063 18.7802C17.4778 18.7802 17.93 18.5929 18.2634 18.2595C18.5968 17.9261 18.7841 17.4739 18.7841 17.0024C18.7841 16.5309 18.5968 16.0787 18.2634 15.7453C17.93 15.4119 17.4778 15.2246 17.0063 15.2246C16.5348 15.2246 16.0826 15.4119 15.7492 15.7453C15.4158 16.0787 15.2285 16.5309 15.2285 17.0024Z"
+				stroke="url(#paint0_linear_170_1696)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M17.008 8.11328C15.25 8.11328 13.5314 8.6346 12.0696 9.61133C10.6079 10.588 9.46855 11.9763 8.79577 13.6005C8.12299 15.2248 7.94696 17.012 8.28994 18.7363C8.63292 20.4606 9.4795 22.0444 10.7226 23.2875C11.9658 24.5307 13.5496 25.3772 15.2739 25.7202C16.9982 26.0632 18.7854 25.8872 20.4096 25.2144C22.0339 24.5416 23.4221 23.4023 24.3988 21.9405C25.3756 20.4788 25.8969 18.7602 25.8969 17.0022"
+				stroke="url(#paint1_linear_170_1696)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M18.7838 1.09976C15.4879 0.730007 12.1586 1.39359 9.25634 2.99873C6.3541 4.60387 4.02238 7.07122 2.58372 10.0595C1.14506 13.0478 0.670575 16.4093 1.22589 19.679C1.78121 22.9487 3.33888 25.9651 5.68345 28.3108C8.02801 30.6566 11.0436 32.2158 14.313 32.7727C17.5825 33.3297 20.9442 32.8569 23.9332 31.4197C26.9222 29.9826 29.3907 27.6521 30.9973 24.7507C32.6039 21.8492 33.2692 18.5202 32.9011 15.2242"
+				stroke="url(#paint2_linear_170_1696)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M22.3398 6.33527V11.6686H27.6732L33.0065 6.33527H27.6732V1.00195L22.3398 6.33527Z"
+				stroke="url(#paint3_linear_170_1696)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M22.3411 11.668L17.0078 17.0013" stroke="url(#paint4_linear_170_1696)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<defs>
+				<linearGradient id="paint0_linear_170_1696" x1="17.0063" y1="15.2246" x2="17.0063" y2="18.7802" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint1_linear_170_1696" x1="17.008" y1="8.11328" x2="17.008" y2="25.891" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint2_linear_170_1696" x1="17" y1="1" x2="17" y2="33" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint3_linear_170_1696" x1="27.6732" y1="1.00195" x2="27.6732" y2="11.6686" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint4_linear_170_1696" x1="19.6745" y1="11.668" x2="19.6745" y2="17.0013" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};
+
+export const VisaoIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="37" height="31" viewBox="0 0 37 31" fill="none" {...newProps}>
+			<path
+				d="M14.377 12.4667C14.377 13.4805 14.7796 14.4526 15.4965 15.1695C16.2133 15.8863 17.1855 16.289 18.1992 16.289C19.2129 16.289 20.1851 15.8863 20.9019 15.1695C21.6187 14.4526 22.0214 13.4805 22.0214 12.4667C22.0214 11.453 21.6187 10.4808 20.9019 9.76403C20.1851 9.04723 19.2129 8.64453 18.1992 8.64453C17.1855 8.64453 16.2133 9.04723 15.4965 9.76403C14.7796 10.4808 14.377 11.453 14.377 12.4667Z"
+				stroke="url(#paint0_linear_170_1679)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M16.5621 23.8587C10.4065 23.295 5.21781 19.4995 1 12.4666C5.58665 4.82221 11.32 1 18.2 1C25.0799 1 30.8132 4.82221 35.3999 12.4666C34.9756 13.1737 34.5418 13.8465 34.1003 14.4867"
+				stroke="url(#paint1_linear_170_1679)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M23.9336 25.8437L27.7558 29.6659L35.4002 22.0215" stroke="url(#paint2_linear_170_1679)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<defs>
+				<linearGradient id="paint0_linear_170_1679" x1="18.1992" y1="8.64453" x2="18.1992" y2="16.289" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint1_linear_170_1679" x1="18.2" y1="1" x2="18.2" y2="23.8587" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint2_linear_170_1679" x1="29.6669" y1="22.0215" x2="29.6669" y2="29.6659" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};
+
+export const ValoresIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="38" height="31" viewBox="0 0 38 31" fill="none" {...newProps}>
+			<path
+				d="M6.86374 1H30.3187L36.1824 10.7729L19.5685 29.3414C19.4411 29.4714 19.2891 29.5747 19.1213 29.6452C18.9534 29.7158 18.7732 29.7521 18.5912 29.7521C18.4092 29.7521 18.229 29.7158 18.0612 29.6452C17.8934 29.5747 17.7413 29.4714 17.6139 29.3414L1 10.7729L6.86374 1Z"
+				stroke="url(#paint0_linear_170_1701)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M14.6826 14.6824L10.7734 10.3823L11.9462 8.42773" stroke="url(#paint1_linear_170_1701)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<defs>
+				<linearGradient id="paint0_linear_170_1701" x1="18.5912" y1="1" x2="18.5912" y2="29.7521" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint1_linear_170_1701" x1="12.728" y1="8.42773" x2="12.728" y2="14.6824" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};
+
+export const RoundedRightArrow: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" {...newProps}>
+			<circle cx="24" cy="24" r="23" transform="rotate(-90 24 24)" stroke="white" strokeOpacity="0.3" strokeWidth="2" />
+			<path d="M31.2383 23.6191H16.7621" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M27.1022 19.4831L31.2383 23.6191" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M27.1022 27.7559L31.2383 23.6198" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const CheckLupaIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none" {...newProps}>
+			<path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M17.9446 0.5C15.6537 0.5 13.3853 0.951216 11.2688 1.82789C9.15235 2.70456 7.22927 3.98952 5.60939 5.60939C3.98952 7.22927 2.70456 9.15235 1.82789 11.2688C0.951217 13.3853 0.5 15.6537 0.5 17.9446C0.5 20.2354 0.951217 22.5038 1.82789 24.6203C2.70456 26.7368 3.98952 28.6599 5.60939 30.2797C7.22927 31.8996 9.15235 33.1846 11.2688 34.0612C13.3853 34.9379 15.6537 35.3891 17.9446 35.3891C20.2354 35.3891 22.5038 34.9379 24.6203 34.0612C26.2733 33.3766 27.8083 32.4428 29.173 31.295L41.9391 44.0612C42.5249 44.647 43.4746 44.647 44.0604 44.0612C44.6462 43.4754 44.6462 42.5256 44.0604 41.9398L31.2944 29.1738C32.4425 27.8089 33.3764 26.2736 34.0612 24.6203C34.9379 22.5038 35.3891 20.2354 35.3891 17.9446C35.3891 15.6537 34.9379 13.3853 34.0612 11.2688C33.1846 9.15235 31.8996 7.22927 30.2797 5.60939C28.6599 3.98952 26.7368 2.70456 24.6203 1.82789C22.5038 0.951216 20.2354 0.5 17.9446 0.5ZM12.4169 4.59953C14.1694 3.87362 16.0477 3.5 17.9446 3.5C19.8414 3.5 21.7198 3.87362 23.4723 4.59953C25.2248 5.32543 26.8171 6.38941 28.1584 7.73071C29.4997 9.07202 30.5637 10.6644 31.2896 12.4169C32.0155 14.1694 32.3891 16.0477 32.3891 17.9446C32.3891 19.8414 32.0155 21.7198 31.2896 23.4723C30.5637 25.2248 29.4997 26.8171 28.1584 28.1584C26.8171 29.4997 25.2248 30.5637 23.4723 31.2896C21.7198 32.0155 19.8414 32.3891 17.9446 32.3891C16.0477 32.3891 14.1694 32.0155 12.4169 31.2896C10.6644 30.5637 9.07202 29.4997 7.73071 28.1584C6.38941 26.8171 5.32543 25.2248 4.59953 23.4723C3.87362 21.7198 3.5 19.8414 3.5 17.9446C3.5 16.0477 3.87362 14.1694 4.59953 12.4169C5.32543 10.6644 6.38941 9.07202 7.73071 7.73071C9.07202 6.38941 10.6644 5.32543 12.4169 4.59953Z"
+				fill="#00D6B6"
+				fillOpacity="0.5"
+			/>
+			<path d="M11.1113 17.9443L15.6669 22.4999L24.7781 13.3887" stroke="#00D6B6" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const ConselhoDeliberativoIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" {...newProps}>
+			<circle cx="24" cy="24" r="23" transform="rotate(-90 24 24)" stroke="#00D6B6" strokeOpacity="0.5" strokeWidth="2" />
+			<path
+				d="M15.4443 17.8889C15.4443 19.1855 15.9594 20.429 16.8763 21.3459C17.7931 22.2627 19.0366 22.7778 20.3332 22.7778C21.6298 22.7778 22.8733 22.2627 23.7902 21.3459C24.707 20.429 25.2221 19.1855 25.2221 17.8889C25.2221 16.5923 24.707 15.3488 23.7902 14.4319C22.8733 13.5151 21.6298 13 20.3332 13C19.0366 13 17.7931 13.5151 16.8763 14.4319C15.9594 15.3488 15.4443 16.5923 15.4443 17.8889Z"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M13 34.9993V32.5549C13 31.2583 13.5151 30.0148 14.4319 29.0979C15.3488 28.1811 16.5923 27.666 17.8889 27.666H22.7778C24.0744 27.666 25.3179 28.1811 26.2347 29.0979C27.1516 30.0148 27.6667 31.2583 27.6667 32.5549V34.9993"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M28.8887 13.1582C29.9403 13.4275 30.8724 14.0391 31.538 14.8966C32.2036 15.7541 32.5649 16.8088 32.5649 17.8943C32.5649 18.9799 32.2036 20.0345 31.538 20.892C30.8724 21.7496 29.9403 22.3612 28.8887 22.6304"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M34.9997 34.9996V32.5552C34.9935 31.4761 34.6305 30.4295 33.9672 29.5783C33.304 28.7272 32.3778 28.1194 31.333 27.8496"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};
+
+export const ConselhoFiscalIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" {...newProps}>
+			<circle cx="24" cy="24" r="23" transform="rotate(-90 24 24)" stroke="#00D6B6" strokeOpacity="0.5" strokeWidth="2" />
+			<path
+				d="M27 12V17.3333C27 17.687 27.1405 18.0261 27.3905 18.2761C27.6406 18.5262 27.9797 18.6667 28.3333 18.6667H33.6667"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M31 36H17.6667C16.9594 36 16.2811 35.719 15.781 35.219C15.281 34.7189 15 34.0406 15 33.3333V14.6667C15 13.9594 15.281 13.2811 15.781 12.781C16.2811 12.281 16.9594 12 17.6667 12H27L33.6667 18.6667V33.3333C33.6667 34.0406 33.3857 34.7189 32.8856 35.219C32.3855 35.719 31.7072 36 31 36Z"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M20.333 17.334H21.6663" stroke="#00D6B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M20.333 25.334H28.333" stroke="#00D6B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M25.667 30.666H28.3337" stroke="#00D6B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+};
+
+export const DiretoriaExecutivaIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" {...newProps}>
+			<circle cx="24" cy="24" r="23" transform="rotate(-90 24 24)" stroke="#00D6B6" strokeOpacity="0.5" strokeWidth="2" />
+			<path
+				d="M15.6836 16.368C15.6836 17.7917 16.2491 19.157 17.2558 20.1637C18.2625 21.1704 19.6279 21.736 21.0516 21.736C22.4753 21.736 23.8406 21.1704 24.8473 20.1637C25.854 19.157 26.4196 17.7917 26.4196 16.368C26.4196 14.9443 25.854 13.5789 24.8473 12.5722C23.8406 11.5656 22.4753 11 21.0516 11C19.6279 11 18.2625 11.5656 17.2558 12.5722C16.2491 13.5789 15.6836 14.9443 15.6836 16.368Z"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M13 35.1555V32.4715C13 31.0478 13.5656 29.6825 14.5722 28.6758C15.5789 27.6691 16.9443 27.1035 18.368 27.1035H19.039"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M28.8355 34.9107L25.9207 36.4379C25.8342 36.4829 25.7368 36.503 25.6396 36.496C25.5423 36.4889 25.449 36.4549 25.3699 36.3978C25.2908 36.3408 25.2292 36.2628 25.1918 36.1727C25.1545 36.0827 25.1429 35.984 25.1584 35.8877L25.7153 32.6522L23.3574 30.3614C23.2871 30.2933 23.2372 30.2069 23.2136 30.1119C23.19 30.0169 23.1936 29.9172 23.224 29.8241C23.2544 29.731 23.3103 29.6484 23.3854 29.5856C23.4605 29.5228 23.5517 29.4824 23.6487 29.4689L26.907 28.9966L28.3644 26.0536C28.408 25.9659 28.4752 25.8921 28.5584 25.8406C28.6416 25.789 28.7376 25.7617 28.8355 25.7617C28.9334 25.7617 29.0293 25.789 29.1125 25.8406C29.1957 25.8921 29.2629 25.9659 29.3065 26.0536L30.7639 28.9966L34.0223 29.4689C34.119 29.4828 34.2098 29.5235 34.2846 29.5864C34.3593 29.6492 34.415 29.7318 34.4453 29.8246C34.4756 29.9175 34.4793 30.017 34.456 30.1118C34.4327 30.2067 34.3834 30.2931 34.3135 30.3614L31.9556 32.6522L32.5112 35.8864C32.5279 35.9828 32.5172 36.082 32.4803 36.1727C32.4434 36.2633 32.3819 36.3418 32.3026 36.3993C32.2234 36.4567 32.1296 36.4908 32.032 36.4976C31.9344 36.5045 31.8368 36.4838 31.7503 36.4379L28.8355 34.9107Z"
+				stroke="#00D6B6"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};
+
+export const BeneficiosFinanceirosIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none" {...newProps}>
+			<path
+				d="M15.2285 17.0024C15.2285 17.4739 15.4158 17.9261 15.7492 18.2595C16.0826 18.5929 16.5348 18.7802 17.0063 18.7802C17.4778 18.7802 17.93 18.5929 18.2634 18.2595C18.5968 17.9261 18.7841 17.4739 18.7841 17.0024C18.7841 16.5309 18.5968 16.0787 18.2634 15.7453C17.93 15.4119 17.4778 15.2246 17.0063 15.2246C16.5348 15.2246 16.0826 15.4119 15.7492 15.7453C15.4158 16.0787 15.2285 16.5309 15.2285 17.0024Z"
+				stroke="url(#paint0_linear_225_981)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M17.008 8.11328C15.25 8.11328 13.5314 8.6346 12.0696 9.61133C10.6079 10.588 9.46855 11.9763 8.79577 13.6005C8.12299 15.2248 7.94696 17.012 8.28994 18.7363C8.63292 20.4606 9.4795 22.0444 10.7226 23.2875C11.9658 24.5307 13.5496 25.3772 15.2739 25.7202C16.9982 26.0632 18.7854 25.8872 20.4096 25.2144C22.0339 24.5416 23.4221 23.4023 24.3988 21.9405C25.3756 20.4788 25.8969 18.7602 25.8969 17.0022"
+				stroke="url(#paint1_linear_225_981)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M18.7838 1.09976C15.4879 0.730007 12.1586 1.39359 9.25634 2.99873C6.3541 4.60387 4.02238 7.07122 2.58372 10.0595C1.14506 13.0478 0.670575 16.4093 1.22589 19.679C1.78121 22.9487 3.33888 25.9651 5.68345 28.3108C8.02801 30.6566 11.0436 32.2158 14.313 32.7727C17.5825 33.3297 20.9442 32.8569 23.9332 31.4197C26.9222 29.9826 29.3907 27.6521 30.9973 24.7507C32.6039 21.8492 33.2692 18.5202 32.9011 15.2242"
+				stroke="url(#paint2_linear_225_981)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M22.3398 6.33527V11.6686H27.6732L33.0065 6.33527H27.6732V1.00195L22.3398 6.33527Z"
+				stroke="url(#paint3_linear_225_981)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M22.3411 11.668L17.0078 17.0013" stroke="url(#paint4_linear_225_981)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<defs>
+				<linearGradient id="paint0_linear_225_981" x1="17.0063" y1="15.2246" x2="17.0063" y2="18.7802" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint1_linear_225_981" x1="17.008" y1="8.11328" x2="17.008" y2="25.891" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint2_linear_225_981" x1="17" y1="1" x2="17" y2="33" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint3_linear_225_981" x1="27.6732" y1="1.00195" x2="27.6732" y2="11.6686" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint4_linear_225_981" x1="19.6745" y1="11.668" x2="19.6745" y2="17.0013" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};
+
+export const ApoioDesenvolvimentoIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="37" height="31" viewBox="0 0 37 31" fill="none" {...newProps}>
+			<path
+				d="M14.377 12.4667C14.377 13.4805 14.7796 14.4526 15.4965 15.1695C16.2133 15.8863 17.1855 16.289 18.1992 16.289C19.2129 16.289 20.1851 15.8863 20.9019 15.1695C21.6187 14.4526 22.0214 13.4805 22.0214 12.4667C22.0214 11.453 21.6187 10.4808 20.9019 9.76403C20.1851 9.04723 19.2129 8.64453 18.1992 8.64453C17.1855 8.64453 16.2133 9.04723 15.4965 9.76403C14.7796 10.4808 14.377 11.453 14.377 12.4667Z"
+				stroke="url(#paint0_linear_225_977)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M16.5621 23.8587C10.4065 23.295 5.21781 19.4995 1 12.4666C5.58665 4.82221 11.32 1 18.2 1C25.0799 1 30.8132 4.82221 35.3999 12.4666C34.9756 13.1737 34.5418 13.8465 34.1003 14.4867"
+				stroke="url(#paint1_linear_225_977)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M23.9336 25.8437L27.7558 29.6659L35.4002 22.0215" stroke="url(#paint2_linear_225_977)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<defs>
+				<linearGradient id="paint0_linear_225_977" x1="18.1992" y1="8.64453" x2="18.1992" y2="16.289" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint1_linear_225_977" x1="18.2" y1="1" x2="18.2" y2="23.8587" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint2_linear_225_977" x1="29.6669" y1="22.0215" x2="29.6669" y2="29.6659" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};
+
+export const EmpresaEmDestaqueIcon: FC<IIconProps> = (props) => {
+	const { size = "1em", ...newProps } = props;
+
+	newProps.height = newProps.height || size;
+	newProps.width = newProps.width || size;
+
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="38" height="31" viewBox="0 0 38 31" fill="none" {...newProps}>
+			<path
+				d="M6.86374 1H30.3187L36.1824 10.7729L19.5685 29.3414C19.4411 29.4714 19.2891 29.5747 19.1213 29.6452C18.9534 29.7158 18.7732 29.7521 18.5912 29.7521C18.4092 29.7521 18.229 29.7158 18.0612 29.6452C17.8934 29.5747 17.7413 29.4714 17.6139 29.3414L1 10.7729L6.86374 1Z"
+				stroke="url(#paint0_linear_225_987)"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path d="M14.6826 14.6824L10.7734 10.3823L11.9462 8.42773" stroke="url(#paint1_linear_225_987)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<defs>
+				<linearGradient id="paint0_linear_225_987" x1="18.5912" y1="1" x2="18.5912" y2="29.7521" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+				<linearGradient id="paint1_linear_225_987" x1="12.728" y1="8.42773" x2="12.728" y2="14.6824" gradientUnits="userSpaceOnUse">
+					<stop stopColor="#00D6B6" />
+					<stop offset="1" stopColor="#2C9FD7" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
+};

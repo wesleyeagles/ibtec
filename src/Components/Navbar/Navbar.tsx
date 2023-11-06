@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CloseIcon, ExpansibleIcon, MenuIcon, NavigationLogo, UserIcon } from "../../assets/Icones";
 import GridContainer from "../GridContainer/GridContainer";
 import "./Navbar.scss";
@@ -17,6 +17,20 @@ const Navbar = () => {
 	const [open3, setOpen3] = useState(false);
 
 	const matches600px = useMediaQuery("(max-width: 600px)");
+
+	const navigate = useNavigate();
+
+	const moveToTragetoria = () => {
+		navigate("/sobre"); // Redireciona para a página2
+		setTimeout(scrollToTragetoria, 100); // Espera um pouco antes de rolar
+	};
+
+	const scrollToTragetoria = () => {
+		const sessaoEspecifica = document.getElementById("tragetoria");
+		if (sessaoEspecifica) {
+			sessaoEspecifica.scrollIntoView({ behavior: "smooth" }); // Rola para a sessão específica
+		}
+	};
 
 	return (
 		<>
@@ -75,20 +89,26 @@ const Navbar = () => {
 							<Collapse in={open}>
 								<div id="collapse-text-institucional">
 									<div className="links-expansibles">
-										<span className="link-expansible">
-											<Link to="/quem-somos">Quem somos</Link>
+										<span onClick={handleClose} className="link-expansible">
+											<Link to="/sobre">Quem somos</Link>
 										</span>
-										<span className="link-expansible">
-											<Link to="/trajetoria">Trajetória</Link>
+										<span
+											onClick={() => {
+												handleClose();
+												moveToTragetoria();
+											}}
+											className="link-expansible"
+										>
+											<Link to="/sobre">Trajetória</Link>
 										</span>
-										<span className="link-expansible">
-											<Link to="/conselho-administracao">Conselho de administração</Link>
+										<span onClick={handleClose} className="link-expansible">
+											<Link to="/conselho-de-administracao">Conselho de administração</Link>
 										</span>
-										<span className="link-expansible">
+										<span onClick={handleClose} className="link-expansible">
 											<Link to="/responsabilidade-social">Responsabilidade social</Link>
 										</span>
-										<span className="link-expansible">
-											<Link to="/abnt">ABNT / CB-11</Link>
+										<span onClick={handleClose} className="link-expansible">
+											<Link to="/abnt-cb11">ABNT / CB-11</Link>
 										</span>
 									</div>
 								</div>
@@ -109,19 +129,19 @@ const Navbar = () => {
 								<div id="collapse-text-navegue">
 									<div className="links-expansibles">
 										<span className="link-expansible">
-											<Link to="/quem-somos">Link</Link>
+											<Link to="/quem-somos">Setores atendidos</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/trajetoria">Link</Link>
+											<Link to="/trajetoria">Soluções</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/conselho-administracao">Link</Link>
+											<Link to="/conselho-administracao">Consultoria</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/responsabilidade-social">Link</Link>
+											<Link to="/responsabilidade-social">Inovação</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/abnt">Link</Link>
+											<Link to="/abnt">Associados</Link>
 										</span>
 									</div>
 								</div>
@@ -142,19 +162,10 @@ const Navbar = () => {
 								<div id="collapse-text-conteudo">
 									<div className="links-expansibles">
 										<span className="link-expansible">
-											<Link to="/quem-somos">Link</Link>
+											<Link to="/quem-somos">Blog</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/trajetoria">Link</Link>
-										</span>
-										<span className="link-expansible">
-											<Link to="/conselho-administracao">Link</Link>
-										</span>
-										<span className="link-expansible">
-											<Link to="/responsabilidade-social">Link</Link>
-										</span>
-										<span className="link-expansible">
-											<Link to="/abnt">Link</Link>
+											<Link to="/trajetoria">Eventos</Link>
 										</span>
 									</div>
 								</div>

@@ -1,0 +1,155 @@
+.abnt {
+	.banner-section {
+		padding-top: 320px;
+
+		@media screen and (max-width: 600px) {
+			padding-top: 200px;
+		}
+
+		h1 {
+			color: #fff;
+			font-size: 64px;
+			font-style: normal;
+			text-align: center;
+			font-weight: 700;
+			line-height: 150%; /* 24px */
+
+			@media screen and (max-width: 1024px) {
+				margin-top: 40px;
+				font-size: 48px;
+				line-height: 130%; /* 24px */
+				inline-size: 100%;
+			}
+
+			@media screen and (max-width: 600px) {
+				font-size: 32px;
+				margin-top: 20px;
+				inline-size: 100%;
+			}
+		}
+
+		p {
+			font-style: normal;
+			margin-top: 30px;
+			margin-bottom: 100px;
+			text-align: center;
+			color: #bbb;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 150%; /* 24px */
+
+			@media screen and (max-width: 1024px) {
+				inline-size: 100%;
+			}
+
+			@media screen and (max-width: 600px) {
+				font-size: 14px;
+				margin-top: 15px;
+				margin-bottom: 50px;
+				inline-size: 100%;
+			}
+		}
+	}
+
+	.image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		position: relative;
+		padding-bottom: 480px;
+
+		@media screen and (max-width: 1024px) {
+			padding-bottom: 180px;
+		}
+
+		img {
+			position: absolute;
+			width: 100%;
+		}
+	}
+
+	h2 {
+		color: #fff;
+
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 130%; /* 52px */
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+
+		@media screen and (max-width: 600px) {
+			font-size: 28px;
+		}
+	}
+
+	p {
+		color: #bbb;
+
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 150%; /* 24px */
+
+		@media screen and (max-width: 600px) {
+			font-size: 14px;
+		}
+	}
+
+	.commision {
+		display: flex;
+		gap: 36px;
+		margin-bottom: 30px;
+
+		@media screen and (max-width: 600px) {
+			gap: 18px;
+		}
+
+		span {
+			display: block;
+			color: #bbb;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 150%; /* 24px */
+			width: 100%;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			padding-bottom: 40px;
+
+			@media screen and (max-width: 600px) {
+				font-size: 13px;
+				padding-bottom: 20px;
+			}
+		}
+	}
+
+	.commision + .last-child {
+		span {
+			border-bottom: none;
+		}
+	}
+
+	.obs {
+		border-radius: 10px;
+		background: #171f2b;
+		padding-block: 50px;
+		padding-inline: 120px;
+		margin: auto 0;
+		margin-top: 160px;
+		margin-bottom: 200px;
+
+		@media screen and (max-width: 600px) {
+			padding-inline: 20px;	
+		}
+
+		a {
+			color: #BBB;
+			word-break: break-all;
+		}
+
+		p {
+			text-align: center;
+		}
+	}
+}

@@ -7,12 +7,15 @@ import { ToastContainer } from "react-toastify";
 import { ApolloServer } from "./Lib/Apollo";
 
 import "./main.scss";
+import { UserProvider } from "./Global/Contexts/UserContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
-		<ApolloProvider client={ApolloServer}>
-			<ToastContainer />
-			<RouterProvider router={router} />
-		</ApolloProvider>
+		<UserProvider>
+			<ApolloProvider client={ApolloServer}>
+				<ToastContainer />
+				<RouterProvider router={router} />
+			</ApolloProvider>
+		</UserProvider>
 	</React.StrictMode>
 );

@@ -20,12 +20,7 @@ const InvalidMessage: FC<IInvalidMessageProps> = ({ message, className, type = "
 		);
 	}
 
-	return (
-		<p className={`invalid-input-message ${className}`}>
-			<FiAlertCircle />
-			{message}
-		</p>
-	);
+	return <p className={`invalid-input-message ${className}`}>{message}</p>;
 };
 
 export default InvalidMessage;

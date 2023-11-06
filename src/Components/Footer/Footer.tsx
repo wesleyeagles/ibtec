@@ -34,7 +34,7 @@ const Footer = () => {
 			<GridContainer>
 				<div className="footer-grid">
 					<div className="logo">
-						<img src="footer-logo.png" />
+						<img src="/footer-logo.png" />
 						<strong className="d-block text-white">Siga nossas redes sociais</strong>
 						<div className="d-flex align-items-end gap-3">
 							<a href="https://www.facebook.com/ibtecbrasil/" rel="noreferrer" target="_blank">

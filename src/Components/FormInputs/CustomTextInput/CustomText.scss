@@ -2,6 +2,16 @@
     margin-top: 12px;
 }
 
+.input-group {
+  position: relative;
+  transition: 0.3s;
+}
+
+.input-group-focused {
+  position: relative;
+  transition: 0.3s;
+}
+
 .my-input {
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -16,10 +26,90 @@
   }
 
   .invalid-input {
-    border: 1px solid rgb(242, 132, 132);
+    border: 1px solid rgb(206, 102, 102);
+    box-shadow: 0 0 3px red;
     color: red;
+
+    &:focus-visible {
+      outline: #00d6b6;
+      box-shadow: 0 0 3px red;
+    }
 
     &::placeholder {
       color: red;
+    }
+  }
+
+  .invalid-feedback {
+    display: block;
+  }
+
+  .my-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  .placeholder-label {
+    position: absolute;
+    pointer-events: none;
+    text-transform: uppercase;
+    left: 12px;
+    top: 12px;
+    transition: 0.2s ease all;
+    opacity: 1;
+    color: #29777b;
+    font-weight: 600;
+  }
+
+  .placeholder-label-password {
+    position: absolute;
+    pointer-events: none;
+    text-transform: uppercase;
+    left: 12px;
+    top: 18px;
+    transition: 0.2s ease all;
+    opacity: 1;
+    color: #29777b;
+    font-weight: 600;
+  }
+
+  .label-focus {
+    top: -19px;
+    left: 2px;
+    font-size: 14px;
+    opacity: 1;
+    padding: 0 0px;
+    color: rgba(0, 214, 252, 1);
+  }
+
+  .label-focus-password {
+    top: -16px;
+    left: 2px;
+    font-size: 14px;
+    opacity: 1;
+    padding: 0 0px;
+    color: rgba(0, 214, 252, 1);
+  }
+
+  .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control, .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select, .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+  .btn-toggle-password {
+    position: absolute;
+    right: -180px!important;
+    cursor: pointer;
+    top: 7px;
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+
+      &:hover {
+        background: none;
+      }
     }
   }

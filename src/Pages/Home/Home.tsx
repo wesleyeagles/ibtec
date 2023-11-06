@@ -28,6 +28,29 @@ const Home = () => {
 	const isMedia600px = useMediaQuery("(max-width: 600px)");
 	const isMedia1024px = useMediaQuery("(max-width: 1024px)");
 
+	const scrollToTop = () => {
+		const scrollToTopEasing = (t: number) => t * (2 - t);
+		const startPosition = document.documentElement.scrollTop || document.body.scrollTop;
+		const startTime = performance.now();
+
+		const scrollToTopAnimation = (currentTime: number) => {
+			const elapsedTime = currentTime - startTime;
+			const progress = elapsedTime / 2500; // Animation duration (ms)
+			const easingProgress = scrollToTopEasing(progress);
+
+			if (progress < 1) {
+				document.body.scrollTop = startPosition * (1 - easingProgress);
+				document.documentElement.scrollTop = startPosition * (1 - easingProgress);
+				requestAnimationFrame(scrollToTopAnimation);
+			} else {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		};
+
+		requestAnimationFrame(scrollToTopAnimation);
+	};
+
 	const [isShowVideo, setShowVideo] = useState(false);
 
 	const handleShow = () => setShowVideo(true);
@@ -53,7 +76,7 @@ const Home = () => {
 	};
 
 	return (
-		<>
+		<div className="home">
 			<BannerContainer bgImage="/home-banner.webp">
 				<GridContainer>
 					<div className="banner-section">
@@ -93,7 +116,7 @@ const Home = () => {
 								adequação para exportação.
 							</p>
 							<div>
-								<Link to="">
+								<Link onClick={scrollToTop} to="/sobre">
 									<button>QUERO SABER MAIS</button>
 								</Link>
 							</div>
@@ -505,7 +528,7 @@ const Home = () => {
 				<img className="circles" src="/circles.webp" />
 			</div>
 			<VideoModal videoSrc="../videoinstitucional.mp4" handleShow={handleShow} show={isShowVideo} setShow={setShowVideo} />
-		</>
+		</div>
 	);
 };
 

@@ -1,0 +1,132 @@
+.noticias {
+	padding-top: 280px;
+
+	h2 {
+		color: #fff;
+		font-size: 56px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 130%; /* 72.8px */
+	}
+
+	.wrapping {
+		@media screen and (max-width: 900px) {
+			flex-direction: column;
+		}
+	}
+
+	/* SearchInput.css */
+
+	.search-container {
+		position: relative;
+		display: inline-block;
+	}
+
+	.search-input {
+		border-radius: 5px;
+		background: #171f2b;
+		height: 30px;
+		border: none;
+		color: #aaa;
+		padding-block: 25px;
+		padding-inline: 16px;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 150%; /* 24px */
+		width: 384px;
+		padding-right: 30px; /* Espaçamento à direita para acomodar o ícone de pesquisa */
+		outline: none;
+
+		@media screen and (max-width: 900px) {
+			width: 100%;
+		}
+	}
+
+	.search-icon {
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		transform: translateY(-50%);
+		color: #888;
+		cursor: pointer;
+	}
+
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+
+		@media screen and (max-width: 900px) {
+			justify-content: start;
+			flex-direction: column-reverse;
+		}
+
+		h3 {
+			color: #fff;
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 150%; /* 27px */
+			margin-bottom: 30px;
+		}
+
+		.destaques {
+			width: 384px;
+			position: sticky;
+			height: max-content;
+			top: 0;
+
+			@media screen and (max-width: 900px) {
+				width: 100%;
+				position: static;
+
+				.destaques-div {
+					display: flex;
+					gap: 32px;
+
+					@media screen and (max-width: 600px) {
+						flex-direction: column;
+					}
+				}
+			}
+		}
+
+		.noticia {
+			width: 800px;
+
+			@media screen and (max-width: 168px) {
+				width: 620px;
+			}
+
+			@media screen and (max-width: 1024px) {
+				width: 540px;
+			}
+
+			@media screen and (max-width: 900px) {
+				width: 100%;
+			}
+		}
+	}
+
+	.btn-carregar {
+		margin-block: 160px;
+		display: flex;
+		justify-content: center;
+
+		button {
+			text-transform: uppercase;
+			border-radius: 4px;
+			background: #00d6b6;
+			color: #0a1521;
+			text-align: center;
+			font-size: 14px;
+            padding: 16px;
+            padding-inline: 26px;
+            border: none;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 24px; /* 171.429% */
+		}
+	}
+}

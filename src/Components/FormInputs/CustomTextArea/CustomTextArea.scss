@@ -1,0 +1,25 @@
+.form-group {
+    margin-top: 12px;
+}
+
+.my-input {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 36px;
+
+    &:focus-visible {
+        border: 1px solid #00d6b6;
+        outline: #00d6b6;
+        box-shadow: 0 0 0 1px #00d6b6;
+        }
+  }
+
+  .invalid-input {
+    border: 1px solid rgb(242, 132, 132);
+    color: red;
+
+    &::placeholder {
+      color: red;
+    }
+  }

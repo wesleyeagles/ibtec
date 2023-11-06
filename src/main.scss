@@ -46,6 +46,10 @@ body {
     margin-top: 0;
 }
 
+video::-webkit-media-controls-play-button {
+	display: none;
+}
+
 .form-check-input:focus {
     border-color: green;
     outline: 0;

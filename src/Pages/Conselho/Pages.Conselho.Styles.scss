@@ -1,0 +1,219 @@
+.conselho {
+	.banner-section {
+		padding-top: 260px;
+
+		@media screen and (max-width: 600px) {
+			padding-top: 220px;
+		}
+
+		h1 {
+			color: #fff;
+			font-size: 64px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 130%; /* 62.4px */
+
+			@media screen and (max-width: 600px) {
+				font-size: 36px;
+				inline-size: 100%;
+			}
+		}
+
+		p {
+			color: #bbb;
+			font-size: 18px;
+			margin-top: 2rem;
+			inline-size: 440px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 150%; /* 27px */ /* 30px */
+			font-weight: 400;
+
+			@media screen and (max-width: 600px) {
+				font-size: 16px;
+				margin-top: 15px;
+				margin-bottom: 50px;
+				inline-size: 100%;
+			}
+		}
+
+		a {
+			text-decoration: none;
+			color: #0a1521;
+			text-align: center;
+			font-size: 14px;
+			font-style: normal;
+			line-height: 24px; /* 171.429% */
+		}
+
+		button {
+			border-radius: 4px;
+			background: #00d6b6;
+			border: none;
+			padding-block: 17px;
+			padding-inline: 35px;
+			font-weight: 600;
+			transition: 0.4s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&:hover {
+				background: #00ac92;
+			}
+
+			@media screen and (max-width: 600px) {
+				font-size: 14px;
+				padding-block: 12px;
+			}
+		}
+
+		.icon {
+			margin-top: 160px;
+
+			@media screen and (max-width: 600px) {
+				margin-top: 50px;
+			}
+		}
+	}
+
+	.slides {
+		padding-bottom: 240px;
+		.wrapper {
+			display: flex;
+			margin-top: 120px;
+			justify-content: space-between;
+			align-items: center;
+
+			h2 {
+				color: #fff;
+				font-size: 40px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 130%; /* 52px */
+
+				@media screen and (max-width: 600px) {
+					font-size: 26px;
+				}
+			}
+		}
+
+		.no-slide-wrapper {
+			display: flex;
+			column-gap: 2rem;
+			row-gap: 100px;
+			flex-wrap: wrap;
+
+			.no-slide {
+				width: 280px;
+
+				@media screen and (max-width: 1368px) {
+					width: 320px;
+				}
+
+				@media screen and (max-width: 1280px) {
+					width: 295px;
+				}
+			}
+		}
+
+		.image {
+			position: relative;
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+
+			.suplente {
+				width: 90px;
+				height: 26px;
+				background-color: #2a3547;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 6px;
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+
+				span {
+					color: #00d6b6;
+					text-align: center;
+					font-size: 13px;
+					font-style: normal;
+					font-weight: 600;
+					line-height: 130%; /* 16.9px */
+				}
+			}
+		}
+
+		.name {
+			display: flex;
+			margin-top: 2rem;
+			margin-bottom: 12px;
+			justify-content: center;
+			span {
+				color: #fff;
+				font-size: 22px;
+				text-align: center;
+				font-style: normal;
+				font-weight: 600;
+				line-height: 130%; /* 28.6px */
+
+				@media screen and (max-width: 1024px) {
+					font-size: 18px;
+				}
+			}
+		}
+
+		.class {
+			p {
+				color: #bbb;
+				text-align: center;
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 150%; /* 24px */
+
+				@media screen and (max-width: 1024px) {
+					font-size: 13px;
+				}
+			}
+		}
+
+		.slide-wrapper .slick-list {
+			padding: 0;
+			margin: 0 -20px; /* Adicione margens negativas para espaçamento entre os slides */
+		
+			@media screen and (max-width: 600px) {
+				margin: 0 0;
+			}
+		}
+
+		.slide-wrapper .slick-slide {
+			padding: 0 20px; /* Adicione espaçamento entre os slides */
+		
+			@media screen and (max-width: 600px) {
+				margin: 0 0;
+			}
+		}
+		
+		.slick-prev, .slick-next {
+			z-index: 1;
+			top: 85px;
+
+			@media screen and (max-width: 420px) {
+				top: 130px;
+			}
+		}
+
+		.slick-next {
+			right: -30px;
+		}
+
+		.slick-prev {
+			left: -30px;
+		}
+	}
+}
