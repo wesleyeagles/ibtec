@@ -424,6 +424,14 @@
 		h2 {
 			margin-bottom: 32px;
 		}
+
+		.pesquisa {
+			input {
+				&::placeholder {
+					font-size: 12px;
+				}
+			}
+		}
 		.lista-imagem {
 			width: 80px;
 			height: 50px;

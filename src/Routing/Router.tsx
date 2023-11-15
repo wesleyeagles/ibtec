@@ -17,6 +17,7 @@ import Dashboard from "../Pages/Painel/Pages/Dashboard";
 import Login from "../Pages/Login/Login";
 import CadastraNoticia from "../Pages/Painel/Pages/CadastraNoticia";
 import ListaNoticia from "../Pages/Painel/Pages/ListaNoticia";
+import EditarNoticia from "../Pages/Painel/Pages/EditarNoticia";
 
 export const router = createBrowserRouter([
 	{
@@ -102,6 +103,11 @@ export const router = createBrowserRouter([
 			{
 				path: "/painel-administrativo/cadastrar-noticia",
 				element: <CadastraNoticia />,
+			},
+
+			{
+				path: "/painel-administrativo/editar-noticia/:id",
+				element: <EditarNoticia />,
 			},
 
 			{

@@ -2,6 +2,7 @@
 	border-radius: 15px;
 	border: 1px solid #4b4b4b;
 	padding-bottom: 60px;
+	overflow: hidden!important;
 
 	.image {
 		position: relative;
@@ -138,5 +139,9 @@
 			font-weight: 600;
 			line-height: 24px; /* 171.429% */
 		}
+	}
+
+	li {
+		color: #FFF;
 	}
 }

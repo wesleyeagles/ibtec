@@ -4,10 +4,13 @@ import { format } from "date-fns";
 import DataTable from "react-data-table-component";
 import ptBR from "date-fns/locale/pt-BR";
 import ListaImagem from "./Components/ListaImagem";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Spinner } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { TbTrashXFilled } from "react-icons/tb";
 import { MdModeEditOutline } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import CustomText from "../../../Components/FormInputs/CustomTextInput/CustomText";
+import usePesquisaNoticiaForm from "../Hooks/usePesquisaNoticiaForm";
 
 interface Post {
 	id: number;
@@ -22,7 +25,11 @@ interface Post {
 const ListaNoticia = () => {
 	const [data, setData] = useState<Post[]>();
 
+	const { methods } = usePesquisaNoticiaForm();
+
 	const [isDeleting, setIsDeleting] = useState(false);
+
+	const navigate = useNavigate();
 
 	const [show, setShow] = useState(false);
 
@@ -100,6 +107,7 @@ const ListaNoticia = () => {
 			name: "Thumb",
 			selector: (row: any) => <ListaImagem src={row.imagem} />,
 			sort: true,
+			center: true,
 			width: "7%",
 			sortable: true,
 		},
@@ -137,8 +145,7 @@ const ListaNoticia = () => {
 						size={"1.5rem"}
 						role="button"
 						onClick={() => {
-							setIdDelete(row.id);
-							handleShow();
+							navigate(`/painel-administrativo/editar-noticia/${row.id}`);
 						}}
 					/>
 					<TbTrashXFilled
@@ -158,16 +165,37 @@ const ListaNoticia = () => {
 		},
 	];
 
+	const filterData = () => {
+		const pesquisaText = methods.watch("pesquisa");
+		if (!pesquisaText) return data;
+		const filteredData = data?.filter((pesquisa) => pesquisa.titulo.toLocaleLowerCase().includes(pesquisaText.toLocaleLowerCase()));
+
+		return pesquisaText ? filteredData : data;
+	};
+
 	return (
 		<>
 			<div className="listagem-noticias">
 				<h2>Listagem de Notícias</h2>
+				<div className="d-flex gap-3 pesquisa">
+					<Link to="/painel-administrativo/cadastrar-noticia">
+						<Button className="mb-3" variant="success">
+							Cadastrar notícia
+						</Button>
+					</Link>
+					<CustomText placeholder="Pesquisa por título" control={methods.control} name="pesquisa" />
+				</div>
 				{data ? (
 					<div>
 						<DataTable
 							responsive
-							data={data}
+							data={filterData()}
 							columns={columns}
+							noDataComponent={
+								<div className="py-5">
+									<h5 className="m-0">Nenhum post encontrado</h5>
+								</div>
+							}
 							striped
 							pagination
 							paginationComponentOptions={{ rowsPerPageText: "Linhas por página" }}
@@ -175,7 +203,12 @@ const ListaNoticia = () => {
 							highlightOnHover
 						/>
 					</div>
-				) : null}
+				) : (
+					<div className="d-flex flex-column align-items-center align-itens-center mt-5 pt-5 w-100 gap-3">
+						<Spinner variant="dark" />
+						Carregando posts, aguarde...
+					</div>
+				)}
 			</div>
 			<Modal show={show} onHide={handleClose} centered backdrop="static" keyboard={!isDeleting}>
 				<fieldset disabled={isDeleting}>

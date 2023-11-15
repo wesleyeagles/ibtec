@@ -3,19 +3,27 @@ import CustomFileInput from "../../../Components/FormInputs/CustomFileInput/Cust
 import CustomRichTextInput from "../../../Components/FormInputs/CustomRichTextInput/CustomRichTextInput";
 import CustomText from "../../../Components/FormInputs/CustomTextInput/CustomText";
 import useNoticiaForm, { NoticiaHandleSubmitForm } from "../Hooks/useNoticiaForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const CadastraNoticia = () => {
+const EditarNoticia = () => {
 	const { methods } = useNoticiaForm();
 	const [previewImage, setPreviewImage] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
+	const [imageResponse, setImageResponse] = useState<string>("");
+	const [imageName, setImageName] = useState<string | null>(null);
 
 	const navigate = useNavigate();
 
+	const { id } = useParams();
+
 	const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
+
+		if (file?.name) {
+			setImageName(file.name);
+		}
 
 		if (file) {
 			const img = new Image();
@@ -45,35 +53,90 @@ const CadastraNoticia = () => {
 		}
 	};
 
+	useEffect(() => {
+		if (!id) return;
+
+		const fetchPost = async (id: number) => {
+			const toastId = toast("Carregando post, por favor aguarde...", {
+				autoClose: false,
+				type: "default",
+				isLoading: true,
+			});
+			try {
+				const response = await axios.get(`http://localhost:3000/api/posts/post/${id}`);
+
+				if (response.data) {
+					methods.setValue("titulo", response.data.titulo);
+					methods.setValue("conteudo", response.data.conteudo);
+
+					const imageBlob = new Blob([response.data.originalImageBuffer], { type: "image/webp" });
+
+					const imageFile = new File([imageBlob], response.data.imagem, { type: imageBlob.type });
+
+					setImageResponse(imageFile.name);
+
+					methods.setValue("imagem", imageFile);
+
+					// Não precisa mais criar um Blob/File para a pré-visualização
+					setPreviewImage(`https://dev.ibtec.org.br/dev/blog/${response.data.imagem}`);
+
+					toast.update(toastId, {
+						render: "Post carregado com sucesso.",
+						type: "success",
+						theme: "colored",
+						isLoading: false,
+						autoClose: 3000,
+					});
+				}
+			} catch (err) {
+				console.log(err);
+
+				toast.update(toastId, {
+					render: "Ocorreu um erro ao carregar post, tente novamente mais tarde",
+					type: "error",
+					theme: "colored",
+					isLoading: false,
+					autoClose: 3000,
+				});
+			}
+		};
+
+		fetchPost(Number(id));
+	}, [id]);
+
 	const [isCreating, isSetCreating] = useState(false);
 
 	const handleSubmit = async (values: NoticiaHandleSubmitForm) => {
 		isSetCreating(true);
-		const toastId = toast("Cadastrando post, por favor aguarde...", {
+		const toastId = toast("Editando post, por favor aguarde...", {
 			autoClose: false,
 			type: "default",
 			isLoading: true,
 		});
 		try {
-			await axios.post(
-				"http://localhost:3000/api/posts/criar-post",
-				{
-					...values,
-				},
-				{
-					headers: {
-						"Content-Type": "multipart/form-data", // Certifique-se de definir o cabeçalho apropriado para upload de arquivo
-					},
+			const formData = new FormData();
+			if (imageName) {
+				if (imageName != imageResponse) {
+					formData.append("imagem", values.imagem);
 				}
-			);
+			}
+
+			formData.append("titulo", values.titulo);
+			formData.append("conteudo", values.conteudo);
+
+			const response = await axios.put(`http://localhost:3000/api/posts/post/editar/${id}`, formData, {
+				headers: {
+					"Content-Type": "multipart/form-data",
+				},
+			});
 
 			isSetCreating(false);
 			toast.update(toastId, {
 				isLoading: false,
 				autoClose: 3000,
 				theme: "colored",
-				type: "success",
-				render: "Post cadastrado com sucesso!",
+				type: imageName != imageResponse ? "success" : "info",
+				render: imageName === imageResponse ? response.data.message : "Post editado com sucesso",
 			});
 			navigate("/painel-administrativo/lista-noticias");
 		} catch (err: any) {
@@ -109,7 +172,7 @@ const CadastraNoticia = () => {
 									<CustomRichTextInput control={methods.control} name="conteudo" label="Conteúdo" />
 								</div>
 								<div className="btn-enviar">
-									<button disabled={!methods.watch("conteudo")}>Enviar</button>
+									<button disabled={!methods.watch("conteudo")}>Editar</button>
 								</div>
 							</fieldset>
 						</form>
@@ -138,4 +201,4 @@ const CadastraNoticia = () => {
 	);
 };
 
-export default CadastraNoticia;
+export default EditarNoticia;
