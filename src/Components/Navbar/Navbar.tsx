@@ -1,10 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CloseIcon, ExpansibleIcon, MenuIcon, NavigationLogo, UserIcon } from "../../assets/Icones";
 import GridContainer from "../GridContainer/GridContainer";
 import "./Navbar.scss";
 import { useState } from "react";
 import { Collapse, Offcanvas } from "react-bootstrap";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
+import { moveTo } from "../../Utils/Utils";
 
 const Navbar = () => {
 	const [show, setShow] = useState(false);
@@ -18,32 +19,18 @@ const Navbar = () => {
 
 	const matches600px = useMediaQuery("(max-width: 600px)");
 
-	const navigate = useNavigate();
-
-	const moveToTragetoria = () => {
-		navigate("/sobre"); // Redireciona para a página2
-		setTimeout(scrollToTragetoria, 100); // Espera um pouco antes de rolar
-	};
-
-	const scrollToTragetoria = () => {
-		const sessaoEspecifica = document.getElementById("tragetoria");
-		if (sessaoEspecifica) {
-			sessaoEspecifica.scrollIntoView({ behavior: "smooth" }); // Rola para a sessão específica
-		}
-	};
-
 	return (
 		<>
 			<GridContainer>
 				<div className="navigation-container">
 					<NavigationLogo size={`${matches600px ? "150px" : "204px"}`} height="96px" />
 					<div className="btns-container">
-						<Link to="/">
+						<a href="https://ibtec.org.br/areacliente">
 							<button className="btn-area">
 								<UserIcon size={"1.2em"} />
 								<span>Área do cliente</span>
 							</button>
-						</Link>
+						</a>
 						<MenuIcon
 							onClick={handleShow}
 							style={{
@@ -57,12 +44,12 @@ const Navbar = () => {
 			<Offcanvas placement="end" show={show} onHide={handleClose}>
 				<Offcanvas.Body>
 					<div className="menu-btn d-flex">
-						<Link to="/">
+						<a href="https://ibtec.org.br/areacliente">
 							<button className="btn-area">
 								<UserIcon size={"1.2em"} />
 								<span>Área do cliente</span>
 							</button>
-						</Link>
+						</a>
 						<CloseIcon
 							style={{
 								cursor: "pointer",
@@ -73,7 +60,9 @@ const Navbar = () => {
 					</div>
 					<div className="offcanvas-navigation">
 						<div className="link">
-							<Link to="/inicio">Início</Link>
+							<Link onClick={handleClose} to="/inicio">
+								Início
+							</Link>
 						</div>
 						<div className="link">
 							<div className="expansible" role="button" onClick={() => setOpen(!open)} aria-controls="collapse-text" aria-expanded={open}>
@@ -95,7 +84,7 @@ const Navbar = () => {
 										<span
 											onClick={() => {
 												handleClose();
-												moveToTragetoria();
+												moveTo("tragetoria");
 											}}
 											className="link-expansible"
 										>
@@ -129,19 +118,47 @@ const Navbar = () => {
 								<div id="collapse-text-navegue">
 									<div className="links-expansibles">
 										<span className="link-expansible">
-											<Link to="/quem-somos">Setores atendidos</Link>
+											<Link
+												to="/inicio"
+												onClick={() => {
+													handleClose();
+													moveTo("setores");
+												}}
+											>
+												Setores atendidos
+											</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/trajetoria">Soluções</Link>
+											<Link
+												to="/inicio"
+												onClick={() => {
+													handleClose();
+													moveTo("solucoes");
+												}}
+											>
+												Soluções
+											</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/conselho-administracao">Consultoria</Link>
+											<Link
+												to="/inicio"
+												onClick={() => {
+													handleClose();
+													moveTo("consultoria");
+												}}
+											>
+												Consultoria
+											</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/responsabilidade-social">Inovação</Link>
+											<Link onClick={() => handleClose()} to="/nucleo-de-inovacao">
+												Inovação
+											</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/abnt">Associados</Link>
+											<Link onClick={() => handleClose()} to="/associados">
+												Associados
+											</Link>
 										</span>
 									</div>
 								</div>
@@ -162,10 +179,14 @@ const Navbar = () => {
 								<div id="collapse-text-conteudo">
 									<div className="links-expansibles">
 										<span className="link-expansible">
-											<Link to="/quem-somos">Blog</Link>
+											<Link onClick={() => handleClose()} to="/noticias">
+												Blog
+											</Link>
 										</span>
 										<span className="link-expansible">
-											<Link to="/trajetoria">Eventos</Link>
+											<Link onClick={() => handleClose()} to="/eventos">
+												Eventos
+											</Link>
 										</span>
 									</div>
 								</div>

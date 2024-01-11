@@ -15,6 +15,29 @@ const TabsComponent: React.FC = () => {
 		setBorderPosition(newPosition);
 	};
 
+	const scrollToTop = () => {
+		const scrollToTopEasing = (t: number) => t * (2 - t);
+		const startPosition = document.documentElement.scrollTop || document.body.scrollTop;
+		const startTime = performance.now();
+
+		const scrollToTopAnimation = (currentTime: number) => {
+			const elapsedTime = currentTime - startTime;
+			const progress = elapsedTime / 2500; // Animation duration (ms)
+			const easingProgress = scrollToTopEasing(progress);
+
+			if (progress < 1) {
+				document.body.scrollTop = startPosition * (1 - easingProgress);
+				document.documentElement.scrollTop = startPosition * (1 - easingProgress);
+				requestAnimationFrame(scrollToTopAnimation);
+			} else {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		};
+
+		requestAnimationFrame(scrollToTopAnimation);
+	};
+
 	const isMedia1024px = useMediaQuery("(max-width: 1024px)");
 
 	return (
@@ -37,7 +60,7 @@ const TabsComponent: React.FC = () => {
 				</button>
 				<button className={`substancia tab-button ${activeTab === 2 ? "active" : ""}`} onClick={() => handleTabChange(2)}>
 					<SubstanciasIcon size={"1.5rem"} />
-					<span>Substâncias restritivas</span>
+					<span>Substâncias restritas e não restritivas</span>
 				</button>
 				<button className={`microbiologica tab-button ${activeTab === 3 ? "active" : ""}`} onClick={() => handleTabChange(3)}>
 					<MicrobiologiaIcon size={"1.5rem"} />
@@ -62,7 +85,7 @@ const TabsComponent: React.FC = () => {
 								Os ensaios físico-mecânicos têm como finalidade atender as necessidades de empresas que buscam desenvolver materiais e produtos, comprovando a qualidade para o
 								atendimento das necessidades dos consumidores e também frente à concorrência, possibilitando também a participação em editais públicos.
 							</p>
-							<Link to="">
+							<Link onClick={scrollToTop} to="/laboratorio-fisico-mecanico">
 								<button>QUERO SABER MAIS</button>
 							</Link>
 						</div>
@@ -72,7 +95,7 @@ const TabsComponent: React.FC = () => {
 				<div className={`tab-content-inner ${activeTab === 2 ? "active" : ""}`}>
 					<div className="wrapper">
 						<div className="content">
-							<h3>Substâncias restritas</h3>
+							<h3>Substâncias restritas e não restritivas</h3>
 							<p>
 								Oferecemos toda a infraestrutura para a realização de ensaios e apoio às empresas que buscam atender as exigências nacionais e internacionais com relação a presença de
 								substâncias restritivas em seus produtos.
@@ -82,7 +105,7 @@ const TabsComponent: React.FC = () => {
 								Além disso, disponibiliza serviços laboratoriais de controle da qualidade para identificação de substâncias químicas em seus produtos em diversos segmentos como
 								calçados, bolsas, couro, sintéticos, componentes e artefatos, têxteis, polímeros, joias, entre outros.
 							</p>
-							<Link to="">
+							<Link onClick={scrollToTop} to="/laboratorio-de-substancias-restritas">
 								<button>QUERO SABER MAIS</button>
 							</Link>
 						</div>
@@ -94,7 +117,7 @@ const TabsComponent: React.FC = () => {
 						<div className="content">
 							<h3>Microbiologia</h3>
 							<p>Desde 2007, o Laboratório de Microbiologia realiza uma grande variedade de testes com bactérias, fungos e vírus para aumentar a qualidade dos produtos.</p>
-							<Link to="">
+							<Link onClick={scrollToTop} to="/solucoes-microbiologicas">
 								<button>QUERO SABER MAIS</button>
 							</Link>
 						</div>
@@ -111,7 +134,7 @@ const TabsComponent: React.FC = () => {
 							</p>
 							<br />
 							<p>Buscamos qualificar os produtos, conforme a sua funcionalidade e para qual objetivo ele será fabricado. Para isso, existem normas de Conforto em Calçados.</p>
-							<Link to="">
+							<Link onClick={scrollToTop} to="/laboratorio-de-biomecanica">
 								<button>QUERO SABER MAIS</button>
 							</Link>
 						</div>

@@ -5,14 +5,16 @@ const Navbar = () => {
 
 	return (
 		<div className="navbar-painel">
-			<div className="content">
-				<div className="foto">
-					<img src="/poze.jpg" alt="foto" />
+			{user ? (
+				<div className="content">
+					<div className="foto">
+						<img src={`https://dev.ibtec.org.br/dev/blog/${user.user.image}`} alt="foto" />
+					</div>
+					<div className="nome">
+						<h2>{user?.user.name}</h2>
+					</div>
 				</div>
-				<div className="nome">
-					<h2>{user?.name}</h2>
-				</div>
-			</div>
+			) : null}
 		</div>
 	);
 };

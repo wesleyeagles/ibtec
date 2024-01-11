@@ -2,7 +2,6 @@ export const principaisServicosPrestados = [
 	{
 		titulo: "Principais serviços prestados",
 		servicos: [
-			"Desenvolvimento de formas para calçados.",
 			"Análise de tratamento com biocidas preservantes nos materiais como couro, tecido, plásticos, laminados, dublados, etc;",
 			"Análise de problemas com micro-organismos, como chulé, mofo, descolorização, etc;",
 			"Imagens microscópicas para identificação de materiais, camadas, tratamentos, etc.",
@@ -20,7 +19,8 @@ export const principaisServicosPrestados = [
 		],
 	},
 	{
-		titulo: "Plásticos, polímeros, sintéticos, termoplásticos, termofixos, etc",
+		titulo: "Polímeros, sintéticos, termoplásticos, termofixos, etc",
+		subtitulo: "Calçados e artefatos",
 		servicos: [
 			"Análise da biodegradabilidade de materiais;",
 			"Análise de tratamento de todos os tipos de materiais com biocidas;",

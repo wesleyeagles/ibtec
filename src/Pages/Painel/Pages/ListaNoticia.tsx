@@ -40,7 +40,7 @@ const ListaNoticia = () => {
 
 	const fetchData = async () => {
 		try {
-			const response = await axios.get("http://localhost:3000/api/posts/ultimos-posts");
+			const response = await axios.get("https://backend-production-9a06.up.railway.app/api/posts/ultimos-posts");
 
 			if (!response.data) return;
 
@@ -64,7 +64,7 @@ const ListaNoticia = () => {
 		});
 		try {
 			// Faça a solicitação de exclusão para o servidor
-			await axios.delete(`http://localhost:3000/api/posts/deletar/${postId}`);
+			await axios.delete(`https://backend-production-9a06.up.railway.app/api/posts/deletar/${postId}`);
 
 			// Atualize os dados após a exclusão
 			// Você pode recarregar os dados da API ou remover a linha da tabela

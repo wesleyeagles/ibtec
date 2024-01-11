@@ -1,4 +1,4 @@
-.substanciasrestritas {
+.microbiologicas {
 	.banner-container {
 		@media screen and (max-width: 600px) {
 			height: auto !important;
@@ -85,7 +85,7 @@
 			}
 		}
 		.atuacao {
-			h3 {
+			h3, h4 {
 				color: #fff;
                 margin-top: 60px;
                 margin-bottom: 80px;
@@ -98,6 +98,10 @@
                 @media screen and (max-width: 600px) {
                     font-size: 20px;
                 }
+			}
+
+			h4 {
+				font-size: 20px;
 			}
 			.atuacao-single {
 				display: flex;

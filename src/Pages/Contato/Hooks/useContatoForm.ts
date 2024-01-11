@@ -24,6 +24,13 @@ const contatoSchema = z.object({
 		.min(1000000000, {
 			message: "Formato de telefone inválido. Deve ser (99) 99999-9999.",
 		}),
+	Empresa: z
+		.string({
+			required_error: "Empresa é um campo obrigatório",
+		})
+		.nonempty({
+			message: "Empresa é um campo obrigatório",
+		}),
 	Assunto: z
 		.string({
 			required_error: "Assunto é um campo obrigatório",

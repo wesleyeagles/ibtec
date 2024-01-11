@@ -61,6 +61,12 @@ const CustomSelect = <TFields extends FieldValues>({ name, control, label, Group
 									ref={ref}
 									onChange={propOnChange}
 									options={options}
+									styles={{
+										placeholder: (base) => ({
+											...base,
+											fontSize: "13px",
+										}),
+									}}
 									placeholder={placeholder}
 									name={name}
 									formatGroupLabel={formatGroupLabel} // Definir o formato do rótulo do grupo

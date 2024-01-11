@@ -272,5 +272,7 @@
 
 .tab-content-inner.active {
 	opacity: 1;
+	z-index: 99999;
+	position: relative;
 	max-height: 1000px; /* Defina um valor maior do que o conteúdo máximo */
 }

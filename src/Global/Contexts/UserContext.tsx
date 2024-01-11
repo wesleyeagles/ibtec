@@ -1,11 +1,13 @@
 import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
 
 export type User = {
+	user: any;
 	email: string;
 	id: number;
 	name: string;
 	password: string;
 	role: string;
+	image: string;
 };
 
 type UserContextType = {

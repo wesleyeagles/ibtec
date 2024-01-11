@@ -53,7 +53,7 @@ const SubstanciasRestritas = () => {
 			<div className="ensaios">
 				<GridContainer>
 					<div className="wrapper">
-						<div>
+						<div className="wrapping">
 							<div>
 								<img src="substancias-restritas-2.webp" alt="substancia-2" />
 							</div>

@@ -33,7 +33,7 @@ const SolucoesMicrobiologicas = () => {
 	};
 
 	return (
-		<div className="biomecanica">
+		<div className="microbiologicas">
 			<BannerContainer bgImage="/banner-microbiologicas.webp">
 				<GridContainer>
 					<div className="banner-section">
@@ -56,6 +56,7 @@ const SolucoesMicrobiologicas = () => {
 					{principaisServicosPrestados.map((servico) => (
 						<div className="atuacao" key={servico.titulo}>
 							<h3>{servico.titulo}</h3>
+							{servico.subtitulo ? <h4>{servico.subtitulo}</h4> : null}
 							{servico.servicos.map((servicoSingle, index) => (
 								<div className="atuacao-single" key={index}>
 									<div className="icon">

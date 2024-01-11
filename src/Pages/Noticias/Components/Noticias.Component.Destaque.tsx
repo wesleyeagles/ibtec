@@ -1,13 +1,19 @@
+import { FC } from "react";
 import "./Noticias.Components.Destaque.Style.scss";
 
-const Destaque = () => {
+interface IDestaque {
+	image: string;
+	content: string;
+}
+
+const Destaque: FC<IDestaque> = ({ ...props }) => {
 	return (
 		<div className="destaque-wrapper">
 			<div className="image">
-				<img src="/destaque-1.png" alt="" />
+				<img src={`https://dev.ibtec.org.br/dev/blog/${props.image}`} alt="" />
 			</div>
 			<div className="text">
-				<p>Reportagem veiculada na revista tecnicouro vence a 23° edição do prêmio Primus Inter Pares Assintecal</p>
+				<p>{props.content}</p>
 			</div>
 		</div>
 	);

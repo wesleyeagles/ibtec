@@ -2,13 +2,13 @@ import { Button } from "react-bootstrap";
 import CustomTextArea from "../../Components/FormInputs/CustomTextArea/CustomTextArea";
 import CustomText from "../../Components/FormInputs/CustomTextInput/CustomText";
 import GridContainer from "../../Components/GridContainer/GridContainer";
-import { CheckIcon, CloseIcon, MailFooterIcon, PhoneFooterIcon, PinFooterIcon } from "../../assets/Icones";
+import { CheckIcon, MailFooterIcon, PhoneFooterIcon, PinFooterIcon } from "../../assets/Icones";
 import useContatoForm, { ContatoHandleSubmitForm } from "./Hooks/useContatoForm";
 import axios from "axios";
 import "./Pages.Contato.Style.scss";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import CustomNumberInput from "../../Components/FormInputs/CustomNumberInput/CustomNumber";
+import { MdError } from "react-icons/md";
 import CustomPatternInput from "../../Components/FormInputs/CustomPatternInput/CustomPatternInput";
 
 const Contato = () => {
@@ -16,7 +16,7 @@ const Contato = () => {
 
 	const [isLoadingForm, setIsLoadingForm] = useState(false);
 
-	const onSubmit = (values: ContatoHandleSubmitForm, e: any) => {
+	const onSubmit = async (values: ContatoHandleSubmitForm, e: any) => {
 		e.preventDefault();
 		setIsLoadingForm(true);
 
@@ -25,41 +25,38 @@ const Contato = () => {
 			isLoading: true,
 		});
 
-		axios
-			.post("https://ibtec-backend.onrender.com/enviar-formulario", {
-				...values,
-			})
-			.then((res) => {
-				toast.update(toastId, {
-					autoClose: 2500,
-					theme: "colored",
-					type: "success",
-					icon: <CheckIcon size={"1.5rem"} color="#FFF" fill="#FFF" />,
-					render: res.data,
-				});
-
-				setIsLoadingForm(false);
-
-				setTimeout(() => {
-					toast.dismiss(toastId);
-				}, 2500);
-			})
-			.catch((err) => {
-				toast.update(toastId, {
-					autoClose: 2500,
-					theme: "colored",
-					type: "error",
-					icon: <CloseIcon size={"1.5rem"} color="#FFF" fill="#FFF" />,
-					render: err,
-				});
-
-				setIsLoadingForm(false);
-
-				setTimeout(() => {
-					toast.dismiss(toastId);
-				}, 2500);
-				console.log(err);
+		try {
+			await axios.post("https://ibtec-backend.onrender.com/api/contact/enviar-formulario", {
+				nome: values.Nome,
+				assunto: values.Assunto,
+				empresa: values.Empresa,
+				mensagem: values.Mensagem,
+				email: values.Email,
+				telefone: values.Telefone,
 			});
+
+			toast.update(toastId, {
+				autoClose: 2500,
+				theme: "colored",
+				isLoading: false,
+				type: "success",
+				icon: <CheckIcon size={"1.5rem"} color="#FFF" fill="#FFF" />,
+				render: "Contato enviado com sucesso",
+			});
+
+			setIsLoadingForm(false);
+		} catch (err: any) {
+			toast.update(toastId, {
+				autoClose: 3500,
+				theme: "colored",
+				isLoading: false,
+				type: "error",
+				icon: <MdError size={"1.5rem"} color="#FFF" fill="#FFF" />,
+				render: err.response.data.error,
+			});
+
+			setIsLoadingForm(false);
+		}
 	};
 
 	return (
@@ -113,6 +110,9 @@ const Contato = () => {
 									</div>
 									<div className="telefone">
 										<CustomPatternInput format="(##) ####-####" control={methods.control} name="Telefone" placeholder="Telefone" />
+									</div>
+									<div className="empresa">
+										<CustomText control={methods.control} name="Empresa" placeholder="Empresa" />
 									</div>
 									<div className="assunto">
 										<CustomText control={methods.control} name="Assunto" placeholder="Assunto" />

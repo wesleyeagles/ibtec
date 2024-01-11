@@ -6,6 +6,9 @@ import useNoticiaForm, { NoticiaHandleSubmitForm } from "../Hooks/useNoticiaForm
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
+import { useUserContext } from "../../../Global/Contexts/UserContext";
+import CustomCheckbox from "../../../Components/FormInputs/CustomCheckbox/CustomCheckbox";
+import CustomSelect from "../../../Components/FormInputs/CustomSelectInput/CustomSelect";
 
 const EditarNoticia = () => {
 	const { methods } = useNoticiaForm();
@@ -17,6 +20,20 @@ const EditarNoticia = () => {
 	const navigate = useNavigate();
 
 	const { id } = useParams();
+
+	const { user } = useUserContext();
+
+	useEffect(() => {
+		const role = user?.user.role;
+
+		if (role === "usuario") {
+			navigate("/painel-administrativo/dashboard");
+
+			toast.warning("Usuário não tem permissões para acessar essa página", {
+				theme: "colored",
+			});
+		}
+	}, [user]);
 
 	const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
@@ -63,11 +80,13 @@ const EditarNoticia = () => {
 				isLoading: true,
 			});
 			try {
-				const response = await axios.get(`http://localhost:3000/api/posts/post/${id}`);
+				const response = await axios.get(`https://backend-production-9a06.up.railway.app/api/posts/post/${id}`);
 
 				if (response.data) {
 					methods.setValue("titulo", response.data.titulo);
 					methods.setValue("conteudo", response.data.conteudo);
+					methods.setValue("destaque", response.data.destaque === 0 ? false : true);
+					methods.setValue("tipo", response.data.tipo);
 
 					const imageBlob = new Blob([response.data.originalImageBuffer], { type: "image/webp" });
 
@@ -123,8 +142,10 @@ const EditarNoticia = () => {
 
 			formData.append("titulo", values.titulo);
 			formData.append("conteudo", values.conteudo);
+			formData.append("tipo", values.tipo);
+			formData.append("destaque", values.destaque ? "1" : "0");
 
-			const response = await axios.put(`http://localhost:3000/api/posts/post/editar/${id}`, formData, {
+			const response = await axios.put(`https://backend-production-9a06.up.railway.app/api/posts/post/editar/${id}`, formData, {
 				headers: {
 					"Content-Type": "multipart/form-data",
 				},
@@ -158,9 +179,32 @@ const EditarNoticia = () => {
 			<div className="cadastra-noticia">
 				<div className="inputs">
 					<div className="inputs-container">
-						<h2>Cadastrar notícia</h2>
+						<h2>Editar notícia</h2>
 						<form onSubmit={methods.handleSubmit(handleSubmit)}>
 							<fieldset disabled={isCreating}>
+								<div className="destaque text-white mt-3">
+									<CustomCheckbox
+										checkboxValue={{
+											checked: 1,
+											unchecked: 0,
+										}}
+										label="Essa nóticia é um destaque?"
+										control={methods.control}
+										name="destaque"
+									/>
+								</div>
+								<div className="tipo">
+									<CustomSelect
+										name="tipo"
+										label="Tipo"
+										placeholder="Selecione o tipo"
+										control={methods.control}
+										options={[
+											{ value: "Mercado", label: "Mercado" },
+											{ value: "Negocios", label: "Nossos Negócios" },
+										]}
+									/>
+								</div>
 								<div className="imagem">
 									<CustomFileInput control={methods.control} name="imagem" onChange={handleImageChange} label="Imagem" />
 									{error && <p className="text-danger">{error}</p>}

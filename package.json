@@ -1,6 +1,6 @@
 {
   "name": "ibtec",
-  "homepage": "http://dev.ibtec.org.br/",
+  "homepage": "http://ibtec.org.br",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -22,6 +22,7 @@
     "axios": "^1.5.1",
     "bootstrap": "^5.2.3",
     "classnames": "^2.3.2",
+    "creare-core-library": "^0.1.13",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
     "graphql": "^16.6.0",
@@ -29,7 +30,9 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
+    "react-csv": "^2.2.2",
     "react-data-table-component": "^7.5.3",
+    "react-datepicker": "^4.21.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
@@ -39,6 +42,8 @@
     "react-router-dom": "^6.10.0",
     "react-select": "^5.7.3",
     "react-slick": "^0.29.0",
+    "react-spring": "^9.7.3",
+    "react-time-picker": "^6.5.2",
     "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.9",
     "slick-carousel": "^1.8.1",
@@ -55,17 +60,19 @@
     "@types/js-cookie": "^3.0.5",
     "@types/node": "^18.16.3",
     "@types/react": "^18.0.28",
+    "@types/react-csv": "^1.1.9",
+    "@types/react-datepicker": "^4.19.3",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react": "^4.1.0",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "prettier": "^2.7.1",
     "sass": "^1.62.1",
-    "typescript": "^4.9.5",
-    "vite": "^4.2.0"
+    "typescript": "^5.3.2",
+    "vite": "^5.0.4"
   }
 }

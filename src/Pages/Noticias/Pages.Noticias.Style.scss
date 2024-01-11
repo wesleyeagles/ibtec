@@ -1,6 +1,32 @@
 .noticias {
 	padding-top: 280px;
 
+	.filter-option {
+		border-radius: 5px;
+		width: max-content;
+		padding-inline: 10px;
+		padding-block: 6px;
+		background: #2a3547;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #364257;
+		}
+
+		span {
+			color: #fff;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 150%; /* 21px */
+		}
+	}
+
+	.filter-option-active {
+		background-color: green!important;
+
+	}
+
 	h2 {
 		color: #fff;
 		font-size: 56px;
@@ -121,9 +147,9 @@
 			color: #0a1521;
 			text-align: center;
 			font-size: 14px;
-            padding: 16px;
-            padding-inline: 26px;
-            border: none;
+			padding: 16px;
+			padding-inline: 26px;
+			border: none;
 			font-style: normal;
 			font-weight: 600;
 			line-height: 24px; /* 171.429% */

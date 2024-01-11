@@ -5,28 +5,40 @@ import "./Pages.Home.Styles.scss";
 import {
 	ArrowRightIcon,
 	BannerArrow,
+	ConhecimentoIcon,
 	DashedBorder,
 	InovacaoIcon,
 	LongRightArrowIcon,
 	PlayVideoIcon,
 	PointIcon,
-	SegurancaIcon,
 	SliderNextIcon,
 	SliderPrevIcon,
 	SustentabilidadeIcon,
 	TecnologiaIcon,
 } from "../../assets/Icones";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import VideoModal from "./Components/VideoModal";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TabsComponent from "./Components/TabsComponent";
+import axios from "axios";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+
+interface Post {
+	titulo: string;
+	conteudo: string;
+	createdAt: string; // Ou o tipo de data apropriado
+	imagem: string;
+	destaque?: number;
+}
 
 const Home = () => {
 	const isMedia600px = useMediaQuery("(max-width: 600px)");
 	const isMedia1024px = useMediaQuery("(max-width: 1024px)");
+	const [posts, setPosts] = useState<Post[]>([]);
 
 	const scrollToTop = () => {
 		const scrollToTopEasing = (t: number) => t * (2 - t);
@@ -50,6 +62,24 @@ const Home = () => {
 
 		requestAnimationFrame(scrollToTopAnimation);
 	};
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await axios.get("https://ibtec-backend.onrender.com/api/posts/ultimos-posts", {
+					params: {
+						limit: isMedia600px ? 1 : isMedia1024px ? 2 : 3,
+					},
+				});
+
+				setPosts(response.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	const [isShowVideo, setShowVideo] = useState(false);
 
@@ -80,10 +110,10 @@ const Home = () => {
 			<BannerContainer bgImage="/home-banner.webp">
 				<GridContainer>
 					<div className="banner-section">
-						<h1>Somos o IBTeC, instituto brasileiro de tecnologia</h1>
-						<p>Há 50 anos no mercado, trabalhando na oferta de: Tecnologia, conforto, pesquisa e inovação</p>
+						<h1>O momento requer novas soluções: IBTeC a sua melhor parceria</h1>
+						<p>Há mais de 50 anos no mercado, o Instituto oferece serviços tecnológicos, inovação e sustentabilidade</p>
 						<div>
-							<Link to="">
+							<Link to="/sobre">
 								<button>QUERO SABER MAIS</button>
 							</Link>
 						</div>
@@ -109,7 +139,7 @@ const Home = () => {
 							</div>
 						</div>
 						<div className="label">
-							<h2>Há 50 anos contribuindo com soluções inovadoras</h2>
+							<h2>Tecnologia à serviço da indústria</h2>
 							<p>
 								Desde a sua criação em 1972, o IBTeC procura contribuir com o desenvolvimento do setor coureiro-calçadista por meio de pesquisas, informações, realização de consultoria
 								técnica e elaboração de testes e ensaios em laboratórios especializados para que as empresas possam se qualificar continuamente e avançar no mercado, inclusive na
@@ -124,32 +154,34 @@ const Home = () => {
 					</div>
 					<div className="wrapper mt-100">
 						<div className="title">
-							<h3>Nossos pilares fundamentais</h3>
+							<h3>Nossos pilares</h3>
 						</div>
 						<div className="icons">
-							<div className="icon sustentabilidade">
-								<div>
-									<SustentabilidadeIcon size={`${isMedia600px ? "2.2em" : "3em"}`} />
-								</div>
-								<span>Sustentabilidade</span>
-							</div>
 							<div className="icon inovacao">
 								<div>
 									<InovacaoIcon size={`${isMedia600px ? "2.2em" : "3em"}`} />
 								</div>
 								<span>Inovação</span>
 							</div>
+							<div className="icon sustentabilidade">
+								<div>
+									<SustentabilidadeIcon size={`${isMedia600px ? "2.2em" : "3em"}`} />
+								</div>
+								<span>Sustentabilidade</span>
+							</div>
+
 							<div className="icon tecnologia">
 								<div>
 									<TecnologiaIcon size={`${isMedia600px ? "2.2em" : "3em"}`} />
 								</div>
 								<span>Tecnologia</span>
 							</div>
-							<div className="icon seguranca">
+
+							<div className="icon conhecimento">
 								<div>
-									<SegurancaIcon size={`${isMedia600px ? "2.2em" : "3em"}`} />
+									<ConhecimentoIcon size={`${isMedia600px ? "2.2em" : "3em"}`} />
 								</div>
-								<span>Segurança</span>
+								<span>Conhecimento</span>
 							</div>
 						</div>
 					</div>
@@ -166,29 +198,13 @@ const Home = () => {
 									consultoria técnica e elaboração de testes e tinuamente e avançar no mercado, inclusive na adequação para exportação.
 								</p>
 								<div>
-									<Link to="">
+									<Link onClick={scrollToTop} to="/nucleo-de-inovacao">
 										<button>QUERO SABER MAIS</button>
 									</Link>
 								</div>
 							</div>
-							<div className="d-flex w-100">
-								<div className="d-flex flex-column">
-									<div className="d-flex flex-column align-items-end">
-										<div className="text">
-											<div className="point">
-												<PointIcon size={"1.5em"} />
-											</div>
-											<small>
-												Promover <span>inovação e tecnologia</span>
-											</small>
-										</div>
-									</div>
-									<div className="container">
-										<div className="image-wrapper">
-											<img src="/pessoa-inovacao.webp" alt="Pessoa" />
-										</div>
-									</div>
-								</div>
+							<div className="image">
+								<img src="home_tenis.webp" />
 							</div>
 						</div>
 					</div>
@@ -199,7 +215,7 @@ const Home = () => {
 			</div>
 			<div className="mercados">
 				<GridContainer>
-					<div className="wrapper">
+					<div className="wrapper" id="setores">
 						<div className="label">
 							<h2>Alguns mercados que atendemos</h2>
 						</div>
@@ -214,10 +230,10 @@ const Home = () => {
 					<div className="slider-wrapper">
 						<div className="slider-container">
 							<Slider ref={(slider) => setSliderRef(slider)} {...settings}>
-								<div className="slide industria-textil">
-									<Link to="">
+								<div className="slide equipamentos-de-protecao">
+									<Link onClick={scrollToTop} to="/mercados/equipamentos-de-protecao-individual">
 										<div className="label-container">
-											<div className="label">INDÚSTRIA TÊXTIL</div>
+											<div className="label">EQUIPAMENTOS DE PROTEÇÃO INDIVIDUAL</div>
 											<div className="icon">
 												<ArrowRightIcon />
 											</div>
@@ -225,7 +241,7 @@ const Home = () => {
 									</Link>
 								</div>
 								<div className="slide calcados">
-									<Link to="">
+									<Link onClick={scrollToTop} to="/mercados/calcados-couros-componentes">
 										<div className="label-container">
 											<div className="label">CALÇADOS, COUROS E COMPONENTES</div>
 											<div className="icon">
@@ -234,48 +250,29 @@ const Home = () => {
 										</div>
 									</Link>
 								</div>
-								<div className="slide equipamentos-de-protecao">
-									<Link to="">
+								<div className="slide industria-textil">
+									<Link onClick={scrollToTop} to="/mercados/industria-textil">
 										<div className="label-container">
-											<div className="label">EQUIPAMENTOS DE PROTEÇÃO</div>
+											<div className="label">INDÚSTRIA TÊXTIL</div>
 											<div className="icon">
 												<ArrowRightIcon />
 											</div>
 										</div>
 									</Link>
 								</div>
-								<div className="slide containers">
-									<Link to="">
-										<div className="label-container">
-											<div className="label">CONTAINERS</div>
-											<div className="icon">
-												<ArrowRightIcon />
-											</div>
-										</div>
-									</Link>
-								</div>
-								<div className="slide banheiros-quimicos">
-									<Link to="">
-										<div className="label-container">
-											<div className="label">BANHEIROS QUÍMICOS</div>
-											<div className="icon">
-												<ArrowRightIcon />
-											</div>
-										</div>
-									</Link>
-								</div>
+
 								{/* Adicione mais slides conforme necessário */}
 							</Slider>
 						</div>
 					</div>
 				</GridContainer>
 			</div>
-			<div className="solucoes">
+			<div className="solucoes" id="solucoes">
 				<GridContainer>
 					<TabsComponent />
 				</GridContainer>
 			</div>
-			<div className="programas">
+			<div className="programas" id="consultoria">
 				<GridContainer>
 					<div className="wrapper">
 						<div className="label">
@@ -302,7 +299,7 @@ const Home = () => {
 								O IBTeC desenvolve projetos técnicos para melhorar a produtividade e a qualidade das empresas calçadistas, criando um ambiente satisfatório para o desenvolvimento de
 								inovações tecnológicas, ampliando suas condições para concorrer no mercado nacional e internacional.
 							</p>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/produtividade-e-qualidade">
 								<span>Quero saber mais</span>
 								<LongRightArrowIcon />
 							</Link>
@@ -322,7 +319,7 @@ const Home = () => {
 								O IBTeC oferece projetos de desenvolvimento técnico de produtos voltados à cadeia coureira calçadista, buscando o lançamento no mercado nacional e internacional, com o
 								uso dos laboratórios de biomecânica, ensaios físicos e químicos, para avaliar o conforto e o desempenho dos produtos lançados.
 							</p>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/desenvolvimento-de-produtos">
 								<span>Quero saber mais</span>
 								<LongRightArrowIcon />
 							</Link>
@@ -366,7 +363,7 @@ const Home = () => {
 								substâncias químicas que possam causar danos à saúde humana e ao meio ambiente. Os manuais desenvolvidos no projeto são formados por tabelas com padrões baseados nas
 								legislações internacionais europeias como o Reach e a americana AAFA.
 							</p>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/projetos-tecnicos">
 								<span>Quero saber mais</span>
 								<LongRightArrowIcon />
 							</Link>
@@ -384,145 +381,27 @@ const Home = () => {
 							<span>Visite nosso blog</span>
 						</div>
 					</div>
-					{isMedia600px ? (
-						<div className="blog-posts">
-							<Link to="">
-								<div className="post">
-									<div className="img-post">
-										<img src="/blog-post-1.webp" />
-									</div>
-									<div className="content">
-										<div className="date-post">
-											<span>07 de março</span>
+					<div className="blog-posts">
+						{posts.map((post, index) => {
+							return (
+								<Link onClick={() => scrollToTop()} key={index} to="/noticias">
+									<div className="post">
+										<div className="img-post">
+											<img src={`https://dev.ibtec.org.br/dev/blog/${post.imagem}`} />
 										</div>
-										<div className="label-post">
-											<p>Reportagem veiculada na revista tecnicouro vence a 23° edição do prêmio Primus Inter Pares Assintecal</p>
-										</div>
-										<div className="d-flex align-items-center">
-											<div className="border" />
-											<LongRightArrowIcon />
+										<div className="content">
+											<div className="date-post">
+												<span>{format(new Date(post.createdAt), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
+											</div>
+											<div className="label-post">
+												<p>{post.titulo}</p>
+											</div>
 										</div>
 									</div>
-								</div>
-							</Link>
-						</div>
-					) : isMedia1024px ? (
-						<div className="blog-posts">
-							<Link to="">
-								<div className="post">
-									<div className="img-post">
-										<img src="/blog-post-1.webp" />
-									</div>
-									<div className="content">
-										<div className="date-post">
-											<span>07 de março</span>
-										</div>
-										<div className="label-post">
-											<p>Reportagem veiculada na revista tecnicouro vence a 23° edição do prêmio Primus Inter Pares Assintecal</p>
-										</div>
-										<div className="d-flex align-items-center">
-											<div className="border-anima" />
-											<LongRightArrowIcon />
-										</div>
-										<div className="d-flex justify-content-center">
-											<span className="anima-text">Abrir post</span>
-										</div>
-									</div>
-								</div>
-							</Link>
-							<Link to="">
-								<div className="post">
-									<div className="img-post">
-										<img src="/blog-post-2.webp" />
-									</div>
-									<div className="content">
-										<div className="date-post">
-											<span>03 de março</span>
-										</div>
-										<div className="label-post">
-											<p>Fábrica conceito terá na fimec 2023 edição histórica</p>
-										</div>
-										<div className="d-flex align-items-center">
-											<div className="border-anima" />
-											<LongRightArrowIcon />
-										</div>
-										<div className="d-flex justify-content-center">
-											<span className="anima-text">Abrir post</span>
-										</div>
-									</div>
-								</div>
-							</Link>
-						</div>
-					) : (
-						<div className="blog-posts">
-							<Link to="">
-								<div className="post">
-									<div className="img-post">
-										<img src="/blog-post-1.webp" />
-									</div>
-									<div className="content">
-										<div className="date-post">
-											<span>07 de março</span>
-										</div>
-										<div className="label-post">
-											<p>Reportagem veiculada na revista tecnicouro vence a 23° edição do prêmio Primus Inter Pares Assintecal</p>
-										</div>
-										<div className="d-flex align-items-center">
-											<div className="border-anima" />
-											<LongRightArrowIcon />
-										</div>
-										<div className="d-flex justify-content-center">
-											<span className="anima-text">Abrir post</span>
-										</div>
-									</div>
-								</div>
-							</Link>
-							<Link to="">
-								<div className="post">
-									<div className="img-post">
-										<img src="/blog-post-2.webp" />
-									</div>
-									<div className="content">
-										<div className="date-post">
-											<span>03 de março</span>
-										</div>
-										<div className="label-post">
-											<p>Fábrica conceito terá na fimec 2023 edição histórica</p>
-										</div>
-										<div className="d-flex align-items-center">
-											<div className="border-anima" />
-											<LongRightArrowIcon />
-										</div>
-										<div className="d-flex justify-content-center">
-											<span className="anima-text">Abrir post</span>
-										</div>
-									</div>
-								</div>
-							</Link>
-							<Link to="">
-								<div className="post">
-									<div className="img-post">
-										<img src="/blog-post-3.webp" />
-									</div>
-									<div className="content">
-										<div className="date-post">
-											<span>01 de março</span>
-										</div>
-										<div className="label-post">
-											<p>Startups de todo o estado já podem se inscrever para o BRDE LABS RS 2023</p>
-										</div>
-										<div className="d-flex align-items-center">
-											<div className="border-anima" />
-											<LongRightArrowIcon />
-										</div>
-										<div className="d-flex justify-content-center">
-											<span className="anima-text">Abrir post</span>
-										</div>
-									</div>
-								</div>
-							</Link>
-						</div>
-					)}
+								</Link>
+							);
+						})}
+					</div>
 				</GridContainer>
 				<div className="box" />
 				<img className="circles" src="/circles.webp" />

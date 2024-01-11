@@ -3,6 +3,7 @@ import { EaglesLogoIcon, FooterFacebookIcon, FooterInstagramIcon, FooterLinkedin
 import GridContainer from "../GridContainer/GridContainer";
 import "./Footer.scss";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
+import { moveTo } from "../../Utils/Utils";
 
 const Footer = () => {
 	const isMedia600px = useMediaQuery("(max-width: 600px)");
@@ -59,44 +60,64 @@ const Footer = () => {
 					<div className="institucional">
 						<h4>Institucional</h4>
 						<nav>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/sobre">
 								<li>Quem somos</li>
 							</Link>
-							<Link to="">
+							<Link
+								onClick={() => {
+									moveTo("tragetoria");
+								}}
+								to="/sobre"
+							>
 								<li>Trajetória</li>
 							</Link>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/conselho-de-administracao">
 								<li>Conselho de administração</li>
 							</Link>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/responsabilidade-social">
 								<li>Responsabilidade Social</li>
 							</Link>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/abnt-cb11">
 								<li>ABNT/CB-11</li>
 							</Link>
 						</nav>
 					</div>
 					<div className="painel">
-						<Link to="">
+						<a href="https://ibtec.org.br/areacliente">
 							<button>Painel do cliente</button>
-						</Link>
+						</a>
 					</div>
 					<div className="navegue">
 						<h4>Navegue</h4>
 						<nav>
-							<Link to="">
+							<Link
+								onClick={() => {
+									moveTo("setores");
+								}}
+								to="/inicio"
+							>
 								<li>Setores atendidos</li>
 							</Link>
-							<Link to="">
+							<Link
+								onClick={() => {
+									moveTo("solucoes");
+								}}
+								to="/inicio"
+							>
 								<li>Soluções</li>
 							</Link>
-							<Link to="">
+							<Link
+								onClick={() => {
+									moveTo("consultoria");
+								}}
+								to="/inicio"
+							>
 								<li>Consultoria</li>
 							</Link>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/nucleo-de-inovacao">
 								<li>Inovação</li>
 							</Link>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/associados">
 								<li>Associados</li>
 							</Link>
 						</nav>
@@ -104,10 +125,10 @@ const Footer = () => {
 					<div className="conteudo">
 						<h4>Conteúdo</h4>
 						<nav>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/noticias">
 								<li>Blog</li>
 							</Link>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/eventos">
 								<li>Eventos</li>
 							</Link>
 						</nav>
@@ -115,7 +136,7 @@ const Footer = () => {
 					<div className="carreiras">
 						<h4>Carreiras</h4>
 						<nav>
-							<Link to="">
+							<Link onClick={() => scrollToTop()} to="/contato">
 								<li>Trabalhe conosco</li>
 							</Link>
 						</nav>
@@ -141,7 +162,7 @@ const Footer = () => {
 										<PinFooterIcon size={"1.3rem"} />
 									</div>
 									Novo Hamburgo - RS Rua Araxá, <br />
-									750B. Ideal, CEP: 93334-000
+									750. Ideal, CEP: 93334-000
 								</li>
 							) : (
 								<li className="d-flex gap-2">

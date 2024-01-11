@@ -45,3 +45,18 @@ export function removeEqualObject<T>(obj: T, obj2: any): Partial<T> {
 
 	return newObj;
 }
+
+export const moveTo = (to: string) => {
+	const scrollIn = () => {
+		const sessaoEspecifica = document.getElementById(to);
+		if (sessaoEspecifica) {
+			sessaoEspecifica.scrollIntoView({ behavior: "smooth" }); // Rola para a sessão específica
+		}
+	};
+
+	const moveIn = () => {
+		setTimeout(scrollIn, 100); // Espera um pouco antes de rolar
+	};
+
+	moveIn();
+};

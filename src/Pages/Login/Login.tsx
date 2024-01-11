@@ -23,7 +23,7 @@ const Login = () => {
 				autoClose: 3000,
 			});
 
-			navigate("/painel-administrativo/dashboard");
+			navigate("/painel-administrativo/lista-noticias");
 		}
 	}, []);
 
@@ -37,7 +37,7 @@ const Login = () => {
 		setIsLogging(true);
 
 		try {
-			const response = await axios.post("http://localhost:3000/api/auth/login", {
+			const response = await axios.post("https://ibtec-backend.onrender.com/api/auth/login", {
 				email: values.Email,
 				password: values.Password,
 			});
@@ -55,7 +55,7 @@ const Login = () => {
 					render: "Login efetuado com sucesso",
 				});
 
-				navigate("/painel-administrativo/dashboard");
+				navigate("/painel-administrativo/lista-noticias");
 			}
 		} catch (err: any) {
 			const error = err.response.data.message;

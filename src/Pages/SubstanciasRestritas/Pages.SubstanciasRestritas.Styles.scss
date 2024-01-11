@@ -75,6 +75,33 @@
 			display: flex;
 			justify-content: space-between;
 
+			@media screen and (max-width: 600px) {
+				flex-direction: column;
+			}
+
+			.wrapping {
+				gap: 5rem;
+
+				@media screen and (max-width: 1280px) {
+					width: 40%;
+
+					img {
+						width: 100%;
+					}
+				}
+
+				@media screen and (max-width: 1024px) {
+					width: 50%;
+					gap: 2rem;
+				}
+
+				@media screen and (max-width: 600px) {
+					width: 100%;
+					gap: 2rem;
+				}
+				
+			}
+
 			.ensaios-wrapper {
 				border-radius: 10px;
 				background: #171f2b;
@@ -82,6 +109,10 @@
 				padding-left: 40px;
 				padding-right: 80px;
 				width: 488px;
+
+				@media screen and (max-width: 1280px) {
+					width: 100%;
+				}
 
 				h2 {
 					color: #fff;
@@ -118,6 +149,15 @@
 			> div:nth-child(2) {
 				inline-size: 480px;
 
+				@media screen and (max-width: 1024px) {
+					inline-size: 240px;
+				}
+
+				@media screen and (max-width: 600px) {
+					margin-top: 5rem;
+					width: 100%;
+				}
+
 				h3 {
 					color: #fff;
 					font-size: 40px;
@@ -125,6 +165,10 @@
 					font-weight: 500;
 					margin-bottom: 3rem;
 					line-height: 130%; /* 52px */
+
+					@media screen and (max-width: 1024px) {
+						font-size: 28px;
+					}
 				}
 
 				p {
@@ -137,6 +181,10 @@
 
 					&:nth-child(4) {
 						margin-bottom: 64px;
+					}
+
+					@media screen and (max-width: 1024px) {
+						font-size: 13px;
 					}
 				}
 

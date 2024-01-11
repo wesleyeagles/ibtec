@@ -15,12 +15,35 @@ const Associados = () => {
 	const { methods } = useAssociadosForm();
 	const [empresaSelecionada, setEmpresaSelecionada] = useState<any | null>(null);
 
+	const scrollToTop = () => {
+		const scrollToTopEasing = (t: number) => t * (2 - t);
+		const startPosition = document.documentElement.scrollTop || document.body.scrollTop;
+		const startTime = performance.now();
+
+		const scrollToTopAnimation = (currentTime: number) => {
+			const elapsedTime = currentTime - startTime;
+			const progress = elapsedTime / 2500; // Animation duration (ms)
+			const easingProgress = scrollToTopEasing(progress);
+
+			if (progress < 1) {
+				document.body.scrollTop = startPosition * (1 - easingProgress);
+				document.documentElement.scrollTop = startPosition * (1 - easingProgress);
+				requestAnimationFrame(scrollToTopAnimation);
+			} else {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		};
+
+		requestAnimationFrame(scrollToTopAnimation);
+	};
+
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
 		async function fetchData() {
 			try {
-				const response = await axios.get("https://ibtec-backend.onrender.com/api/associates/todos-associados");
+				const response = await axios.get("https://backend-production-9a06.up.railway.app/api/associates/todos-associados");
 				setData(response.data);
 			} catch (error) {
 				console.error("Erro ao buscar dados:", error);
@@ -113,7 +136,7 @@ const Associados = () => {
 				<GridContainer>
 					<div className="banner-section">
 						<h1>Seja nosso associado</h1>
-						<Link to="">
+						<Link to="/contato">
 							<button>ASSOCIE-SE</button>
 						</Link>
 					</div>
@@ -132,7 +155,7 @@ const Associados = () => {
 							Além de tudo isso, traz sua empresa para mais perto de nós, possibilitando uma interação contínua, atendimento de suas demandas, para o desenvolvimento e aprimoramento de
 							seus produtos através de serviços de ensaios laboratoriais, pesquisa e inovação.
 						</p>
-						<Link to="">
+						<Link onClick={() => scrollToTop()} to="/contato">
 							<button>ASSOCIE-SE</button>
 						</Link>
 					</div>
@@ -140,7 +163,14 @@ const Associados = () => {
 			</GridContainer>
 			<div className="ensaios">
 				<GridContainer>
-					<h2></h2>
+					<h2
+						style={{
+							textAlign: "center",
+							marginBottom: "5rem",
+						}}
+					>
+						Benefícios de ser um associado IBTeC
+					</h2>
 					<div className="ensaios-container">
 						<div className="ensaio-single">
 							<div className="icon">

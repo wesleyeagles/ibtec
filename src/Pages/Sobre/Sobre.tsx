@@ -45,7 +45,7 @@ const Sobre = () => {
 				<GridContainer>
 					<div className="banner-section">
 						<span>SOBRE NÓS</span>
-						<h1>Há 50 anos contribuindo com soluções inovadoras</h1>
+						<h1>Tecnologia à serviço da indústria</h1>
 						<p>Desde a sua criação em 1972, o IBTeC procura contribuir com o desenvolvimento do setor coureiro-calçadista por meio de pesquisas.</p>
 						<div className="icon">
 							<BannerArrow size={`${isMedia600px ? "3rem" : "4rem"}`} />
@@ -59,7 +59,7 @@ const Sobre = () => {
 						<div className="label">
 							<h2>Quem somos</h2>
 							<p>
-								O IBTeC - Instituto Brasileiro de Tecnologia do Couro, Calçado e Artefatos, há 47 anos atua ofertando soluções através do mais amplo portfólio de serviços
+								O IBTeC - Instituto Brasileiro de Tecnologia do Couro, Calçado e Artefatos, há mais de 50 anos atua ofertando soluções através do mais amplo portfólio de serviços
 								técnico-científicos para a indústria coureiro-calçadista, de componentes, EPIs e têxtil.
 							</p>
 							<p>
@@ -112,9 +112,6 @@ const Sobre = () => {
 			</div>
 			<div className="solucoes-inovadoras">
 				<GridContainer>
-					<div className="label">
-						<h2>Há 50 anos contribuindo com soluções inovadoras</h2>
-					</div>
 					<div className="wrapper">
 						<div className="d-flex flex-column gap-3 relative">
 							<div className="thumb">

@@ -3,9 +3,12 @@ import CustomFileInput from "../../../Components/FormInputs/CustomFileInput/Cust
 import CustomRichTextInput from "../../../Components/FormInputs/CustomRichTextInput/CustomRichTextInput";
 import CustomText from "../../../Components/FormInputs/CustomTextInput/CustomText";
 import useNoticiaForm, { NoticiaHandleSubmitForm } from "../Hooks/useNoticiaForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../../Global/Contexts/UserContext";
+import CustomCheckbox from "../../../Components/FormInputs/CustomCheckbox/CustomCheckbox";
+import CustomSelect from "../../../Components/FormInputs/CustomSelectInput/CustomSelect";
 
 const CadastraNoticia = () => {
 	const { methods } = useNoticiaForm();
@@ -13,6 +16,20 @@ const CadastraNoticia = () => {
 	const [error, setError] = useState<string | null>(null);
 
 	const navigate = useNavigate();
+
+	const { user } = useUserContext();
+
+	useEffect(() => {
+		const role = user?.user.role;
+
+		if (role === "usuario") {
+			navigate("/painel-administrativo/dashboard");
+
+			toast.warning("Usuário não tem permissões para acessar essa página", {
+				theme: "colored",
+			});
+		}
+	}, [user]);
 
 	const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
@@ -48,6 +65,7 @@ const CadastraNoticia = () => {
 	const [isCreating, isSetCreating] = useState(false);
 
 	const handleSubmit = async (values: NoticiaHandleSubmitForm) => {
+		console.log(values);
 		isSetCreating(true);
 		const toastId = toast("Cadastrando post, por favor aguarde...", {
 			autoClose: false,
@@ -56,7 +74,7 @@ const CadastraNoticia = () => {
 		});
 		try {
 			await axios.post(
-				"http://localhost:3000/api/posts/criar-post",
+				"https://backend-production-9a06.up.railway.app/api/posts/criar-post",
 				{
 					...values,
 				},
@@ -98,6 +116,29 @@ const CadastraNoticia = () => {
 						<h2>Cadastrar notícia</h2>
 						<form onSubmit={methods.handleSubmit(handleSubmit)}>
 							<fieldset disabled={isCreating}>
+								<div className="destaque text-white mt-3">
+									<CustomCheckbox
+										checkboxValue={{
+											checked: 1,
+											unchecked: 0,
+										}}
+										label="Essa nóticia é um destaque?"
+										control={methods.control}
+										name="destaque"
+									/>
+								</div>
+								<div className="tipo">
+									<CustomSelect
+										name="tipo"
+										label="Tipo"
+										placeholder="Selecione o tipo"
+										control={methods.control}
+										options={[
+											{ value: "Mercado", label: "Mercado" },
+											{ value: "Negocios", label: "Nossos Negócios" },
+										]}
+									/>
+								</div>
 								<div className="imagem">
 									<CustomFileInput control={methods.control} name="imagem" onChange={handleImageChange} label="Imagem" />
 									{error && <p className="text-danger">{error}</p>}

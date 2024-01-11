@@ -13,7 +13,7 @@ const DetalhesAssociado: React.FC<DetalhesEmpresaProps> = ({ empresa }) => {
 	useEffect(() => {
 		async function fetchDataCities() {
 			try {
-				const response = await axios.get("https://ibtec-backend.onrender.com/api/cities/todas-cidades");
+				const response = await axios.get("https://backend-production-9a06.up.railway.app/api/cities/todas-cidades");
 				const city = response.data.filter((cities: any) => cities.id === empresa.city_id);
 				setCityData(city);
 			} catch (error) {
@@ -23,7 +23,7 @@ const DetalhesAssociado: React.FC<DetalhesEmpresaProps> = ({ empresa }) => {
 
 		async function fetchDataSegments() {
 			try {
-				const response = await axios.get("https://ibtec-backend.onrender.com/api/segments/todos-segmentos");
+				const response = await axios.get("https://backend-production-9a06.up.railway.app/api/segments/todos-segmentos");
 				const segment = response.data.filter((segment: any) => segment.id === empresa.segment_id);
 				setSegmentData(segment[0].title);
 			} catch (error) {

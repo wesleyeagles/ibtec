@@ -243,6 +243,8 @@
 			}
 
 			.imagem {
+				width: 100%;
+					height: 100%;
 				.form-label {
 					color: #fff;
 				}
@@ -252,6 +254,13 @@
 					height: 50px;
 
 					color: #fff;
+				}
+			}
+
+			.tipo {
+				margin-top: 20px;
+				.form-label {
+					color: #FFF;
 				}
 			}
 
@@ -280,14 +289,15 @@
 				max-width: 100%;
 				.quill {
 					max-width: 700px;
-					height: 300px;
+					height: 220px;
+					margin-bottom: 1rem;
 
 					@media screen and (max-width: 1100px) {
 						width: 100%;
 					}
 
 					.ql-container {
-						height: 200px;
+						height: 150px;
 					}
 
 					.ql-picker-label {
@@ -446,6 +456,287 @@
 		}
 	}
 
+	.cadastra-evento {
+		h2 {
+			color: #333;
+			font-weight: 400;
+			font-size: 26px;
+		}
+
+		.alvo-wrapper {
+			display: flex;
+			align-items: center;
+			margin-top: .6rem;
+			gap: .5rem;
+
+			button {
+				background-color: white;
+				border: none;
+				height: 34px;
+				width: 38px;
+				border-radius: 5px;
+			}
+
+			.my-error {
+				display: none;
+			}
+
+			input {
+				width: 100%;
+
+				&::placeholder {
+					font-size: 13px;
+				}
+			}
+		}
+
+		.inputs-grid {
+			margin-top: 1.5rem;
+			display: grid;
+			grid-template-columns: 12;
+			grid-template-areas: "titulo sobre sobre carga" "data horario modalidade local" "link link imagem imagem";
+			gap: 1rem;
+
+			@media screen and (max-width: 1300px) {
+				grid-template-areas: 
+				"titulo sobre alvo" 
+				"carga data horario"
+				"modalidade local local" 
+				"link link imagem";
+			}
+
+			@media screen and (max-width: 1280px) {
+				grid-template-areas: 
+				"titulo sobre alvo" 
+				"carga data horario"
+				"modalidade local local" 
+				"link link link"
+				"imagem imagem imagem";
+			}
+
+			@media screen and (max-width: 1024px) {
+				grid-template-areas: 
+				"titulo titulo titulo"
+				"sobre sobre sobre"
+				"alvo alvo alvo"
+				"carga carga carga"
+				"data data data"
+				"horario horario horario"
+				"modalidade modalidade modalidade" 
+				"local local local"
+				"link link link"
+				"imagem imagem imagem";
+			}
+
+			input {
+				width: 100%;
+
+				&::placeholder {
+					font-size: 13px;
+				}
+			}
+
+			.form-group {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.titulo {
+				grid-area: titulo;
+			}
+
+			.sobre {
+				grid-area: sobre;
+			}
+
+			.alvo {
+				grid-area: alvo;
+			}
+
+			.carga {
+				grid-area: carga;
+			}
+
+			.data {
+				grid-area: data;
+			}
+
+			.horario {
+				grid-area: horario;
+			}
+
+			.modalidade {
+				grid-area: modalidade;
+			}
+
+			.local {
+				grid-area: local;
+			}
+
+			.link {
+				grid-area: link;
+			}
+
+			.imagem {
+				grid-area: imagem;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.links-title {
+			font-size: 22px;
+			margin-block: 1rem;
+			display: block;
+		}
+
+		.links-grid {
+			display: grid;
+			grid-template-columns: 12;
+			grid-template-areas: "facebook instagram linkedin youtube";
+			gap: 1rem;
+
+			@media screen and (max-width: 1024px) {
+				grid-template-areas: 
+				"facebook facebook instagram instagram"
+				"linkedin linkedin youtube youtube";
+			}
+
+			.facebook {
+				grid-area: facebook;
+			}
+			.instagram {
+				grid-area: instagram;
+			}
+			.linkedin {
+				grid-area: linkedin;
+			}
+			.youtube {
+				grid-area: youtube;
+			}
+
+			input {
+				width: 100%;
+
+				&::placeholder {
+					font-size: 13px;
+				}
+			}
+
+			.form-group {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+
+		.btn-enviar {
+			margin-top: 1rem;
+		}
+	}
+
+	.cadastra-usuario {
+		h2 {
+			color: #333;
+			font-weight: 400;
+			font-size: 26px;
+		}
+
+		.inputs-grid {
+			margin-top: 1.5rem;
+			display: grid;
+			grid-template-columns: 6;
+			grid-template-areas: "nome nome email email email cargo" "senha senha senha confirmar-senha confirmar-senha imagem";
+			gap: 1rem;
+			
+			input {
+				width: 100%;
+
+				&::placeholder {
+					font-size: 13px;
+				}
+			}
+
+			.form-group {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.nome {
+				grid-area: nome;
+			}
+
+			.email {
+				grid-area: email;
+			}
+
+			.cargo {
+				grid-area: cargo;
+			}
+
+			.senha {
+				grid-area: senha;
+			}
+
+			.confirmar-senha {
+				grid-area: confirmar-senha;
+			}
+
+			.imagem {
+				grid-area: imagem;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.links-title {
+			font-size: 22px;
+			margin-block: 1rem;
+			display: block;
+		}
+
+		.links-grid {
+			display: grid;
+			grid-template-columns: 12;
+			grid-template-areas: "facebook instagram linkedin youtube";
+			gap: 1rem;
+
+			@media screen and (max-width: 1024px) {
+				grid-template-areas: 
+				"facebook facebook instagram instagram"
+				"linkedin linkedin youtube youtube";
+			}
+
+			.facebook {
+				grid-area: facebook;
+			}
+			.instagram {
+				grid-area: instagram;
+			}
+			.linkedin {
+				grid-area: linkedin;
+			}
+			.youtube {
+				grid-area: youtube;
+			}
+
+			input {
+				width: 100%;
+
+				&::placeholder {
+					font-size: 13px;
+				}
+			}
+
+			.form-group {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+
+		.btn-enviar {
+			margin-top: 1rem;
+		}
+	}
 }
 
 .btns-fire {

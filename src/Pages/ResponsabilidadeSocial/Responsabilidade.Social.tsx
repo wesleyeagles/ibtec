@@ -5,6 +5,29 @@ import "./Pages.ResponsabilidadeSocial.Styles.scss";
 import AccordionSingle from "./Components/AccordionSingle,";
 
 const ResponsabilidadeSocial = () => {
+	const scrollToTop = () => {
+		const scrollToTopEasing = (t: number) => t * (2 - t);
+		const startPosition = document.documentElement.scrollTop || document.body.scrollTop;
+		const startTime = performance.now();
+
+		const scrollToTopAnimation = (currentTime: number) => {
+			const elapsedTime = currentTime - startTime;
+			const progress = elapsedTime / 2500; // Animation duration (ms)
+			const easingProgress = scrollToTopEasing(progress);
+
+			if (progress < 1) {
+				document.body.scrollTop = startPosition * (1 - easingProgress);
+				document.documentElement.scrollTop = startPosition * (1 - easingProgress);
+				requestAnimationFrame(scrollToTopAnimation);
+			} else {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		};
+
+		requestAnimationFrame(scrollToTopAnimation);
+	};
+
 	return (
 		<div className="responsabilidade-social">
 			<BannerContainer bgImage="/responsabilidade-banner.webp">
@@ -26,7 +49,7 @@ const ResponsabilidadeSocial = () => {
 							</p>
 							<p>Uma série de iniciativas são desenvolvidas pelo Instituto com o intuito de envolver todos os colaboradores e promover uma consciência coletiva.</p>
 							<div className="btn">
-								<Link to="">
+								<Link onClick={() => scrollToTop()} to="/sobre">
 									<button>QUERO SABER MAIS</button>
 								</Link>
 							</div>
@@ -39,51 +62,6 @@ const ResponsabilidadeSocial = () => {
 			</div>
 			<div className="accordions">
 				<GridContainer>
-					<AccordionSingle
-						title="Lar do menino"
-						content={
-							<div>
-								<p>
-									Em outubro de 2015, o IBTeC passou a ser padrinho da <strong>Casa Lar do Menino</strong>, lançando Programa <strong>Fazer o Bem Faz Bem</strong>. Com o
-									apadrinhamento social da entidade, o Instituto se compromete a buscar e canalizar recursos, doações e contribuições.
-								</p>
-								<p>
-									Comandado pelo gestor da Casa, Otávio da Silva Alves, atualmente o Lar do Menino acolhe cerca de 20 adolescentes, de 12 a 18 anos, em situação de vulnerabilidade
-									social - todos sob medida protetiva. Portanto chegam à casa através do Juizado da Infância e Juventude, sendo que alguns cuidados devem ser preservados,
-									principalmente ao que se refere a imagem, nome completo e fotos, que devem permanecer em sigilo.
-								</p>
-								<p>
-									Pensando em levar um pouco de alegria, carinho e afeto a estes adolescentes, é fundamental termos parceiros e colaboradores, para as mais diversas ações. Este é um
-									convite a você e sua empresa para engajar-se nesta proposta de levar esperança, alento e alegria para a vida destes meninos.
-								</p>
-								<p>
-									em Temos a certeza de que juntos podemos fazer a diferença. <br /> <em> &quot;Há sempre um pouco para doar, algo para semear e uma causa para abraçar&quot;.</em>
-								</p>
-
-								<h5>NOSSOS PARCEIROS DO BEM</h5>
-								<ul>
-									<li>
-										<strong>Sugar Shoes, NKS</strong> - com calçados para os meninos
-									</li>
-									<li>
-										<strong>Mais Você Salão de Beleza</strong> - com corte de cabelos, itens de higiene e cuidado pessoal, e participação em todas as campanhas. Agora no Natal
-										teremos as cartinhas para o Papai Noel.
-									</li>
-									<li>
-										<strong>Padaria Baum</strong> - com tortas maravilhosas para comemorarmos mensalmente os aniversários dos meninos.
-									</li>
-									<li>
-										<strong>IBTeC</strong> - em todas as campanhas e na coordenação geral do trabalho.
-									</li>
-									<li>
-										<strong>Revista Tecnicouro</strong> - em todas as campanhas e na coordenação geral do trabalho.
-									</li>
-								</ul>
-								<h5>CONTATO:</h5>
-								<p>Simoni Jaroszeski (simoni@ibtec.org.br) ou Karin Becker (karin@ibtec.org.br).</p>
-							</div>
-						}
-					/>
 					<AccordionSingle
 						title="Campanha eu amo tampinhas"
 						content={

@@ -14,8 +14,7 @@ import { User, useUserContext } from "../../Global/Contexts/UserContext";
 
 const Layout = () => {
 	const navigate = useNavigate();
-
-	const { setUser } = useUserContext();
+	const { user, setUser } = useUserContext();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -33,17 +32,29 @@ const Layout = () => {
 			} else {
 				if (id) {
 					try {
-						const response = await axios.get<User | null>(`http://localhost:3000/api/user/usuario-por-id/${id}`);
+						const response = await axios.get<User | null>(`https://ibtec-backend.onrender.com/api/user/usuario-por-id/${id}`);
 						setUser(response.data);
 					} catch (error) {
 						console.error("Erro ao buscar informações do usuário:", error);
+						Cookies.remove("token");
+						Cookies.remove("id");
+
+						setTimeout(() => {
+							window.location.reload();
+						}, 500);
 					}
 				}
 			}
 		};
 
 		fetchData();
-	}, []);
+	}, [setUser, navigate]);
+
+	// Verifica se o usuário está definido antes de renderizar o conteúdo
+	if (!user) {
+		// Você pode optar por exibir uma mensagem de carregamento ou redirecionar para a página de login
+		return <p>Carregando...</p>;
+	}
 
 	return (
 		<div className="container-wrapper">

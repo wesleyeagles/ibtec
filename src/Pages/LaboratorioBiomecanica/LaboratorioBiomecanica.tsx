@@ -60,7 +60,6 @@ const LaboratorioBiomecanica = () => {
 							<img src="biomecanica-3.webp" alt="biomecanica-3" />
 						</div>
 						<div className="label">
-							<h3>Como ocorrem os ensaios?</h3>
 							<p>Buscamos qualificar os produtos, conforme a sua funcionalidade e para qual objetivo ele será fabricado. Para isso, existem normas de Conforto em Calçados.</p>
 							<div className="ensaios-holder">
 								<div className="ensaio-single">
@@ -127,6 +126,7 @@ const LaboratorioBiomecanica = () => {
 									</div>
 								</div>
 							</div>
+							<h3>Selo conforto</h3>
 							<p>
 								O Brasil é o único país no mundo com normas para avaliar o conforto e o IBTeC, o único órgão que emite uma certificação para estes produtos aprovados através do Selo
 								Conforto, que traz ainda mais confiabilidade aos produtos e muito mais valor agregado a todo setor calçadista.

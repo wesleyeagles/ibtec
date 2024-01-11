@@ -125,10 +125,6 @@ const Abnt = () => {
 							<a href="mailto://cb11@ibtec.org.br" target="_blank" rel="noreferrer">
 								cb11@ibtec.org.br
 							</a>
-							, com Amanda Varela.{" "}
-							<a href="https://abntonline.com.br/consultanacional" target="_blank" rel="noreferrer">
-								www.abntonline.com.br/consultanacional
-							</a>
 						</p>
 					</div>
 				</GridContainer>
