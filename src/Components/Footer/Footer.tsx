@@ -83,7 +83,7 @@ const Footer = () => {
 						</nav>
 					</div>
 					<div className="painel">
-						<a href="https://ibtec.org.br/areacliente">
+						<a href="http://dev.ibtec.org.br/areacliente/">
 							<button>Painel do cliente</button>
 						</a>
 					</div>

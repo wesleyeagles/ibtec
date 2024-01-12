@@ -25,7 +25,7 @@ const Navbar = () => {
 				<div className="navigation-container">
 					<NavigationLogo size={`${matches600px ? "150px" : "204px"}`} height="96px" />
 					<div className="btns-container">
-						<a href="https://ibtec.org.br/areacliente">
+						<a href="http://dev.ibtec.org.br/areacliente/">
 							<button className="btn-area">
 								<UserIcon size={"1.2em"} />
 								<span>Área do cliente</span>
@@ -44,7 +44,7 @@ const Navbar = () => {
 			<Offcanvas placement="end" show={show} onHide={handleClose}>
 				<Offcanvas.Body>
 					<div className="menu-btn d-flex">
-						<a href="https://ibtec.org.br/areacliente">
+						<a href="http://dev.ibtec.org.br/areacliente/">
 							<button className="btn-area">
 								<UserIcon size={"1.2em"} />
 								<span>Área do cliente</span>
