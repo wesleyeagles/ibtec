@@ -1,0 +1,50 @@
+@import "compass/css3";
+
+.spinner1 {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: solid 30px;
+  border-radius: 5em;
+  border-color: #2DA1CB transparent #2DA1CB transparent;
+  animation: spin 1s linear infinite;
+}
+
+.dot{
+  &:before,
+  &:after{
+    content: ".";
+  }
+  
+  &{
+    animation: fade 1s linear infinite;
+  }
+  
+  &:after{
+    animation: fade 2s linear infinite;
+  }
+}
+
+@keyframes spin{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading{
+  display: inline-block;
+  padding: 0;
+}
