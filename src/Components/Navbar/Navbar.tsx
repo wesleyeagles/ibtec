@@ -23,7 +23,9 @@ const Navbar = () => {
 		<>
 			<GridContainer>
 				<div className="navigation-container">
-					<NavigationLogo size={`${matches600px ? "150px" : "204px"}`} height="96px" />
+					<Link to="/">
+						<NavigationLogo size={`${matches600px ? "150px" : "204px"}`} height="96px" />
+					</Link>
 					<div className="btns-container">
 						<a href="http://dev.ibtec.org.br/areacliente/">
 							<button className="btn-area">
