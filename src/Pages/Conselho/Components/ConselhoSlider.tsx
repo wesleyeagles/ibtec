@@ -41,13 +41,8 @@ const ConselhoSlider: React.FC<IConselhoSlider> = ({ titulo, icone, slides }) =>
 							{slides?.map((slide, index) => {
 								return (
 									<div key={`${slide.nome} - ${index}`} className="no-slide">
-										<div className="image">
-											<img src={slide.imagemSrc} />
-											{slide.isSuplente ? (
-												<div className="suplente">
-													<span>SUPLENTE</span>
-												</div>
-											) : null}
+										<div className="suplente">
+											<span>SUPLENTE</span>
 										</div>
 										<div className="name">
 											<span>{slide.nome}</span>
@@ -65,13 +60,8 @@ const ConselhoSlider: React.FC<IConselhoSlider> = ({ titulo, icone, slides }) =>
 						{slides?.map((slide, index) => {
 							return (
 								<div key={`${slide.nome} - ${index}`} className="no-slide">
-									<div className="image">
-										<img src={slide.imagemSrc} />
-										{slide.isSuplente ? (
-											<div className="suplente">
-												<span>SUPLENTE</span>
-											</div>
-										) : null}
+									<div className="suplente">
+										<span>SUPLENTE</span>
 									</div>
 									<div className="name">
 										<span>{slide.nome}</span>
