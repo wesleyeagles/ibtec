@@ -45,7 +45,7 @@ const EventoSingle: React.FC<IEventoSingle> = ({ title, content, image, slug }) 
 				</div>
 
 				<div className="btn-quero">
-					<Link onClick={scrollToTop} to={`http://localhost:5173/evento/${slug}`}>
+					<Link onClick={scrollToTop} to={`/evento/${slug}`}>
 						<button>QUERO SABER MAIS</button>
 					</Link>
 				</div>
