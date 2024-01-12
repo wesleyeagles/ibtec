@@ -23,6 +23,29 @@ const IndustriaTextil = () => {
 		center: false,
 	};
 
+	const scrollToTop = () => {
+		const scrollToTopEasing = (t: number) => t * (2 - t);
+		const startPosition = document.documentElement.scrollTop || document.body.scrollTop;
+		const startTime = performance.now();
+
+		const scrollToTopAnimation = (currentTime: number) => {
+			const elapsedTime = currentTime - startTime;
+			const progress = elapsedTime / 1500; // Animation duration (ms)
+			const easingProgress = scrollToTopEasing(progress);
+
+			if (progress < 1) {
+				document.body.scrollTop = startPosition * (1 - easingProgress);
+				document.documentElement.scrollTop = startPosition * (1 - easingProgress);
+				requestAnimationFrame(scrollToTopAnimation);
+			} else {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		};
+
+		requestAnimationFrame(scrollToTopAnimation);
+	};
+
 	return (
 		<div className="industria-textil">
 			<BannerContainer bgImage="/industria-textil-banner.webp">
@@ -31,7 +54,7 @@ const IndustriaTextil = () => {
 						<h1>Indústria Têxtil</h1>
 						<p>O Laboratório Têxtil do IBTeC, realiza ensaios e análises têxteis seguindo normas técnicas nacionais e internacionais em tecidos, malhas e produtos acabados diversos.</p>
 						<div className="d-flex gap-2">
-							<Link to="">
+							<Link to="/contato">
 								<button>QUERO SABER MAIS</button>
 							</Link>
 						</div>
@@ -65,7 +88,7 @@ const IndustriaTextil = () => {
 						<div className="slider-container">
 							<Slider ref={(slider) => setSliderRef(slider)} {...settings}>
 								<div className="slide laboratorio-de-substancias-restritas">
-									<Link to="">
+									<Link onClick={scrollToTop} to="/laboratorio-de-substancias-restritas">
 										<div className="label-container">
 											<div className="label">LABORATÓRIO DE SUBSTÂNCIAS RESTRITAS</div>
 											<div className="icon">

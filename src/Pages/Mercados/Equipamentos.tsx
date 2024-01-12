@@ -42,6 +42,29 @@ const Equipamentos = () => {
 		}
 	};
 
+	const scrollToTop = () => {
+		const scrollToTopEasing = (t: number) => t * (2 - t);
+		const startPosition = document.documentElement.scrollTop || document.body.scrollTop;
+		const startTime = performance.now();
+
+		const scrollToTopAnimation = (currentTime: number) => {
+			const elapsedTime = currentTime - startTime;
+			const progress = elapsedTime / 1500; // Animation duration (ms)
+			const easingProgress = scrollToTopEasing(progress);
+
+			if (progress < 1) {
+				document.body.scrollTop = startPosition * (1 - easingProgress);
+				document.documentElement.scrollTop = startPosition * (1 - easingProgress);
+				requestAnimationFrame(scrollToTopAnimation);
+			} else {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		};
+
+		requestAnimationFrame(scrollToTopAnimation);
+	};
+
 	return (
 		<div className="mercados-equipamentos">
 			<BannerContainer bgImage="/banner-mercados-equipamentos.webp">
@@ -50,7 +73,7 @@ const Equipamentos = () => {
 						<h1>Equipamentos de proteção individual</h1>
 						<p>Serviços para Obtenção e Renovação de CA e Desenvolvimento de Produto</p>
 						<div className="btns">
-							<Link to="">
+							<Link to="/contato">
 								<button>QUERO SABER MAIS</button>
 							</Link>
 							<button onClick={handleShow}>ASSISTIR VíDEO</button>
@@ -190,7 +213,7 @@ const Equipamentos = () => {
 								CONDIÇÕES ESPECIAIS DE PAGAMENTO.
 							</p>
 
-							<Link to="/contato">
+							<Link onClick={scrollToTop} to="/contato">
 								<button
 									style={{
 										marginTop: "5rem",
