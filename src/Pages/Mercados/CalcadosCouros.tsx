@@ -82,13 +82,15 @@ const CalcadosCouros = () => {
 						<div className="label">
 							<h2>Laboratórios que atendem o setor</h2>
 						</div>
-						<div className="functions">
-							<small>Veja todos os setores passando os slides</small>
-							<div className="slider-btns">
-								<SliderPrevIcon onClick={goToPrevSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
-								<SliderNextIcon onClick={goToNextSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
+						{isMedia1024px && (
+							<div className="functions">
+								<small>Veja todos os setores passando os slides</small>
+								<div className="slider-btns">
+									<SliderPrevIcon onClick={goToPrevSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
+									<SliderNextIcon onClick={goToNextSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
+								</div>
 							</div>
-						</div>
+						)}
 					</div>
 
 					<div className="slider-wrapper">
@@ -117,7 +119,7 @@ const CalcadosCouros = () => {
 								<div className="slide laboratorio-de-biomecanica">
 									<Link to="">
 										<div className="label-container">
-											<div className="label">LABORATÓRIO DE BIO MECÂNICA</div>
+											<div className="label">LABORATÓRIO DE BIOMECÂNICA</div>
 											<div className="icon">
 												<ArrowRightIcon />
 											</div>
