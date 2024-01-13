@@ -53,7 +53,7 @@ const CalcadosCouros = () => {
 							dos pés.
 						</p>
 						<div className="btns">
-							<Link to="">
+							<Link to="/contato">
 								<button>QUERO SABER MAIS</button>
 							</Link>
 							<button onClick={handleShow}>ASSISTIR VíDEO</button>

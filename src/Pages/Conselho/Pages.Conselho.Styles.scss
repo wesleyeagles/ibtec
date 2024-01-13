@@ -111,7 +111,7 @@
 				width: 280px;
 				border: gray 1px solid;
 				padding: 1rem;
-				padding-block: 2.5	rem;
+				padding-block: 2.8rem;
 				border-radius: 8px;
 
 				@media screen and (max-width: 1368px) {
@@ -216,10 +216,10 @@
 		
 		.slick-prev, .slick-next {
 			z-index: 1;
-			top: 85px;
+			top: 100px;
 
 			@media screen and (max-width: 420px) {
-				top: 130px;
+				top: 105px;
 			}
 		}
 
