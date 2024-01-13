@@ -26,6 +26,8 @@ import TabsComponent from "./Components/TabsComponent";
 import axios from "axios";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { Carousel } from "primereact/carousel";
+import ReactPlayer from "react-player";
 
 interface Post {
 	titulo: string;
@@ -66,7 +68,7 @@ const Home = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get("https://ibtec-backend.onrender.com/api/posts/ultimos-posts", {
+				const response = await axios.get("https://backend-production-9a06.up.railway.app/api/posts/ultimos-posts", {
 					params: {
 						limit: isMedia600px ? 1 : isMedia1024px ? 2 : 3,
 					},
@@ -105,9 +107,47 @@ const Home = () => {
 		}
 	};
 
+	const items = [
+		{
+			type: "video",
+			source: "../videoinstitucional2.mp4", // Substitua pelo link do seu vídeo
+		},
+		{
+			type: "html",
+			content: (
+				<div className="custom-carousel-item">
+					<BannerContainer bgImage="/home-banner.webp">
+						<GridContainer>
+							<div className="banner-section">
+								<h1>O momento requer novas soluções: IBTeC a sua melhor parceria</h1>
+								<p>Há mais de 50 anos no mercado, o Instituto oferece serviços tecnológicos, inovação e sustentabilidade</p>
+								<div>
+									<Link to="/sobre">
+										<button>QUERO SABER MAIS</button>
+									</Link>
+								</div>
+								<div className="icon">
+									<BannerArrow size={`${isMedia600px ? "3rem" : "4rem"}`} />
+								</div>
+							</div>
+						</GridContainer>
+					</BannerContainer>
+				</div>
+			),
+		},
+	];
+
+	const itemTemplate = (item: any) => {
+		return (
+			<div className="react-video-container">
+				{item.type === "video" ? <ReactPlayer url={"../videoinstitucional2.mp4"} width="100%" height={"100%"} controls={false} loop playing muted /> : item.content}
+			</div>
+		);
+	};
+
 	return (
 		<div className="home">
-			<BannerContainer bgImage="/home-banner.webp">
+			{/* <BannerContainer bgImage="/home-banner.webp">
 				<GridContainer>
 					<div className="banner-section">
 						<h1>O momento requer novas soluções: IBTeC a sua melhor parceria</h1>
@@ -122,7 +162,45 @@ const Home = () => {
 						</div>
 					</div>
 				</GridContainer>
-			</BannerContainer>
+			</BannerContainer> */}
+			<Carousel
+				pt={{
+					nextButton: {
+						style: {
+							position: "absolute",
+							right: "15px",
+							top: "50%",
+						},
+					},
+					nextButtonIcon: {
+						style: {
+							color: "#00d6b6",
+							width: "2rem",
+							height: "2rem",
+						},
+					},
+					previousButtonIcon: {
+						style: {
+							color: "#00d6b6",
+							width: "2rem",
+							height: "2rem",
+						},
+					},
+					previousButton: {
+						style: {
+							position: "absolute",
+							top: "50%",
+							left: "15px",
+							zIndex: "999999",
+						},
+					},
+					indicators: {
+						className: "d-none",
+					},
+				}}
+				value={items}
+				itemTemplate={itemTemplate}
+			/>
 			<GridContainer>
 				<div className="ha-50-anos-section">
 					<div className="wrapper">
@@ -219,13 +297,15 @@ const Home = () => {
 						<div className="label">
 							<h2>Alguns mercados que atendemos</h2>
 						</div>
-						<div className="functions">
-							<small>Veja todos os setores passando os slides</small>
-							<div className="slider-btns">
-								<SliderPrevIcon onClick={goToPrevSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
-								<SliderNextIcon onClick={goToNextSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
+						{isMedia1024px && (
+							<div className="functions">
+								<small>Veja todos os setores passando os slides</small>
+								<div className="slider-btns">
+									<SliderPrevIcon onClick={goToPrevSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
+									<SliderNextIcon onClick={goToNextSlide} size={`${isMedia600px ? "2.0rem" : "2.5rem"}`} />
+								</div>
 							</div>
-						</div>
+						)}
 					</div>
 					<div className="slider-wrapper">
 						<div className="slider-container">

@@ -34,17 +34,15 @@ export interface IEventModel {
 const Eventos = () => {
 	const isMedia600px = useMediaQuery("(max-width: 600px)");
 
-	const [events, setEvents] = useState<IEventModel[]>();
+	const [events, setEvents] = useState<IEventModel[]>([]);
+
+	const [teste, setTeste] = useState("Teste");
 
 	useEffect(() => {
 		const getAllEvents = async () => {
-			try {
-				const response = await axios.get("https://backend-production-9a06.up.railway.app/api/event/ultimos-events");
+			const response = await axios.get("https://backend-production-9a06.up.railway.app/api/event/ultimos-events");
 
-				setEvents(response.data);
-			} catch (err) {
-				console.log(err);
-			}
+			setTimeout(() => setEvents(response.data), 2000);
 		};
 
 		getAllEvents();
@@ -66,6 +64,7 @@ const Eventos = () => {
 			<div className="calendario-2">
 				<GridContainer>
 					<h3>Calendário de eventos</h3>
+					<span className="text-white">{teste}</span>
 					<Calendar />
 				</GridContainer>
 			</div>
@@ -78,7 +77,11 @@ const Eventos = () => {
 						</div>
 					</div>
 					<div className="container-eventos">
-						{events ? events?.map((event) => <EventoSingle key={event.id} title={event.nome} content={event.sobre} slug={event.slug} image={event.imagem} />) : <div>Carregando...</div>}
+						{events && events.length > 0 ? (
+							events.map((event) => <EventoSingle key={event.id} title={event.nome} content={event.sobre} slug={event.slug} image={event.imagem} />)
+						) : (
+							<div>Carregando...</div>
+						)}
 					</div>
 				</GridContainer>
 			</div>
