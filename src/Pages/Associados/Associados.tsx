@@ -56,8 +56,16 @@ const Associados = () => {
 
 	const segmento = methods.watch("Segmento");
 
+	const filteredData = () => {
+		const filteredNome = data.filter((associado: any) => associado.fantasy_name.toLowerCase().includes(nomeEmpresa));
+
+		const filteredSegment = data.filter((associado: any) => associado.segment_id === segmento);
+
+		return filteredNome ? filteredNome : filteredSegment ? filteredSegment : data;
+	};
+
 	const associadosFiltrados = nomeEmpresa
-		? data.filter((associado: any) => associado.fantasy_name.toLowerCase().includes(nomeEmpresa))
+		? data.filter((associado: any) => associado.fantasy_name.toLowerCase().includes(nomeEmpresa.toLowerCase()))
 		: segmento
 		? data.filter((associado: any) => associado.segment_id === segmento)
 		: data;
@@ -135,6 +143,10 @@ const Associados = () => {
 			sliderRef.slickNext();
 		}
 	};
+
+	useEffect(() => {
+		sliderRef?.slickGoTo(0);
+	}, [nomeEmpresa]);
 
 	return (
 		<div className="associados">
