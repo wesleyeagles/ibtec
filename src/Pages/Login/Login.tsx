@@ -43,7 +43,7 @@ const Login = () => {
 			});
 
 			const token = response.data.token;
-			Cookies.set("token", token, { expires: 1 }); // Expirará em 7 dias
+			Cookies.set("token", token, { expires: 10000000 });
 			Cookies.set("userId", response.data.user.id);
 
 			if (token) {
