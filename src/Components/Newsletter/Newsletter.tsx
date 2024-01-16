@@ -64,47 +64,101 @@ const Newsletter = () => {
 			});
 		}
 	};
-	return (
-		<div className="newsletter">
-			<GridContainer>
-				<div className="wrapper">
-					<div className="label">
-						<NewsletterIcon />
-						<h3>
-							Assine nossa <strong>Newsletter</strong>
-						</h3>
-					</div>
-					<div className="form">
-						<form onSubmit={methods.handleSubmit(handleSubmit)}>
-							<fieldset className="d-flex gap-4" disabled={isFormDisabled}>
-								<CustomText placeholder="Seu melhor e-mail" name="Email" control={methods.control} />
-								<div className="inline">
-									<button type="submit">Cadastrar</button>
-								</div>
-							</fieldset>
-						</form>
-					</div>
-					<div className="social d-flex align-items-center gap-4">
-						<p>Siga nas redes</p>
-						<div className="d-flex align-items-end gap-3">
-							<a href="https://www.facebook.com/ibtecbrasil/" rel="noreferrer" target="_blank">
-								<FacebookIcon size={"1.5rem"} />
-							</a>
-							<a href="https://www.instagram.com/ibtecbrasil/" rel="noreferrer" target="_blank">
-								<InstagramIcon size={"1.5rem"} />
-							</a>
-							<a href="https://www.linkedin.com/company/ibtecbrasil/" rel="noreferrer" target="_blank">
-								<LinkedinIcon size={"1.5rem"} />
-							</a>
-							<a href="https://www.youtube.com/user/ibtec1" rel="noreferrer" target="_blank">
-								<YoutubeIcon size={"1.5rem"} />
-							</a>
+
+	const locale = "br";
+
+	if (locale === "en") {
+		return (
+			<div className="newsletter">
+				<GridContainer>
+					<div className="wrapper">
+						<div className="label">
+							<NewsletterIcon />
+							<h3>
+								Subscribe to our <strong>Newsletter</strong>
+							</h3>
+						</div>
+						<div className="form">
+							<form onSubmit={methods.handleSubmit(handleSubmit)}>
+								<fieldset className="d-flex gap-4" disabled={isFormDisabled}>
+									<CustomText
+										placeholder="Your best email
+"
+										name="Email"
+										control={methods.control}
+									/>
+									<div className="inline">
+										<button type="submit">Register</button>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+						<div className="social d-flex align-items-center gap-4">
+							<p>Follow on social media</p>
+							<div className="d-flex align-items-end gap-3">
+								<a href="https://www.facebook.com/ibtecbrasil/" rel="noreferrer" target="_blank">
+									<FacebookIcon size={"1.5rem"} />
+								</a>
+								<a href="https://www.instagram.com/ibtecbrasil/" rel="noreferrer" target="_blank">
+									<InstagramIcon size={"1.5rem"} />
+								</a>
+								<a href="https://www.linkedin.com/company/ibtecbrasil/" rel="noreferrer" target="_blank">
+									<LinkedinIcon size={"1.5rem"} />
+								</a>
+								<a href="https://www.youtube.com/user/ibtec1" rel="noreferrer" target="_blank">
+									<YoutubeIcon size={"1.5rem"} />
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
-			</GridContainer>
-		</div>
-	);
+				</GridContainer>
+			</div>
+		);
+	} else if (locale === "es") {
+		return null;
+	} else {
+		return (
+			<div className="newsletter">
+				<GridContainer>
+					<div className="wrapper">
+						<div className="label">
+							<NewsletterIcon />
+							<h3>
+								Assine nossa <strong>Newsletter</strong>
+							</h3>
+						</div>
+						<div className="form">
+							<form onSubmit={methods.handleSubmit(handleSubmit)}>
+								<fieldset className="d-flex gap-4" disabled={isFormDisabled}>
+									<CustomText placeholder="Seu melhor e-mail" name="Email" control={methods.control} />
+									<div className="inline">
+										<button type="submit">Cadastrar</button>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+						<div className="social d-flex align-items-center gap-4">
+							<p>Siga nas redes</p>
+							<div className="d-flex align-items-end gap-3">
+								<a href="https://www.facebook.com/ibtecbrasil/" rel="noreferrer" target="_blank">
+									<FacebookIcon size={"1.5rem"} />
+								</a>
+								<a href="https://www.instagram.com/ibtecbrasil/" rel="noreferrer" target="_blank">
+									<InstagramIcon size={"1.5rem"} />
+								</a>
+								<a href="https://www.linkedin.com/company/ibtecbrasil/" rel="noreferrer" target="_blank">
+									<LinkedinIcon size={"1.5rem"} />
+								</a>
+								<a href="https://www.youtube.com/user/ibtec1" rel="noreferrer" target="_blank">
+									<YoutubeIcon size={"1.5rem"} />
+								</a>
+							</div>
+						</div>
+					</div>
+				</GridContainer>
+			</div>
+		);
+	}
 };
 
 export default Newsletter;
