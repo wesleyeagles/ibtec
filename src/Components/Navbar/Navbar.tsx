@@ -19,7 +19,7 @@ const Navbar = () => {
 
 	const matches600px = useMediaQuery("(max-width: 600px)");
 
-	const locale = "br";
+	const [locale, setLocale] = useState<"br" | "en" | "es">("br");
 
 	if (locale === "en") {
 		return (

@@ -8,6 +8,7 @@ import { useMediaQuery } from "../../../Hooks/useMediaQuery";
 const TabsComponent: React.FC = () => {
 	const [activeTab, setActiveTab] = useState<number>(1);
 	const [borderPosition, setBorderPosition] = useState<number>(0);
+	const [locale, setLocale] = useState<"br" | "en" | "es">("br");
 
 	const handleTabChange = (tabNumber: number) => {
 		setActiveTab(tabNumber);
@@ -39,8 +40,6 @@ const TabsComponent: React.FC = () => {
 	};
 
 	const isMedia1024px = useMediaQuery("(max-width: 1024px)");
-
-	const locale = "br";
 
 	if (locale === "en") {
 		return (

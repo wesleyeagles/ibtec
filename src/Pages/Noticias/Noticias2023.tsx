@@ -5,6 +5,7 @@ import { FiSearch } from "react-icons/fi";
 import Noticia from "./Components/Noticias.Component.Noticia";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Noticia2023Single from "./Components/Noticias.Component.Noticia2023";
 
 interface Post {
 	tipo: any;
@@ -47,7 +48,7 @@ const Noticias2023 = () => {
 			<GridContainer>
 				<div className="wrapping d-flex justify-content-between align-items-center gap-5">
 					<div className="d-flex align-items-center justify-content-between w-100">
-						<h2>Notícias de 2023</h2>
+						<h2>Notícias de</h2>
 					</div>
 					<div className="search-container">
 						<input value={tituloFilter} onChange={(e) => setTituloFilter(e.target.value)} type="text" className="search-input" placeholder="Faça sua busca" />
@@ -60,7 +61,7 @@ const Noticias2023 = () => {
 							<h3>ÚLTIMAS NOTÍCIAS</h3>
 							<div className="d-flex flex-column gap-4">
 								{filterData().length > 0 ? (
-									filterData().map((post, index) => <Noticia key={index} title={post.title} content={post.content} date={post.created_at} image={post.image} />)
+									filterData().map((post, index) => <Noticia2023Single key={index} title={post.title} content={post.content} date={post.created_at} image={post.image} />)
 								) : (
 									<div>
 										<h3 className="text-white">Nenhuma noticia encontrada</h3>

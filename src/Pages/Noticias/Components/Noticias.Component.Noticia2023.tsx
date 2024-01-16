@@ -10,7 +10,7 @@ interface INoticia {
 	image: string;
 }
 
-const Noticia = ({ content, date, title, image }: INoticia) => {
+const Noticia2023Single = ({ content, date, title, image }: INoticia) => {
 	const [isReadingMore, setIsReadingMore] = useState(false);
 
 	const readMore = () => {
@@ -20,7 +20,7 @@ const Noticia = ({ content, date, title, image }: INoticia) => {
 	return (
 		<div className="noticia-wrapper">
 			<div className="image">
-				<img src={`https://dev.ibtec.org.br/dev/blog/${image}`} />
+				<img src={`https://teste.ibtec.org.br/media/news/${image}`} />
 				<div className="data">
 					<span>{format(new Date(date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
 				</div>
@@ -44,4 +44,4 @@ const Noticia = ({ content, date, title, image }: INoticia) => {
 	);
 };
 
-export default Noticia;
+export default Noticia2023Single;

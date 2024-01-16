@@ -41,6 +41,7 @@ const Home = () => {
 	const isMedia600px = useMediaQuery("(max-width: 600px)");
 	const isMedia1024px = useMediaQuery("(max-width: 1024px)");
 	const [posts, setPosts] = useState<Post[]>([]);
+	const [locale, setLocale] = useState<"br" | "en" | "es">("br");
 
 	const scrollToTop = () => {
 		const scrollToTopEasing = (t: number) => t * (2 - t);
@@ -106,8 +107,6 @@ const Home = () => {
 			sliderRef.slickNext();
 		}
 	};
-
-	const locale = "br";
 
 	const items = [
 		{

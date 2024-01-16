@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const Newsletter = () => {
 	const { methods } = useNewsletterForm();
+	const [locale, setLocale] = useState<"br" | "en" | "es">("br");
 
 	const [isFormDisabled, setFormDisabled] = useState(false);
 
@@ -64,8 +65,6 @@ const Newsletter = () => {
 			});
 		}
 	};
-
-	const locale = "br";
 
 	if (locale === "en") {
 		return (
