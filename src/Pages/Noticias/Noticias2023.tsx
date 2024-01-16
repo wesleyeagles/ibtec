@@ -48,7 +48,7 @@ const Noticias2023 = () => {
 			<GridContainer>
 				<div className="wrapping d-flex justify-content-between align-items-center gap-5">
 					<div className="d-flex align-items-center justify-content-between w-100">
-						<h2>Notícias de</h2>
+						<h2>Notícias de 2023</h2>
 					</div>
 					<div className="search-container">
 						<input value={tituloFilter} onChange={(e) => setTituloFilter(e.target.value)} type="text" className="search-input" placeholder="Faça sua busca" />
