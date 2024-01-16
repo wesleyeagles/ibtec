@@ -15,6 +15,11 @@ import { User, useUserContext } from "../../Global/Contexts/UserContext";
 const Layout = () => {
 	const navigate = useNavigate();
 	const { user, setUser } = useUserContext();
+	const chatBot = document.querySelector("nld-chatbot");
+
+	useEffect(() => {
+		console.log("BOT:", chatBot);
+	}, [chatBot]);
 
 	useEffect(() => {
 		const fetchData = async () => {

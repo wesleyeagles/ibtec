@@ -5,9 +5,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import Newsletter from "../../Components/Newsletter/Newsletter";
+import TagManager from "react-gtm-module";
 // Mutations
 
 const Main = () => {
+	const tagManagerArgs = {
+		gtmId: "GTM-NXX2N62",
+	};
+	TagManager.initialize(tagManagerArgs);
+
 	return (
 		<div className="container-wrapper">
 			<ToastContainer

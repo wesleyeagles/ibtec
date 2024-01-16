@@ -67,3 +67,60 @@ video::-webkit-media-controls-play-button {
     right: 2em
 ;
 }
+
+@keyframes pathInovacaoAnimation {
+	from {
+		stroke: #000;
+	}
+
+	to {
+		stroke: #00D6B6;
+	}
+}
+
+@keyframes pathInovacaoLineAnimation {
+	from {
+		stroke-dasharray: 0;
+	}
+
+	to {
+		stroke-dasharray: 65;
+	}
+}
+
+#path_inovacao {
+	animation: pathInovacaoAnimation 2s infinite alternate-reverse forwards linear;
+}
+
+#path_line_inovacao {
+	stroke-dashoffset: 0;
+	animation: pathInovacaoLineAnimation 5s infinite alternate-reverse forwards linear;
+}
+
+#path_tecnologia {
+	stroke-dashoffset: 0;
+	animation: pathInovacaoLineAnimation 5s infinite alternate-reverse forwards linear;
+}
+
+#path_sustentabilidade {
+	stroke-dashoffset: 0;
+	animation: pathInovacaoLineAnimation 5s infinite alternate-reverse forwards linear;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0px);
+	}
+
+	50% {
+		transform: translateY(-15px);
+	}
+}
+
+.icon {
+	img 
+	{
+		animation: bounce infinite 3s alternate-reverse linear;
+	}
+	
+}

@@ -1,4 +1,5 @@
-import { FC, SVGProps } from "react";
+import { FC, SVGProps, SetStateAction, useEffect, useState } from "react";
+import { useSpring, animated, config } from "react-spring";
 
 export interface IIconProps extends SVGProps<SVGSVGElement> {
 	size?: string | number;
@@ -174,12 +175,13 @@ export const SustentabilidadeIcon: FC<IIconProps> = (props) => {
 
 	return (
 		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
-			<rect width="48" height="48" rx="5" fill="#171F2B" />
+			<rect id="rect" width="48" height="48" rx="5" fill="#171F2B" />
 			<path d="M17 32C17.5 27.5 19.5 24 24 22" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
 			<path
 				d="M21.3227 29C27.9236 29 32.4692 25.9469 33 17.8571V16H28.7389C19.1847 16 16.0149 19.7143 16 24.3571C16 25.2857 16 27.1429 18.1231 29H21.3079H21.3227Z"
 				stroke="#00D6B6"
 				strokeWidth="1.8"
+				id="path_sustentabilidade"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
@@ -195,16 +197,18 @@ export const InovacaoIcon: FC<IIconProps> = (props) => {
 
 	return (
 		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
-			<rect width="48" height="48" rx="5" fill="#171F2B" />
+			<rect id="rect" width="48" height="48" rx="5" fill="#171F2B" />
 			<path
 				d="M10.8008 23.1918H12.2174M23.5508 10.8008V12.1776M34.8841 23.1918H36.3008M14.4841 14.3804L15.4758 15.3442M32.6174 14.3804L31.6258 15.3442"
 				stroke="#00D6B6"
+				id="path_inovacao"
 				strokeWidth="1.8"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
 			<path
 				d="M19.3001 28.6996C18.1108 27.8327 17.2323 26.6241 16.789 25.2451C16.3457 23.866 16.3602 22.3863 16.8303 21.0156C17.3004 19.6449 18.2024 18.4528 19.4084 17.608C20.6145 16.7632 22.0635 16.3086 23.5501 16.3086C25.0368 16.3086 26.4858 16.7632 27.6918 17.608C28.8979 18.4528 29.7998 19.6449 30.27 21.0156C30.7401 22.3863 30.7545 23.866 30.3113 25.2451C29.868 26.6241 28.9895 27.8327 27.8001 28.6996C27.247 29.2317 26.8306 29.8829 26.5844 30.6004C26.3383 31.318 26.2695 32.0818 26.3835 32.83C26.3835 33.5602 26.085 34.2606 25.5536 34.777C25.0222 35.2934 24.3016 35.5835 23.5501 35.5835C22.7987 35.5835 22.078 35.2934 21.5467 34.777C21.0153 34.2606 20.7168 33.5602 20.7168 32.83C20.8308 32.0818 20.7619 31.318 20.5158 30.6004C20.2697 29.8829 19.8532 29.2317 19.3001 28.6996"
+				id="path_line_inovacao"
 				stroke="#00D6B6"
 				strokeWidth="1.8"
 				strokeLinecap="round"
@@ -223,13 +227,14 @@ export const TecnologiaIcon: FC<IIconProps> = (props) => {
 
 	return (
 		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
-			<rect width="48" height="48" rx="5" fill="#171F2B" />
+			<rect id="rect" width="48" height="48" rx="5" fill="#171F2B" />
 			<path
 				d="M31.4996 14.5273H15.8996C15.1816 14.5273 14.5996 15.093 14.5996 15.7907V30.9515C14.5996 31.6493 15.1816 32.2149 15.8996 32.2149H31.4996C32.2176 32.2149 32.7996 31.6493 32.7996 30.9515V15.7907C32.7996 15.093 32.2176 14.5273 31.4996 14.5273Z"
 				stroke="#00D6B6"
 				strokeWidth="1.8"
 				strokeLinecap="round"
 				strokeLinejoin="round"
+				id="path_tecnologia"
 			/>
 			<path d="M19.7988 19.5801H27.5988V27.1605H19.7988V19.5801Z" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
 			<path d="M12 20.8438H14.6" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -252,7 +257,7 @@ export const SegurancaIcon: FC<IIconProps> = (props) => {
 
 	return (
 		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
-			<path d="M0 5C0 2.23858 2.23858 0 5 0H43C45.7614 0 48 2.23858 48 5V43C48 45.7614 45.7614 48 43 48H5C2.23858 48 0 45.7614 0 43V5Z" fill="#171F2B" />
+			<path id="rect" d="M0 5C0 2.23858 2.23858 0 5 0H43C45.7614 0 48 2.23858 48 5V43C48 45.7614 45.7614 48 43 48H5C2.23858 48 0 45.7614 0 43V5Z" fill="#171F2B" />
 			<path
 				d="M24.0504 13.1992C26.7758 15.5426 30.3328 16.7626 33.9679 16.601C34.4972 18.3506 34.6591 20.1858 34.4441 21.9975C34.2291 23.8092 33.6416 25.5604 32.7165 27.147C31.7913 28.7337 30.5474 30.1234 29.0587 31.2336C27.57 32.3439 25.8668 33.1519 24.0504 33.6098C22.234 33.1519 20.5308 32.3439 19.0421 31.2336C17.5534 30.1234 16.3095 28.7337 15.3843 27.147C14.4592 25.5604 13.8716 23.8092 13.6566 21.9975C13.4417 20.1858 13.6036 18.3506 14.1328 16.601C17.7679 16.7626 21.325 15.5426 24.0504 13.1992"
 				stroke="#00D6B6"
@@ -280,15 +285,16 @@ export const ConhecimentoIcon: FC<IIconProps> = (props) => {
 
 	return (
 		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...newProps}>
-			<path d="M0 5C0 2.23858 2.23858 0 5 0H43C45.7614 0 48 2.23858 48 5V43C48 45.7614 45.7614 48 43 48H5C2.23858 48 0 45.7614 0 43V5Z" fill="#171F2B" />
+			<path id="rect" d="M0 5C0 2.23858 2.23858 0 5 0H43C45.7614 0 48 2.23858 48 5V43C48 45.7614 45.7614 48 43 48H5C2.23858 48 0 45.7614 0 43V5Z" fill="#171F2B" />
 			<path
 				d="M15 22C15 22.9193 15.1811 23.8295 15.5328 24.6788C15.8846 25.5281 16.4002 26.2997 17.0503 26.9497C17.7003 27.5998 18.4719 28.1154 19.3212 28.4672C20.1705 28.8189 21.0807 29 22 29C22.9193 29 23.8295 28.8189 24.6788 28.4672C25.5281 28.1154 26.2997 27.5998 26.9497 26.9497C27.5998 26.2997 28.1154 25.5281 28.4672 24.6788C28.8189 23.8295 29 22.9193 29 22C29 21.0807 28.8189 20.1705 28.4672 19.3212C28.1154 18.4719 27.5998 17.7003 26.9497 17.0503C26.2997 16.4002 25.5281 15.8846 24.6788 15.5328C23.8295 15.1811 22.9193 15 22 15C21.0807 15 20.1705 15.1811 19.3212 15.5328C18.4719 15.8846 17.7003 16.4002 17.0503 17.0503C16.4002 17.7003 15.8846 18.4719 15.5328 19.3212C15.1811 20.1705 15 21.0807 15 22Z"
 				stroke="#00D6B6"
 				strokeWidth="1.8"
+				id="path_sustentabilidade"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<path d="M33 33L27 27" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M33 33L27 27" stroke="#00D6B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" id="path_sustentabilidade" />
 		</svg>
 	);
 };
