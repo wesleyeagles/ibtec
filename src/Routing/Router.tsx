@@ -35,6 +35,7 @@ import FisicoMecanicas from "../Pages/FisicoMecanicas/FisicoMecanicas";
 import NucleoInovacao from "../Pages/NucleoInovacao/NucleoInovacao";
 import ListaAssociados from "../Pages/Painel/Pages/ListaAssociados";
 import CadastraAssociado from "../Pages/Painel/Pages/CadastraAssociado";
+import Noticias2023 from "../Pages/Noticias/Noticias2023";
 
 export const router = createBrowserRouter([
 	{
@@ -122,6 +123,10 @@ export const router = createBrowserRouter([
 			{
 				path: "/noticias",
 				element: <Noticias />,
+			},
+			{
+				path: "/noticias-2023",
+				element: <Noticias2023 />,
 			},
 			{
 				path: "/eventos",

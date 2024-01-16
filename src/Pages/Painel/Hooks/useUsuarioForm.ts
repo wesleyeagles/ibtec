@@ -2,38 +2,49 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const cadastrarUsuarioSchema = z.object({
-	image: z.instanceof(Blob, {
-		message: "Nenhum arquivo selecionado",
-	}),
-	fantasy_name: z.string({
-		required_error: "Campo obrigatório",
-	}),
-	segment_id: z.number({
-		required_error: "Campo obrigatório",
-	}),
-	city_id: z.number({
-		required_error: "Campo obrigatório",
-	}),
-	state: z.string({
-		required_error: "Campo obrigatório",
-	}),
-	address: z.string({
-		required_error: "Campo obrigatório",
-	}),
-	neighborhood: z.string({
-		required_error: "Campo obrigatório",
-	}),
-	zip_code: z.string({
-		required_error: "Campo obrigatório",
-	}),
-	phone: z.string({
-		required_error: "Campo obrigatório",
-	}),
-	website: z.string({
-		required_error: "Campo obrigatório",
-	}),
-});
+const cadastrarUsuarioSchema = z
+	.object({
+		image: z.instanceof(Blob, {
+			message: "Nenhum arquivo selecionado",
+		}),
+		name: z.string({
+			required_error: "Campo obrigatório",
+		}),
+		role: z.string({
+			required_error: "Campo obrigatório",
+		}),
+		email: z
+			.string({
+				required_error: "Campo obrigatório",
+			})
+			.email({
+				message: "Email inválido",
+			}),
+		password: z
+			.string({
+				required_error: "Campo obrigatório",
+			})
+			.min(5, {
+				message: "Minimo de 5 caracteres para a senha",
+			})
+			.max(10, {
+				message: "Máximo de 10 caracteres para a senha",
+			}),
+		confirmPassword: z
+			.string({
+				required_error: "Campo obrigatório",
+			})
+			.min(5, {
+				message: "Minimo de 5 caracteres para a senha",
+			})
+			.max(10, {
+				message: "Máximo de 10 caracteres para a senha",
+			}),
+	})
+	.refine((data) => data.password === data.confirmPassword, {
+		message: "As senhas não coincidem",
+		path: ["confirmPassword"],
+	});
 
 const useUsuarioForm = () => {
 	const methods = useForm<z.infer<typeof cadastrarUsuarioSchema>>({
