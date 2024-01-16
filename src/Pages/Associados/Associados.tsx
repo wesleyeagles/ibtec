@@ -10,10 +10,12 @@ import axios from "axios";
 import { Spinner } from "react-bootstrap";
 import BannerContainer from "../../Components/BannerContainer/BannerContainer";
 import { Link } from "react-router-dom";
+import CustomText from "../../Components/FormInputs/CustomTextInput/CustomText";
 
 const Associados = () => {
 	const { methods } = useAssociadosForm();
 	const [empresaSelecionada, setEmpresaSelecionada] = useState<any | null>(null);
+	const [nomeEmpresa, setNomeEmpresa] = useState("");
 
 	const scrollToTop = () => {
 		const scrollToTopEasing = (t: number) => t * (2 - t);
@@ -54,7 +56,11 @@ const Associados = () => {
 
 	const segmento = methods.watch("Segmento");
 
-	const associadosFiltrados = segmento ? data.filter((associado: any) => associado.segment_id === segmento) : data;
+	const associadosFiltrados = nomeEmpresa
+		? data.filter((associado: any) => associado.fantasy_name.toLowerCase().includes(nomeEmpresa))
+		: segmento
+		? data.filter((associado: any) => associado.segment_id === segmento)
+		: data;
 
 	const associadosPorSlide = 15;
 	const slides: any = [];
@@ -264,6 +270,18 @@ const Associados = () => {
 							value: 10,
 						},
 					]}
+				/>
+
+				<CustomText
+					style={{
+						fontSize: "13px",
+						width: "220px",
+					}}
+					placeholder="Filtrar por nome da empresa"
+					control={methods.control}
+					name="Nome"
+					value={nomeEmpresa}
+					onChange={(e) => setNomeEmpresa(e.target.value)}
 				/>
 
 				<div className="sliders">

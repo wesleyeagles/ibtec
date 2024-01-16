@@ -170,7 +170,7 @@ const Footer = () => {
 										<PinFooterIcon size={"1.3rem"} />
 									</div>
 									Novo Hamburgo - <br /> RS Rua Araxá, <br />
-									750B. Ideal,
+									750. Ideal,
 									<br /> CEP: 93334-000
 								</li>
 							)}

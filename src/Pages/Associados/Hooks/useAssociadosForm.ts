@@ -10,6 +10,7 @@ const associadosSchema = z.object({
 		.min(3, {
 			message: "Nome deve conter no minimo 3 caracteres",
 		}),
+	Nome: z.string(),
 });
 
 const useAssociadosForm = () => {

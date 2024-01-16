@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const cadastrarUsuarioSchema = z.object({
+const cadastrarAssociadoSchema = z.object({
 	image: z.instanceof(Blob, {
 		message: "Nenhum arquivo selecionado",
 	}),
@@ -35,9 +35,9 @@ const cadastrarUsuarioSchema = z.object({
 	}),
 });
 
-const useUsuarioForm = () => {
-	const methods = useForm<z.infer<typeof cadastrarUsuarioSchema>>({
-		resolver: zodResolver(cadastrarUsuarioSchema),
+const useAssociadoForm = () => {
+	const methods = useForm<z.infer<typeof cadastrarAssociadoSchema>>({
+		resolver: zodResolver(cadastrarAssociadoSchema),
 	});
 
 	return {
@@ -45,6 +45,6 @@ const useUsuarioForm = () => {
 	};
 };
 
-export default useUsuarioForm;
+export default useAssociadoForm;
 
-export type UsuarioHandleSubmitForm = z.infer<typeof cadastrarUsuarioSchema>;
+export type AssociadoHandleSubmitForm = z.infer<typeof cadastrarAssociadoSchema>;

@@ -737,6 +737,111 @@
 			margin-top: 1rem;
 		}
 	}
+
+
+	.cadastra-associado {
+		h2 {
+			color: #333;
+			font-weight: 400;
+			font-size: 26px;
+		}
+
+		.inputs-grid {
+			margin-top: 1.5rem;
+			display: grid;
+			grid-template-columns: 6;
+			grid-template-areas: "nome nome email email email segmento" "cidade senha senha confirmar-senha confirmar-senha imagem";
+			gap: 1rem;
+			
+			input {
+				width: 100%;
+
+				&::placeholder {
+					font-size: 13px;
+				}
+			}
+
+			.form-group {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.nome {
+				grid-area: nome;
+			}
+
+			.email {
+				grid-area: email;
+			}
+
+			.segmento {
+				grid-area: segmento;
+			}
+
+			.cidade {
+				grid-area: cidade;
+			}
+
+			.confirmar-senha {
+				grid-area: confirmar-senha;
+			}
+
+			.imagem {
+				grid-area: imagem;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.links-title {
+			font-size: 22px;
+			margin-block: 1rem;
+			display: block;
+		}
+
+		.links-grid {
+			display: grid;
+			grid-template-columns: 12;
+			grid-template-areas: "facebook instagram linkedin youtube";
+			gap: 1rem;
+
+			@media screen and (max-width: 1024px) {
+				grid-template-areas: 
+				"facebook facebook instagram instagram"
+				"linkedin linkedin youtube youtube";
+			}
+
+			.facebook {
+				grid-area: facebook;
+			}
+			.instagram {
+				grid-area: instagram;
+			}
+			.linkedin {
+				grid-area: linkedin;
+			}
+			.youtube {
+				grid-area: youtube;
+			}
+
+			input {
+				width: 100%;
+
+				&::placeholder {
+					font-size: 13px;
+				}
+			}
+
+			.form-group {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+
+		.btn-enviar {
+			margin-top: 1rem;
+		}
+	}
 }
 
 .btns-fire {

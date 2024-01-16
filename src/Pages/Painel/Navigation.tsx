@@ -17,6 +17,7 @@ const Navigation = () => {
 	const [open3, setOpen3] = useState(false);
 	const [open5, setOpen5] = useState(false);
 	const [open6, setOpen6] = useState(false);
+	const [open7, setOpen7] = useState(false);
 	const navigate = useNavigate();
 	const { setUser, user } = useUserContext();
 
@@ -162,6 +163,36 @@ const Navigation = () => {
 									</span>
 									<span className="link-expansible">
 										<Link to="/painel-administrativo/lista-usuarios">- Lista de usuários</Link>
+									</span>
+								</div>
+							</div>
+						</Collapse>
+					</div>
+					<div className="link">
+						<div className="expansible" role="button" onClick={() => setOpen7(!open7)} aria-controls="collapse-text" aria-expanded={open7}>
+							<div className="d-flex align-items-center gap-3">
+								<div className="icon">
+									<FaUsersCog color="#FFF" />
+								</div>
+								<span>Associados</span>
+							</div>
+
+							<ExpansibleIcon
+								style={{
+									transform: open7 ? "rotate(0.5turn)" : "",
+									transition: "0.4s",
+								}}
+								size="0.8rem"
+							/>
+						</div>
+						<Collapse in={open7}>
+							<div id="collapse-text-institucional">
+								<div className="links-expansibles">
+									<span className="link-expansible">
+										<Link to="/painel-administrativo/cadastrar-associado">- Cadastrar associado</Link>
+									</span>
+									<span className="link-expansible">
+										<Link to="/painel-administrativo/lista-associados">- Lista de associados</Link>
 									</span>
 								</div>
 							</div>
