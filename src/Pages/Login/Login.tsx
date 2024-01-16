@@ -37,7 +37,7 @@ const Login = () => {
 		setIsLogging(true);
 
 		try {
-			const response = await axios.post("https://ibtec-backend.onrender.com/api/auth/login", {
+			const response = await axios.post("https://backend-production-9a06.up.railway.app/api/auth/login", {
 				email: values.Email,
 				password: values.Password,
 			});

@@ -7,7 +7,7 @@ import { TbTrashXFilled } from "react-icons/tb";
 import CustomText from "../../../Components/FormInputs/CustomTextInput/CustomText";
 import usePesquisaNoticiaForm from "../Hooks/usePesquisaNoticiaForm";
 import { useUserContext } from "../../../Global/Contexts/UserContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ListaImagem from "./Components/ListaImagem";
 
 const ListaAssociados = () => {
@@ -58,7 +58,7 @@ const ListaAssociados = () => {
 
 	const handleDelete = async (usuarioId: number | undefined) => {
 		setIsDeleting(true);
-		const toastId = toast("Deletando usuário, por favor aguarde...", {
+		const toastId = toast("Deletando associado, por favor aguarde...", {
 			isLoading: true,
 			autoClose: false,
 			theme: "colored",
@@ -66,7 +66,7 @@ const ListaAssociados = () => {
 		});
 		try {
 			// Faça a solicitação de exclusão para o servidor
-			await axios.delete(`https://backend-production-9a06.up.railway.app/api/user/deletar/${usuarioId}`);
+			await axios.delete(`https://backend-production-9a06.up.railway.app/api/associates/deletar/${usuarioId}`);
 
 			// Atualize os dados após a exclusão
 			// Você pode recarregar os dados da API ou remover a linha da tabela
@@ -74,7 +74,7 @@ const ListaAssociados = () => {
 			toast.update(toastId, {
 				autoClose: 3000,
 				theme: "colored",
-				render: "Usuário deletado com sucesso!",
+				render: "Associado deletado com sucesso!",
 				isLoading: false,
 				type: "success",
 			});
@@ -166,6 +166,11 @@ const ListaAssociados = () => {
 			<div className="listagem-noticias">
 				<h2>Listagem de Associados</h2>
 				<div className="d-flex gap-3 pesquisa">
+					<Link to="/painel-administrativo/cadastrar-associado">
+						<Button className="mb-3" variant="success">
+							Cadastrar associado
+						</Button>
+					</Link>
 					<CustomText placeholder="Pesquisa por nome" control={methods.control} name="pesquisa" />
 				</div>
 				{data ? (
