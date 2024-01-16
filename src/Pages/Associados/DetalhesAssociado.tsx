@@ -40,7 +40,7 @@ const DetalhesAssociado: React.FC<DetalhesEmpresaProps> = ({ empresa }) => {
 			{dataSegment && dataCity ? (
 				<>
 					<div className="image">
-						<img src={`https://ibtec.org.br/media/associates/${empresa.image}`} alt={empresa.fantasy_name} />
+						<img src={`https://dev.ibtec.org.br/dev/blog/${empresa.image}`} alt={empresa.fantasy_name} />
 					</div>
 					<div>
 						<h4>{empresa.fantasy_name}</h4>

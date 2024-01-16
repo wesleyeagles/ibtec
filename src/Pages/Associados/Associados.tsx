@@ -293,7 +293,7 @@ const Associados = () => {
 										<div className="pagina-slider">
 											{pagina.map((empresa: any, empresaIndex: any) => (
 												<div key={empresaIndex} className="empresa" onClick={() => handleEmpresaClick(empresa)}>
-													<img src={`https://ibtec.org.br/media/associates/${empresa.image}`} alt={empresa.fantasy_name} />
+													<img src={`https://dev.ibtec.org.br/dev/blog/${empresa.image}`} alt={empresa.fantasy_name} />
 												</div>
 											))}
 										</div>
