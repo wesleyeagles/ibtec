@@ -33,8 +33,13 @@ const Conselho = () => {
 						slides={[
 							{
 								imagemSrc: "/pessoa.webp",
+								nome: "Ricardo Wirth",
+								cargo: "Indústria de Calçados Wirth Ltda",
+							},
+							{
+								imagemSrc: "/pessoa.webp",
 								nome: "Cláudio Chies",
-								cargo: "Grendene S/A (Presidente do Conselho)",
+								cargo: "Grendene S/A",
 							},
 							{
 								imagemSrc: "/pessoa.webp",
@@ -43,18 +48,19 @@ const Conselho = () => {
 							},
 							{
 								imagemSrc: "/pessoa.webp",
-								nome: "Jakson Fernando Wirth",
-								cargo: "Calçados Ramarim Ltda",
+								nome: "João Altair dos Santos",
+								cargo: "Conforto Artefatos de Couro",
 							},
 							{
 								imagemSrc: "/pessoa.webp",
-								nome: "Marcelo Fleck",
-								cargo: "Plínio Fleck S/A Ind. e Comércio",
+								nome: "Martinho Fleck",
+								cargo: "Boxflex Componentes para Calçados Ltda",
 							},
 							{
 								imagemSrc: "/pessoa.webp",
-								nome: "Rosnei Alfredo da Silva",
-								cargo: "Calçados Bibi Ltda",
+								nome: "André da Rocha",
+								cargo: "Master Equipamentos Industriais Ltda",
+								isSuplente: true,
 							},
 							{
 								imagemSrc: "/pessoa.webp",
@@ -64,8 +70,20 @@ const Conselho = () => {
 							},
 							{
 								imagemSrc: "/pessoa.webp",
-								nome: "João Altair dos Santos",
-								cargo: "Conforto Artefatos de Couro",
+								nome: "João Fernando Hartz",
+								cargo: "Arezzo Indústria e Comércio S/A",
+								isSuplente: true,
+							},
+							{
+								imagemSrc: "/pessoa.webp",
+								nome: "José Geraldo Brasil",
+								cargo: "JGB Equipamentos de Segurança S/A",
+								isSuplente: true,
+							},
+							{
+								imagemSrc: "/pessoa.webp",
+								nome: "Renato Raimundo",
+								cargo: "Stick Fran Componentes para Calçados Ltda",
 								isSuplente: true,
 							},
 						]}
@@ -76,23 +94,35 @@ const Conselho = () => {
 						slides={[
 							{
 								imagemSrc: "/pessoa.webp",
-								nome: "João Paulo Mendel",
-								cargo: "Calbrás Equipamentos de Proteção LTDA",
+								nome: "Ademir Gomes Gonçalves",
+								cargo: "Indústria de Calçados Gonçalves Ltda",
 							},
 							{
 								imagemSrc: "/pessoa.webp",
-								nome: "Cisso Klaus",
-								cargo: "Arezzo Indústria e Comércio S/A",
+								nome: "Jakson Fernando Wirth",
+								cargo: "Calçados Ramarim Ltda",
 							},
 							{
 								imagemSrc: "/pessoa.webp",
-								nome: "Ricardo Wirth",
-								cargo: "Indústria de Calçados Wirth",
+								nome: "Paulo Roberto dos Reis",
+								cargo: "Crespi do Brasil Ltda",
 							},
 							{
 								imagemSrc: "/pessoa.webp",
-								nome: "André da Rocha",
-								cargo: "Master Equipamentos LTDA",
+								nome: "Jorge Ricardo Klein",
+								cargo: "NKS Import. e Export. Ind. e Com. de Calçados Ltda ",
+								isSuplente: true,
+							},
+							{
+								imagemSrc: "/pessoa.webp",
+								nome: "Marco Augusto Bombonatto",
+								cargo: "Bompel Indústria de Calçados Ltda",
+								isSuplente: true,
+							},
+							{
+								imagemSrc: "/pessoa.webp",
+								nome: "Milton José de Mello",
+								cargo: "Formello Formas Ltda",
 								isSuplente: true,
 							},
 						]}
@@ -104,7 +134,7 @@ const Conselho = () => {
 							{
 								imagemSrc: "/pessoa.webp",
 								nome: "Valdir Soldi",
-								cargo: "Vice-Presidente Executivo",
+								cargo: "Presidente Executivo",
 							},
 						]}
 					/>
