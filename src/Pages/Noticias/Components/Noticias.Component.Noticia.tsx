@@ -20,7 +20,7 @@ const Noticia = ({ content, date, title, image }: INoticia) => {
 	return (
 		<div className="noticia-wrapper">
 			<div className="image">
-				<img src={`https://dev.ibtec.org.br/dev/blog/${image}`} />
+				<img src={`https://ibtec.org.br/media/news/${image}`} />
 				<div className="data">
 					<span>{format(new Date(date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
 				</div>
