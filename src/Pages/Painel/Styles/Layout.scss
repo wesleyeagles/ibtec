@@ -476,6 +476,10 @@
 			font-size: 26px;
 		}
 
+		.inputs {
+			max-width: 100% !important;
+		}
+
 		.alvo-wrapper {
 			display: flex;
 			align-items: center;
@@ -657,6 +661,10 @@
 			font-size: 26px;
 		}
 
+		.inputs {
+			max-width: 100% !important;
+		}
+
 		.inputs-grid {
 			margin-top: 1.5rem;
 			display: grid;
@@ -770,7 +778,7 @@
 		}
 
 		.inputs {
-			max-width: 100%!important;
+			max-width: 100% !important;
 		}
 
 		.inputs-grid {
