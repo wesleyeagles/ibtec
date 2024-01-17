@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
 import DataTable from "react-data-table-component";
 import ptBR from "date-fns/locale/pt-BR";
 import ListaImagem from "./Components/ListaImagem";
