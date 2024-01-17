@@ -4,14 +4,13 @@ import { useState } from "react";
 import { ExpansibleIcon, UserIcon } from "../../assets/Icones";
 import { Link, useNavigate } from "react-router-dom";
 import { ImBlog } from "react-icons/im";
-import { RiDashboardFill } from "react-icons/ri";
 import { FaRegNewspaper, FaUsersCog } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 import { MdContactMail } from "react-icons/md";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 
-const Navigation = () => {
+const Navigation = ({ setIsMenuOpen, isMenuOpen }: { setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>; isMenuOpen: boolean }) => {
 	const [open, setOpen] = useState(false);
 	const [open2, setOpen2] = useState(false);
 	const [open3, setOpen3] = useState(false);
@@ -20,7 +19,6 @@ const Navigation = () => {
 	const [open7, setOpen7] = useState(false);
 	const navigate = useNavigate();
 	const { setUser, user } = useUserContext();
-
 	const logout = () => {
 		Cookies.remove("token");
 		Cookies.remove("id");
@@ -37,7 +35,7 @@ const Navigation = () => {
 	};
 
 	return (
-		<div className="navigation-painel">
+		<div className={`navigation-painel ${isMenuOpen ? "navigation-painel-open" : "navigation-painel-close"}`}>
 			{user ? (
 				<div className="user">
 					<div className="foto">

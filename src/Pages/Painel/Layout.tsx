@@ -6,7 +6,7 @@ import "./Styles/Layout.scss";
 import Navbar from "./Navbar";
 import Cookies from "js-cookie";
 import Navigation from "./Navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { User, useUserContext } from "../../Global/Contexts/UserContext";
@@ -16,6 +16,7 @@ const Layout = () => {
 	const navigate = useNavigate();
 	const { user, setUser } = useUserContext();
 	const chatBot = document.querySelector("nld-chatbot");
+	const [isMenuOpen, setIsMenuOpen] = useState(true);
 
 	useEffect(() => {
 		console.log("BOT:", chatBot);
@@ -70,14 +71,14 @@ const Layout = () => {
 					right: "60px",
 				}}
 			/>
-			<div className="layout">
+			<div className={`layout ${isMenuOpen ? "layout-menu-open" : "layout-menu-close"}`}>
 				<div className="name">
 					<h1>
 						<strong>Admin</strong>IBTEC
 					</h1>
 				</div>
-				<Navbar />
-				<Navigation />
+				<Navbar setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
+				<Navigation setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
 				<div className="outlet-painel">
 					<Outlet />
 				</div>
