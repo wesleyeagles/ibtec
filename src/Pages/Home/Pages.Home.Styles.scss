@@ -633,6 +633,16 @@
 				height: 500px;
 				border-radius: 6px;
 				position: relative;
+				transform-origin: center;
+				transition: filter 200ms linear, transform 200ms linear;
+				transform: scale(1) translateZ(1);
+
+				
+
+				&:hover {
+					transform: scale(1.05) translateZ(0);	
+				}
+
 
 				a {
 					text-decoration: none;
@@ -646,6 +656,14 @@
 							background-color: #1c222c;
 						}
 					}
+				}
+
+				
+			}
+
+			&:hover {
+				.slide:not(:hover) {
+					filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
 				}
 			}
 
