@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import "./Noticias.Components.Noticia.Style.scss";
 
@@ -22,7 +22,7 @@ const Noticia2023Single = ({ content, date, title, image }: INoticia) => {
 			<div className="image">
 				<img src={`https://teste.ibtec.org.br/media/news/${image}`} />
 				<div className="data">
-					<span>{format(new Date(date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
+					<span>{format(addDays(new Date(date), 1), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
 				</div>
 			</div>
 			<div className="titulo">

@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { IEventModel } from "./Eventos";
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
 import { Spinner } from "react-bootstrap";
 
 const Evento = () => {
@@ -203,7 +203,7 @@ const Evento = () => {
 							<div className="more-content">
 								{event.data ? (
 									<span>
-										<strong>Data: </strong> {format(new Date(event.data), "dd/MM")}
+										<strong>Data: </strong> {format(addDays(new Date(event.data), 1), "dd/MM")}
 									</span>
 								) : null}
 								{event.horario ? (
@@ -328,7 +328,7 @@ const Evento = () => {
 											<div className="more-content">
 												{event.data ? (
 													<span>
-														<strong>Data: </strong> {format(new Date(event.data), "dd/MM")}
+														<strong>Data: </strong> {format(addDays(new Date(event.data), 1), "dd/MM")}
 													</span>
 												) : null}
 												{event.horario ? (

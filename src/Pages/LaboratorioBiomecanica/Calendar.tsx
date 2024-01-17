@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { format, startOfMonth, addMonths, subMonths, isToday } from "date-fns";
+import { format, startOfMonth, addMonths, subMonths, isToday, addDays } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { zonedTimeToUtc } from "date-fns-tz";
 import "./styles.scss";
@@ -24,7 +24,7 @@ function Calendar() {
 
 				const mappedResponse = response.data.map((event: IEventModel) => ({
 					imagem: event.imagem,
-					data: format(new Date(event.data), "dd/MM/yyyy"),
+					data: format(addDays(new Date(event.data), 1), "dd/MM/yyyy"),
 				}));
 
 				if (response) {
@@ -37,6 +37,8 @@ function Calendar() {
 
 		fetchEvents();
 	}, []);
+
+	console.log(events);
 
 	const daysInMonth: Date[] = [];
 	const startOfCurrentMonth: Date = startOfMonth(currentDate);

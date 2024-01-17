@@ -121,7 +121,7 @@ const ListaNoticia = () => {
 		{
 			name: "Cadastrado em",
 			selector: (row: any) => {
-				return format(new Date(row.createdAt), "dd 'de' MMMM 'de' yyyy", { locale: ptBR });
+				return format(addDays(new Date(row.createdAt), 1), "dd 'de' MMMM 'de' yyyy", { locale: ptBR });
 			},
 			sort: true,
 			width: "14%",
@@ -130,7 +130,7 @@ const ListaNoticia = () => {
 		{
 			name: "Atualizado em",
 			selector: (row: any) => {
-				return format(new Date(row.updatedAt), "dd 'de' MMMM 'de' yyyy", { locale: ptBR });
+				return format(addDays(new Date(row.updatedAt), 1), "dd 'de' MMMM 'de' yyyy", { locale: ptBR });
 			},
 			sort: true,
 			width: "14%",

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
 import DataTable from "react-data-table-component";
 import ptBR from "date-fns/locale/pt-BR";
 import { Button, Modal, Spinner } from "react-bootstrap";
@@ -22,8 +22,6 @@ const ListaContatos = () => {
 	const handleShow = () => setShow(true);
 
 	const [idDelete, setIdDelete] = useState<number | undefined>();
-
-	console.log(data);
 
 	const fetchData = async () => {
 		try {
@@ -136,7 +134,7 @@ const ListaContatos = () => {
 		{
 			name: "Data do Contato",
 			selector: (row: any) => {
-				return format(new Date(row.createdAt), "dd'/'MM'/'yyyy", { locale: ptBR });
+				return format(addDays(new Date(row.createdAt), 1), "dd'/'MM'/'yyyy", { locale: ptBR });
 			},
 			sort: true,
 			width: "15%",

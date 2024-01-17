@@ -255,7 +255,6 @@
 				width: 405px;
 				max-height: 450px;
 				border-radius: 10px;
-				padding: .5rem;
 				background-color: #FFF;
 				overflow: hidden;
 				display: flex;
@@ -272,6 +271,7 @@
 
 				img {
 					width: 100%;
+					object-fit: fill;
 				}
 			}
 
