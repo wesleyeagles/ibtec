@@ -12,9 +12,9 @@ const cadastrarEventoSchema = z.object({
 	sobre: z.string({
 		required_error: "Campo obrigatório",
 	}),
-	publicoAlvo: z.array(z.string().trim()),
-	objetivos: z.array(z.string().trim()),
-	tematicas: z.array(z.string().trim()),
+	publicoAlvo: z.string().optional().nullable(),
+	objetivos: z.string().optional().nullable(),
+	tematicas: z.string().optional().nullable(),
 	cargaHoraria: z.string().nullable().optional(),
 	horario: z.string().nullable().optional(),
 	modalidade: z.string().nullable().optional(),
@@ -30,48 +30,10 @@ const cadastrarEventoSchema = z.object({
 const useEventoForm = () => {
 	const methods = useForm<z.infer<typeof cadastrarEventoSchema>>({
 		resolver: zodResolver(cadastrarEventoSchema),
-		defaultValues: {
-			publicoAlvo: [" "],
-			objetivos: [" "],
-			tematicas: [" "],
-			// other default values...
-		},
-	});
-
-	const { fields, append, remove } = useFieldArray({
-		control: methods.control,
-		name: "publicoAlvo" as unknown as never,
-	});
-
-	const {
-		fields: fieldsObjetivos,
-		append: appendObjetivos,
-		remove: removeObjetivos,
-	} = useFieldArray({
-		control: methods.control,
-		name: "objetivos" as unknown as never,
-	});
-
-	const {
-		fields: fieldsTematicas,
-		append: appendTematicas,
-		remove: removeTematicas,
-	} = useFieldArray({
-		control: methods.control,
-		name: "tematicas" as unknown as never,
 	});
 
 	return {
 		methods,
-		fields,
-		append,
-		remove,
-		fieldsObjetivos,
-		appendObjetivos,
-		removeObjetivos,
-		appendTematicas,
-		fieldsTematicas,
-		removeTematicas,
 	};
 };
 

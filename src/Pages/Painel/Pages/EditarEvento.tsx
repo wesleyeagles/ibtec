@@ -9,6 +9,9 @@ import CustomDatePicker from "../../../Components/FormInputs/CustomDate/CustomDa
 import CustomSelect from "../../../Components/FormInputs/CustomSelectInput/CustomSelect";
 import { Button } from "react-bootstrap";
 import { useUserContext } from "../../../Global/Contexts/UserContext";
+import { addDays } from "date-fns";
+import { IoIosAdd } from "react-icons/io";
+import { IoRemoveOutline } from "react-icons/io5";
 
 interface Horario {
 	value: string;
@@ -95,9 +98,11 @@ const EditarEvento = () => {
 					methods.setValue("sobre", response.data.sobre);
 					methods.setValue("sobre", response.data.sobre);
 
-					methods.setValue("data", response.data.data);
+					methods.setValue("data", addDays(new Date(response.data.data), 1).toISOString().split("T")[0]);
 
 					methods.setValue("publicoAlvo", response.data.publicoAlvo);
+					methods.setValue("objetivos", response.data.objetivos);
+					methods.setValue("tematicas", response.data.tematicas);
 
 					methods.setValue("cargaHoraria", response.data.cargaHoraria);
 					methods.setValue("horario", response.data.horario);
@@ -163,7 +168,7 @@ const EditarEvento = () => {
 			formData.append("sobre", values.sobre);
 
 			if (values.data) {
-				formData.append("data", values.data);
+				formData.append("data", addDays(new Date(values.data), -1).toISOString().split("T")[0]);
 			}
 
 			if (values.publicoAlvo) {
@@ -249,9 +254,7 @@ const EditarEvento = () => {
 								<div className="sobre">
 									<CustomText placeholder="Digite a descrição do evento" control={methods.control} name="sobre" label="Sobre *" />
 								</div>
-								<div className="alvo">
-									<CustomText placeholder="Digite o público alvo do evento" control={methods.control} name="publicoAlvo" label="Público Alvo" />
-								</div>
+
 								<div className="carga">
 									<CustomText placeholder="Digite a carga horária evento" control={methods.control} name="cargaHoraria" label="Carga horária" />
 								</div>
@@ -293,7 +296,17 @@ const EditarEvento = () => {
 									<CustomFileInput onChange={handleImageChange} control={methods.control} name="imagem" label="Imagem *" />
 									{error && <div>{error}</div>}
 								</div>
+								<div className="alvo">
+									<CustomText placeholder="Cada público separado por virgula" control={methods.control} name="publicoAlvo" label="Público Alvo" />
+								</div>
+								<div className="objetivos">
+									<CustomText placeholder="Cada objetivo separado por virgula" control={methods.control} name="objetivos" label="Objetivos" />
+								</div>
+								<div className="tematicas">
+									<CustomText placeholder="Cada temática separada por virgula" control={methods.control} name="tematicas" label="Temáticas" />
+								</div>
 							</div>
+
 							<span className="links-title">Links de Transmissão</span>
 							<div className="links-grid">
 								<div className="facebook">

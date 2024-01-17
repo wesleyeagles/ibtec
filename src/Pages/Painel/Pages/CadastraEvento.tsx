@@ -9,8 +9,6 @@ import CustomDatePicker from "../../../Components/FormInputs/CustomDate/CustomDa
 import CustomSelect from "../../../Components/FormInputs/CustomSelectInput/CustomSelect";
 import { Button } from "react-bootstrap";
 import { useUserContext } from "../../../Global/Contexts/UserContext";
-import { IoIosAdd } from "react-icons/io";
-import { IoRemoveOutline } from "react-icons/io5";
 
 interface Horario {
 	value: string;
@@ -18,7 +16,7 @@ interface Horario {
 }
 
 const CadastraEvento = () => {
-	const { methods, fields, append, remove, appendObjetivos, fieldsObjetivos, removeObjetivos, appendTematicas, fieldsTematicas, removeTematicas } = useEventoForm();
+	const { methods } = useEventoForm();
 	const [error, setError] = useState<string | null>(null);
 
 	const navigate = useNavigate();
@@ -75,7 +73,6 @@ const CadastraEvento = () => {
 	const [isCreating, isSetCreating] = useState(false);
 
 	const handleSubmit = async (values: EventoHandleSubmitForm) => {
-		console.log(values);
 		isSetCreating(true);
 
 		const toastId = toast("Cadastrando evento, por favor aguarde...", {
@@ -168,49 +165,17 @@ const CadastraEvento = () => {
 									<CustomFileInput onChange={handleImageChange} control={methods.control} name="imagem" label="Imagem *" />
 									{error && <div>{error}</div>}
 								</div>
+								<div className="alvo">
+									<CustomText placeholder="Cada público separado por virgula" control={methods.control} name="publicoAlvo" label="Público Alvo" />
+								</div>
+								<div className="objetivos">
+									<CustomText placeholder="Cada objetivo separado por virgula" control={methods.control} name="objetivos" label="Objetivos" />
+								</div>
+								<div className="tematicas">
+									<CustomText placeholder="Cada temática separada por virgula" control={methods.control} name="tematicas" label="Temáticas" />
+								</div>
 							</div>
-							<span className="links-title">Público Alvo</span>
-							<div className="alvo">
-								{fields.map((field, index) => (
-									<div className="alvo-wrapper" key={field.id}>
-										<CustomText placeholder="Digite o público alvo do evento" control={methods.control} name={`publicoAlvo.${index}`} defaultValue={""} />
-										<button type="button" onClick={() => append("", { shouldFocus: true })}>
-											<IoIosAdd size={"2rem"} color="green" />
-										</button>
-										<button type="button" onClick={() => (fields.length > 1 ? remove(index) : null)}>
-											<IoRemoveOutline size={"2rem"} color="red" />
-										</button>
-									</div>
-								))}
-							</div>
-							<span className="links-title">Objetivos</span>
-							<div className="alvo">
-								{fieldsObjetivos.map((field, index) => (
-									<div className="alvo-wrapper" key={field.id}>
-										<CustomText placeholder="Digite o objetivo do evento" control={methods.control} name={`objetivos.${index}`} defaultValue={""} />
-										<button type="button" onClick={() => appendObjetivos("", { shouldFocus: true })}>
-											<IoIosAdd size={"2rem"} color="green" />
-										</button>
-										<button type="button" onClick={() => (fields.length > 1 ? removeObjetivos(index) : null)}>
-											<IoRemoveOutline size={"2rem"} color="red" />
-										</button>
-									</div>
-								))}
-							</div>
-							<span className="links-title">Temáticas</span>
-							<div className="alvo">
-								{fieldsTematicas.map((field, index) => (
-									<div className="alvo-wrapper" key={field.id}>
-										<CustomText placeholder="Digite a temática do evento" control={methods.control} name={`tematicas.${index}`} defaultValue={""} />
-										<button type="button" onClick={() => appendTematicas("", { shouldFocus: true })}>
-											<IoIosAdd size={"2rem"} color="green" />
-										</button>
-										<button type="button" onClick={() => (fields.length > 1 ? removeTematicas(index) : null)}>
-											<IoRemoveOutline size={"2rem"} color="red" />
-										</button>
-									</div>
-								))}
-							</div>
+
 							<span className="links-title">Links de Transmissão</span>
 							<div className="links-grid">
 								<div className="facebook">

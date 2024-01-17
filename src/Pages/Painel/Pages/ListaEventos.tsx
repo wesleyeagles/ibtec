@@ -149,11 +149,7 @@ const ListaEvento = () => {
 						size={"1.5rem"}
 						role="button"
 						onClick={() => {
-							toast.info("Em desenvolvimento...", {
-								theme: "colored",
-								autoClose: 2000,
-							});
-							// navigate(`/painel-administrativo/editar-evento/${row.id}`);
+							navigate(`/painel-administrativo/editar-evento/${row.slug}`);
 						}}
 					/>
 					<TbTrashXFilled

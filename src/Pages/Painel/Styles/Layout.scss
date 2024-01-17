@@ -511,7 +511,7 @@
 			margin-top: 1.5rem;
 			display: grid;
 			grid-template-columns: 12;
-			grid-template-areas: "titulo sobre sobre carga" "data horario modalidade local" "link link imagem imagem";
+			grid-template-areas: "titulo sobre sobre carga" "data horario modalidade local" "alvo alvo objetivos tematicas" "link link imagem imagem";
 			gap: 1rem;
 
 			@media screen and (max-width: 1300px) {
@@ -568,6 +568,14 @@
 
 			.alvo {
 				grid-area: alvo;
+			}
+
+			.objetivos {
+				grid-area: objetivos;
+			}
+
+			.tematicas {
+				grid-area: tematicas;
 			}
 
 			.carga {
