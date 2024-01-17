@@ -36,8 +36,6 @@ const Eventos = () => {
 
 	const [events, setEvents] = useState<IEventModel[]>([]);
 
-	const [teste, setTeste] = useState("Teste");
-
 	useEffect(() => {
 		const getAllEvents = async () => {
 			const response = await axios.get("https://backend-production-9a06.up.railway.app/api/event/ultimos-events");
@@ -64,7 +62,6 @@ const Eventos = () => {
 			<div className="calendario-2">
 				<GridContainer>
 					<h3>Calendário de eventos</h3>
-					<span className="text-white">{teste}</span>
 					<Calendar />
 				</GridContainer>
 			</div>
