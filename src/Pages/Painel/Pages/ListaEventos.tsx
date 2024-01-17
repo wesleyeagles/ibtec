@@ -144,6 +144,18 @@ const ListaEvento = () => {
 			name: "Ações",
 			cell: (row: any) => (
 				<div className="d-flex gap-2">
+					<MdModeEditOutline
+						color="green"
+						size={"1.5rem"}
+						role="button"
+						onClick={() => {
+							toast.info("Em desenvolvimento...", {
+								theme: "colored",
+								autoClose: 2000,
+							});
+							// navigate(`/painel-administrativo/editar-evento/${row.id}`);
+						}}
+					/>
 					<TbTrashXFilled
 						color="red"
 						size={"1.5rem"}
