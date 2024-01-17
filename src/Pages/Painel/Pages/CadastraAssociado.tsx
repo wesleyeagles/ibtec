@@ -106,7 +106,7 @@ const CadastraAssociado = () => {
 								<div className="nome">
 									<CustomText placeholder="Digite o nome do associado" control={methods.control} name="fantasy_name" label="Nome *" />
 								</div>
-								<div className="email">
+								<div className="address">
 									<CustomText placeholder="Digite o endereço do associado" control={methods.control} name="address" label="Endereço *" />
 								</div>
 								<div className="segmento">
