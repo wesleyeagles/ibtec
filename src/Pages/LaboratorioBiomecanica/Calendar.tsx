@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { format, startOfMonth, addMonths, subMonths, isToday, addDays } from "date-fns";
+import { format, startOfMonth, addMonths, subMonths, isToday, addDays, getDaysInMonth } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { zonedTimeToUtc } from "date-fns-tz";
 import "./styles.scss";
@@ -38,12 +38,10 @@ function Calendar() {
 		fetchEvents();
 	}, []);
 
-	console.log(events);
-
 	const daysInMonth: Date[] = [];
 	const startOfCurrentMonth: Date = startOfMonth(currentDate);
 
-	const lastDayOfMonth: Date = new Date(startOfCurrentMonth.getFullYear(), startOfCurrentMonth.getMonth() + 1, 0);
+	const daysCount = getDaysInMonth(startOfCurrentMonth);
 
 	const currentMonth: number = startOfCurrentMonth.getMonth();
 
@@ -57,7 +55,7 @@ function Calendar() {
 		let closestDateDiff = Number.MAX_VALUE;
 
 		for (const event of events) {
-			const eventDate = zonedTimeToUtc(new Date(event.data), "America/Sao_Paulo");
+			const eventDate = zonedTimeToUtc(addDays(new Date(event.data), 1), "America/Sao_Paulo");
 			const dateDiff = Math.abs(eventDate.getTime() - today.getTime());
 
 			if (dateDiff < closestDateDiff) {
@@ -90,7 +88,10 @@ function Calendar() {
 		}
 	};
 
-	for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
+	let startDay = startOfCurrentMonth.getDay();
+	if (startDay === 0) startDay = 7;
+
+	for (let i = 1 - startDay; i <= daysCount; i++) {
 		const day = new Date(startOfCurrentMonth);
 		day.setDate(i);
 
