@@ -23,6 +23,8 @@ const ListaContatos = () => {
 
 	const [idDelete, setIdDelete] = useState<number | undefined>();
 
+	console.log(data);
+
 	const fetchData = async () => {
 		try {
 			const response = await axios.get("https://backend-production-9a06.up.railway.app/api/contact/contatos");
@@ -85,7 +87,7 @@ const ListaContatos = () => {
 		{
 			name: "Id",
 			selector: (row: any) => row["id"],
-			width: "6%",
+			width: "7%",
 			minWidth: "2rem",
 			sortable: true,
 		},
@@ -93,39 +95,41 @@ const ListaContatos = () => {
 			name: "Nome",
 			selector: (row: any) => row["nome"],
 			sort: true,
-			width: "12%",
+			width: "20%",
 			sortable: true,
 		},
 		{
 			name: "Email",
 			selector: (row: any) => row["email"],
 			sort: true,
-			width: "12%",
+			width: "20%",
 			sortable: true,
 		},
 		{
 			name: "Telefone",
 			selector: (row: any) => row["telefone"],
 			sort: true,
-			width: "16%",
+			width: "10%",
 			sortable: true,
 		},
 		{
 			name: "Assunto",
 			selector: (row: any) => row["assunto"],
 			sort: true,
-			width: "16%",
+			width: "10%",
 			sortable: true,
 		},
 		{
 			name: "Empresa",
 			selector: (row: any) => row["empresa"],
+			width: "5%",
 			sort: true,
 			sortable: true,
 		},
 		{
 			name: "Mensagem",
 			selector: (row: any) => row["mensagem"],
+			width: "5%",
 			sort: true,
 			sortable: true,
 		},
@@ -135,7 +139,7 @@ const ListaContatos = () => {
 				return format(new Date(row.createdAt), "dd'/'MM'/'yyyy", { locale: ptBR });
 			},
 			sort: true,
-			width: "10%",
+			width: "15%",
 			sortable: true,
 		},
 		{
@@ -155,7 +159,7 @@ const ListaContatos = () => {
 			),
 			allowOverflow: true,
 			button: true,
-			width: "10%",
+			width: "5%",
 		},
 	];
 

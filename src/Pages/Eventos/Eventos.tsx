@@ -80,7 +80,7 @@ const Eventos = () => {
 						{events && events.length > 0 ? (
 							events.map((event) => <EventoSingle key={event.id} title={event.nome} content={event.sobre} slug={event.slug} image={event.imagem} />)
 						) : (
-							<div>Carregando...</div>
+							<div className="text-white">Carregando...</div>
 						)}
 					</div>
 				</GridContainer>
