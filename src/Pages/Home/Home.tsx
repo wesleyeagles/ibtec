@@ -790,10 +790,10 @@ const Home = () => {
 				<div className="blog">
 					<GridContainer>
 						<div className="wrapper">
-							<div className="label">{isMedia600px ? <h2>Veja nosso último post</h2> : <h2>Veja nossos últimos posts</h2>}</div>
+							<div className="label">{isMedia600px ? <h2>Veja nossa última notícia</h2> : <h2>Veja nossas últimas notícias</h2>}</div>
 							<div className="d-flex align-items-center gap-2">
 								<PointIcon className="point" size={"1.5rem"} />
-								<span>Visite nosso blog</span>
+								<span>Visite nossas notícias</span>
 							</div>
 						</div>
 						<div className="blog-posts">

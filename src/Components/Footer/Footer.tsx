@@ -293,7 +293,7 @@ const Footer = () => {
 							<h4>Conteúdo</h4>
 							<nav>
 								<Link onClick={() => scrollToTop()} to="/noticias">
-									<li>Blog</li>
+									<li>Notícias</li>
 								</Link>
 								<Link onClick={() => scrollToTop()} to="/eventos">
 									<li>Eventos</li>

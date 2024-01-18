@@ -185,7 +185,7 @@ const Navbar = () => {
 										<div className="links-expansibles">
 											<span className="link-expansible">
 												<Link onClick={() => handleClose()} to="/noticias">
-													Blog
+													Notícias
 												</Link>
 											</span>
 											<span className="link-expansible">
@@ -225,9 +225,12 @@ const Navbar = () => {
 				<GridContainer>
 					<div className="navigation-container">
 						<Link to="/">
-							<img style={{
-								width: "160px"
-							}} src="footer-logo.png" />
+							<img
+								style={{
+									width: "160px",
+								}}
+								src="footer-logo.png"
+							/>
 						</Link>
 						<div className="btns-container">
 							<a href="http://dev.ibtec.org.br/areacliente/">
@@ -385,7 +388,7 @@ const Navbar = () => {
 										<div className="links-expansibles">
 											<span className="link-expansible">
 												<Link onClick={() => handleClose()} to="/noticias">
-													Blog
+													Notícias
 												</Link>
 											</span>
 											<span className="link-expansible">
