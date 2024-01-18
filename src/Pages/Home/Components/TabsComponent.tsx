@@ -150,7 +150,7 @@ const TabsComponent: React.FC = () => {
 	} else if (locale === "es") {
 		return (
 			<div className="tabs-container">
-				<h2>Conheça as soluções que atendem os setores</h2>
+				<h2>Conheça nossas soluções</h2>
 				<div className="tabs-buttons">
 					<div
 						className="border-slide"
@@ -255,7 +255,7 @@ const TabsComponent: React.FC = () => {
 	} else {
 		return (
 			<div className="tabs-container">
-				<h2>Conheça as soluções que atendem os setores</h2>
+				<h2>Conheça nossas soluções</h2>
 				<div className="tabs-buttons">
 					<div
 						className="border-slide"
