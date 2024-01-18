@@ -180,7 +180,6 @@
 					height: 326px;
 					position: relative;
 					overflow: hidden;
-					background-color: #fff;
 					border-radius: 10px;
 
 					@media screen and (max-width: 1024px) {
@@ -253,9 +252,8 @@
 
 			.image {
 				width: 405px;
-				max-height: 450px;
+				max-height: 520px;
 				border-radius: 10px;
-				background-color: #FFF;
 				overflow: hidden;
 				display: flex;
 				align-items: center;
@@ -345,8 +343,9 @@
 
 		.inline-content {
 			display: flex;
+			flex-direction: column;
 			margin-top: 2rem;
-			gap: 19.9rem;
+			gap: 2rem;
 
 			@media screen and (max-width: 1368px) {
 				gap: 17rem;

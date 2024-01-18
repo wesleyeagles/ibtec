@@ -40,7 +40,7 @@ const Evento = () => {
 	useEffect(() => {
 		const getAllEvents = async () => {
 			try {
-				const response = await axios.get("https://backend-production-9a06.up.railway.app/api/event/ultimos-events");
+				const response = await axios.get("https://backend-production-9a06.up.railway.app/api/event/ordered-events");
 
 				const event = response.data.filter((event: any) => event.slug === slug);
 
@@ -255,7 +255,7 @@ const Evento = () => {
 					)}
 
 					<div className="eventos-realizados">
-						<h3>Eventos realizados:</h3>
+						<h3>Confira outros eventos:</h3>
 						<div className="accordions">
 							{events?.map((event) => (
 								<AccordionSingle
