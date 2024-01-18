@@ -168,7 +168,7 @@ const TabsComponent: React.FC = () => {
 					</button>
 					<button className={`substancia tab-button ${activeTab === 2 ? "active" : ""}`} onClick={() => handleTabChange(2)}>
 						<SubstanciasIcon size={"1.5rem"} />
-						<span>Substâncias restritas e não restritivas</span>
+						<span>Substâncias restritas</span>
 					</button>
 					<button className={`microbiologica tab-button ${activeTab === 3 ? "active" : ""}`} onClick={() => handleTabChange(3)}>
 						<MicrobiologiaIcon size={"1.5rem"} />
@@ -203,7 +203,7 @@ const TabsComponent: React.FC = () => {
 					<div className={`tab-content-inner ${activeTab === 2 ? "active" : ""}`}>
 						<div className="wrapper">
 							<div className="content">
-								<h3>Substâncias restritas e não restritivas</h3>
+								<h3>Substâncias restritas</h3>
 								<p>
 									Oferecemos toda a infraestrutura para a realização de ensaios e apoio às empresas que buscam atender as exigências nacionais e internacionais com relação a presença
 									de substâncias restritivas em seus produtos.
@@ -273,7 +273,7 @@ const TabsComponent: React.FC = () => {
 					</button>
 					<button className={`substancia tab-button ${activeTab === 2 ? "active" : ""}`} onClick={() => handleTabChange(2)}>
 						<SubstanciasIcon size={"1.5rem"} />
-						<span>Substâncias restritas e não restritivas</span>
+						<span>Substâncias restritas</span>
 					</button>
 					<button className={`microbiologica tab-button ${activeTab === 3 ? "active" : ""}`} onClick={() => handleTabChange(3)}>
 						<MicrobiologiaIcon size={"1.5rem"} />
@@ -308,7 +308,7 @@ const TabsComponent: React.FC = () => {
 					<div className={`tab-content-inner ${activeTab === 2 ? "active" : ""}`}>
 						<div className="wrapper">
 							<div className="content">
-								<h3>Substâncias restritas e não restritivas</h3>
+								<h3>Substâncias restritas</h3>
 								<p>
 									Oferecemos toda a infraestrutura para a realização de ensaios e apoio às empresas que buscam atender as exigências nacionais e internacionais com relação a presença
 									de substâncias restritivas em seus produtos.
