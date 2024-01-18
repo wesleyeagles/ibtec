@@ -139,6 +139,7 @@ const ListaContatos = () => {
 			name: "Mensagem",
 			selector: (row: any) => row["mensagem"],
 			sort: true,
+			maxWidth: "300px",
 			sortable: true,
 		},
 		{
@@ -195,7 +196,7 @@ const ListaContatos = () => {
 
 	const actionsMemo = React.useMemo(
 		() => (
-			<CSVLink filename={`ListaDeContatos/${today}.csv`} data={exportData!} headers={headers}>
+			<CSVLink filename={`ListaDeContatos/${today}.csv`} data={exportData ? exportData : []} headers={headers}>
 				<Button variant="primary">Exportar</Button>
 			</CSVLink>
 		),
