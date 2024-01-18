@@ -9,6 +9,7 @@ import usePesquisaNoticiaForm from "../Hooks/usePesquisaNoticiaForm";
 import { useUserContext } from "../../../Global/Contexts/UserContext";
 import { Link, useNavigate } from "react-router-dom";
 import ListaImagem from "./Components/ListaImagem";
+import { MdModeEditOutline } from "react-icons/md";
 
 const ListaAssociados = () => {
 	const [data, setData] = useState<any[]>();
@@ -136,6 +137,19 @@ const ListaAssociados = () => {
 			name: "Ações",
 			cell: (row: any) => (
 				<div className="d-flex gap-2">
+					<MdModeEditOutline
+						color="green"
+						size={"1.5rem"}
+						role="button"
+						onClick={() => {
+							// navigate(`/painel-administrativo/editar-evento/${row.slug}`);
+
+							toast.info("Em desenvolvimento", {
+								theme: "colored",
+								autoClose: 3000,
+							});
+						}}
+					/>
 					<TbTrashXFilled
 						color="red"
 						size={"1.5rem"}
