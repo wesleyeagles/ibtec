@@ -10,8 +10,6 @@ import CustomSelect from "../../../Components/FormInputs/CustomSelectInput/Custo
 import { Button } from "react-bootstrap";
 import { useUserContext } from "../../../Global/Contexts/UserContext";
 import { addDays } from "date-fns";
-import { IoIosAdd } from "react-icons/io";
-import { IoRemoveOutline } from "react-icons/io5";
 
 interface Horario {
 	value: string;
@@ -100,12 +98,15 @@ const EditarEvento = () => {
 
 					methods.setValue("data", addDays(new Date(response.data.data), 1).toISOString().split("T")[0]);
 
+					methods.setValue("dataFim", addDays(new Date(response.data.dataFim), 1).toISOString().split("T")[0]);
+
 					methods.setValue("publicoAlvo", response.data.publicoAlvo);
 					methods.setValue("objetivos", response.data.objetivos);
 					methods.setValue("tematicas", response.data.tematicas);
 
 					methods.setValue("cargaHoraria", response.data.cargaHoraria);
 					methods.setValue("horario", response.data.horario);
+					methods.setValue("horarioFim", response.data.horarioFim);
 					methods.setValue("modalidade", response.data.modalidade);
 					methods.setValue("local", response.data.local);
 					methods.setValue("link", response.data.link);
@@ -171,6 +172,10 @@ const EditarEvento = () => {
 				formData.append("data", addDays(new Date(values.data), -1).toISOString().split("T")[0]);
 			}
 
+			if (values.dataFim) {
+				formData.append("dataFim", addDays(new Date(values.dataFim), -1).toISOString().split("T")[0]);
+			}
+
 			if (values.publicoAlvo) {
 				formData.append("publicoAlvo", values.publicoAlvo as any);
 			}
@@ -181,6 +186,10 @@ const EditarEvento = () => {
 
 			if (values.horario) {
 				formData.append("horario", values.horario);
+			}
+
+			if (values.horarioFim) {
+				formData.append("horarioFim", values.horarioFim);
 			}
 
 			if (values.modalidade) {
@@ -261,8 +270,20 @@ const EditarEvento = () => {
 								<div className="data">
 									<CustomDatePicker placeholder="Digite a data que será realizado o evento" control={methods.control} name="data" label="Data do Evento" />
 								</div>
+								<div className="data-fim">
+									<CustomDatePicker placeholder="Digite a data que o evento finalizará" control={methods.control} name="dataFim" label="Data do Fim do Evento" />
+								</div>
 								<div className="horario">
 									<CustomSelect options={horarios} placeholder="Selecione o horário que o evento vai começar" control={methods.control} name="horario" label="Horário do Evento" />
+								</div>
+								<div className="horario-fim">
+									<CustomSelect
+										options={horarios}
+										placeholder="Selecione o horário que o evento vai acabar"
+										control={methods.control}
+										name="horarioFim"
+										label="Horário do Fim do Evento"
+									/>
 								</div>
 								<div className="modalidade">
 									<CustomSelect

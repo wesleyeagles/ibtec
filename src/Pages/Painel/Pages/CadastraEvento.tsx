@@ -130,8 +130,20 @@ const CadastraEvento = () => {
 								<div className="data">
 									<CustomDatePicker placeholder="Digite a data que será realizado o evento" control={methods.control} name="data" label="Data do Evento" />
 								</div>
+								<div className="data-fim">
+									<CustomDatePicker placeholder="Digite a data que o evento finalizará" control={methods.control} name="dataFim" label="Data do Fim do Evento" />
+								</div>
 								<div className="horario">
 									<CustomSelect options={horarios} placeholder="Selecione o horário que o evento vai começar" control={methods.control} name="horario" label="Horário do Evento" />
+								</div>
+								<div className="horario-fim">
+									<CustomSelect
+										options={horarios}
+										placeholder="Selecione o horário que o evento vai acabar"
+										control={methods.control}
+										name="horarioFim"
+										label="Horário do Fim do Evento"
+									/>
 								</div>
 								<div className="modalidade">
 									<CustomSelect

@@ -511,24 +511,12 @@
 			margin-top: 1.5rem;
 			display: grid;
 			grid-template-columns: 12;
-			grid-template-areas: "titulo sobre sobre carga" "data horario modalidade local" "alvo alvo objetivos tematicas" "link link imagem imagem";
+			grid-template-areas: "titulo titulo sobre sobre sobre carga" "data data-fim horario horario-fim modalidade modalidade" "local local local local local local" "alvo alvo objetivos objetivos tematicas tematicas" "link link link imagem imagem imagem";
 			gap: 1rem;
 
-			@media screen and (max-width: 1300px) {
-				grid-template-areas:
-					"titulo sobre alvo"
-					"carga data horario"
-					"modalidade local local"
-					"link link imagem";
-			}
+			@media screen and (max-width: 1680px) {
+				grid-template-areas: "titulo titulo sobre sobre sobre carga" "data data data data-fim data-fim data-fim" "horario horario horario horario-fim horario-fim horario-fim" "modalidade modalidade local local local local" "alvo alvo objetivos objetivos tematicas tematicas" "link link link imagem imagem imagem";
 
-			@media screen and (max-width: 1280px) {
-				grid-template-areas:
-					"titulo sobre alvo"
-					"carga data horario"
-					"modalidade local local"
-					"link link link"
-					"imagem imagem imagem";
 			}
 
 			@media screen and (max-width: 1024px) {
@@ -586,8 +574,16 @@
 				grid-area: data;
 			}
 
+			.data-fim {
+				grid-area: data-fim;
+			}
+
 			.horario {
 				grid-area: horario;
+			}
+
+			.horario-fim {
+				grid-area: horario-fim;
 			}
 
 			.modalidade {

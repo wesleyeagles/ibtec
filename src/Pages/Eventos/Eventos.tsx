@@ -12,8 +12,10 @@ export interface IEventModel {
 	cargaHoraria: string;
 	createdAt: string;
 	data: string;
+	dataFim: string;
 	facebook: string | null;
 	horario: string;
+	horarioFim: string;
 	tematicas: string;
 	id: number;
 	imagem: string;

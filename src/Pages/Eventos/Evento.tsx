@@ -135,39 +135,6 @@ const Evento = () => {
 										</div>
 									)}
 
-									{event.tematicas && (
-										<div className="label">
-											<span>Temáticas abordadas:</span>
-											<ul>
-												{event.tematicas
-													.split(",")
-													.reduce((acc: any, objetivo, index) => {
-														const trimmedObjetivo = objetivo.trim();
-														const isFirstItem = index === 0;
-														const isLowercase = trimmedObjetivo.charAt(0).match(/[a-z]/);
-
-														if (!isFirstItem && isLowercase) {
-															acc[acc.length - 1] += `, ${trimmedObjetivo}`;
-														} else {
-															acc.push(trimmedObjetivo);
-														}
-
-														return acc;
-													}, [])
-													.map((objetivo: string, index: number) => (
-														<li key={index}>{objetivo}</li>
-													))}
-											</ul>
-										</div>
-									)}
-
-									{event.cargaHoraria && (
-										<div className="label">
-											<span>Carga horária:</span>
-											<p>{event.cargaHoraria}</p>
-										</div>
-									)}
-
 									{event.facebook || event.instagram || event.linkedin || event.youtube ? (
 										<div className="label">
 											<span>Canais de transmissão da live:</span>
@@ -200,16 +167,64 @@ const Evento = () => {
 									) : null}
 								</div>
 							</div>
+							<div className="inline-content">
+								{event.tematicas && (
+									<div className="label">
+										<span>Temáticas abordadas:</span>
+										<ul>
+											{event.tematicas
+												.split(",")
+												.reduce((acc: any, objetivo, index) => {
+													const trimmedObjetivo = objetivo.trim();
+													const isFirstItem = index === 0;
+													const isLowercase = trimmedObjetivo.charAt(0).match(/[a-z]/);
+
+													if (!isFirstItem && isLowercase) {
+														acc[acc.length - 1] += `, ${trimmedObjetivo}`;
+													} else {
+														acc.push(trimmedObjetivo);
+													}
+
+													return acc;
+												}, [])
+												.map((objetivo: string, index: number) => (
+													<li key={index}>{objetivo}</li>
+												))}
+										</ul>
+									</div>
+								)}
+
+								{event.cargaHoraria && (
+									<div className="label">
+										<span>Carga horária:</span>
+										<p>{event.cargaHoraria}</p>
+									</div>
+								)}
+							</div>
 							<div className="more-content">
 								{event.data ? (
-									<span>
-										<strong>Data: </strong> {format(addDays(new Date(event.data), 1), "dd/MM")}
-									</span>
+									<div className="d-flex align-items-center gap-3">
+										<span>
+											<strong>Data: </strong> {format(addDays(new Date(event.data), 1), "dd/MM")}
+										</span>
+										{event.dataFim && (
+											<span>
+												<strong>Fim do Evento: </strong> {format(addDays(new Date(event.dataFim), 1), "dd/MM")}
+											</span>
+										)}
+									</div>
 								) : null}
 								{event.horario ? (
-									<span>
-										<strong>Horário: </strong> {TimeFormatter(event.horario)}
-									</span>
+									<div className="d-flex align0-items-center gap-3">
+										<span>
+											<strong>Horário: </strong> {TimeFormatter(event.horario)}
+										</span>
+										{event.horarioFim && (
+											<span>
+												<strong>Horário de Fim: </strong> {TimeFormatter(event.horarioFim)}
+											</span>
+										)}
+									</div>
 								) : null}
 
 								{event.modalidade ? (
@@ -257,106 +272,178 @@ const Evento = () => {
 									content={
 										<>
 											<div className="wrapper">
-												<div className="image">
-													<img src={`https://dev.ibtec.org.br/dev/blog/${event.imagem}`} />
-												</div>
-												<div className="content">
-													<div className="label">
-														<span>O evento:</span>
-														<p>{event.sobre}</p>
-													</div>
-													{event.publicoAlvo && (
-														<div className="label">
-															<span>Público Alvo:</span>
-															<ul>
-																{event.publicoAlvo.split(",").map((objetivo, index) => (
-																	<li key={index}>{objetivo.trim()}</li>
-																))}
-															</ul>
-														</div>
-													)}
+								<div className="image">
+									<img src={`https://dev.ibtec.org.br/dev/blog/${event.imagem}`} />
+								</div>
+								<div className="content">
+									<div className="label">
+										<span>O evento:</span>
+										<p>{event.sobre}</p>
+									</div>
+									{event.publicoAlvo && (
+										<div className="label">
+											<span>Público alvo:</span>
+											<ul>
+												{event.publicoAlvo
+													.split(",")
+													.reduce((acc: any, objetivo, index) => {
+														const trimmedObjetivo = objetivo.trim();
+														const isFirstItem = index === 0;
+														const isLowercase = trimmedObjetivo.charAt(0).match(/[a-z]/);
 
-													{event.objetivos && (
-														<div className="label">
-															<span>Objetivos:</span>
-															<ul>
-																{event.objetivos.split(",").map((objetivo, index) => (
-																	<li key={index}>{objetivo.trim()}</li>
-																))}
-															</ul>
-														</div>
-													)}
+														if (!isFirstItem && isLowercase) {
+															acc[acc.length - 1] += `, ${trimmedObjetivo}`;
+														} else {
+															acc.push(trimmedObjetivo);
+														}
 
-													{event.cargaHoraria && (
-														<div className="label">
-															<span>Carga horária:</span>
-															<p>{event.cargaHoraria}</p>
-														</div>
-													)}
-													{event.facebook || event.instagram || event.linkedin || event.youtube ? (
-														<div className="label">
-															<span>Canais de transmissão da live:</span>
-															<div className="social-media">
-																{event.facebook ? (
-																	<a href={event.facebook} target="_blank" rel="noreferrer">
-																		<FacebookIcon size={"1.7rem"} />
-																	</a>
-																) : null}
+														return acc;
+													}, [])
+													.map((objetivo: string, index: number) => (
+														<li key={index}>{objetivo}</li>
+													))}
+											</ul>
+										</div>
+									)}
 
-																{event.instagram ? (
-																	<a href={event.instagram} target="_blank" rel="noreferrer">
-																		<InstagramIcon size={"1.7rem"} />
-																	</a>
-																) : null}
+									{event.objetivos && (
+										<div className="label">
+											<span>Objetivos:</span>
+											<ul>
+												{event.objetivos
+													.split(",")
+													.reduce((acc: any, objetivo, index) => {
+														const trimmedObjetivo = objetivo.trim();
+														const isFirstItem = index === 0;
+														const isLowercase = trimmedObjetivo.charAt(0).match(/[a-z]/);
 
-																{event.linkedin ? (
-																	<a href={event.linkedin} target="_blank" rel="noreferrer">
-																		<LinkedinIcon size={"1.7rem"} />
-																	</a>
-																) : null}
+														if (!isFirstItem && isLowercase) {
+															acc[acc.length - 1] += `, ${trimmedObjetivo}`;
+														} else {
+															acc.push(trimmedObjetivo);
+														}
 
-																{event.youtube ? (
-																	<a href={event.youtube} target="_blank" rel="noreferrer">
-																		<YoutubeIcon size={"1.7rem"} />
-																	</a>
-																) : null}
-															</div>
-														</div>
-													) : null}
-												</div>
-											</div>
-											<div className="more-content">
-												{event.data ? (
-													<span>
-														<strong>Data: </strong> {format(addDays(new Date(event.data), 1), "dd/MM")}
-													</span>
-												) : null}
-												{event.horario ? (
-													<span>
-														<strong>Horário: </strong> {TimeFormatter(event.horario)}
-													</span>
+														return acc;
+													}, [])
+													.map((objetivo: string, index: number) => (
+														<li key={index}>{objetivo}</li>
+													))}
+											</ul>
+										</div>
+									)}
+
+									{event.facebook || event.instagram || event.linkedin || event.youtube ? (
+										<div className="label">
+											<span>Canais de transmissão da live:</span>
+											<div className="social-media">
+												{event.facebook ? (
+													<a href={event.facebook} target="_blank" rel="noreferrer">
+														<FacebookIcon size={"1.7rem"} />
+													</a>
 												) : null}
 
-												{event.modalidade ? (
-													<span>
-														<strong>Modalidade: </strong> {event.modalidade}
-													</span>
+												{event.instagram ? (
+													<a href={event.instagram} target="_blank" rel="noreferrer">
+														<InstagramIcon size={"1.7rem"} />
+													</a>
 												) : null}
 
-												{event.local ? (
-													<span>
-														<strong>Local: </strong> {event.local}
-													</span>
+												{event.linkedin ? (
+													<a href={event.linkedin} target="_blank" rel="noreferrer">
+														<LinkedinIcon size={"1.7rem"} />
+													</a>
 												) : null}
-												{event.link ? (
-													<span>
-														<strong>Link: </strong>
-														<a href={event.link} target="_blank" rel="noreferrer">
-															{event.link}
-														</a>
-													</span>
+
+												{event.youtube ? (
+													<a href={event.youtube} target="_blank" rel="noreferrer">
+														<YoutubeIcon size={"1.7rem"} />
+													</a>
 												) : null}
 											</div>
+										</div>
+									) : null}
+								</div>
+							</div>
+							<div className="inline-content">
+								{event.tematicas && (
+									<div className="label">
+										<span>Temáticas abordadas:</span>
+										<ul>
+											{event.tematicas
+												.split(",")
+												.reduce((acc: any, objetivo, index) => {
+													const trimmedObjetivo = objetivo.trim();
+													const isFirstItem = index === 0;
+													const isLowercase = trimmedObjetivo.charAt(0).match(/[a-z]/);
+
+													if (!isFirstItem && isLowercase) {
+														acc[acc.length - 1] += `, ${trimmedObjetivo}`;
+													} else {
+														acc.push(trimmedObjetivo);
+													}
+
+													return acc;
+												}, [])
+												.map((objetivo: string, index: number) => (
+													<li key={index}>{objetivo}</li>
+												))}
+										</ul>
+									</div>
+								)}
+
+								{event.cargaHoraria && (
+									<div className="label">
+										<span>Carga horária:</span>
+										<p>{event.cargaHoraria}</p>
+									</div>
+								)}
+							</div>
+							<div className="more-content">
+								{event.data ? (
+									<div className="d-flex align-items-center gap-3">
+										<span>
+											<strong>Data: </strong> {format(addDays(new Date(event.data), 1), "dd/MM")}
+										</span>
+										{event.dataFim && (
+											<span>
+												<strong>Fim do Evento: </strong> {format(addDays(new Date(event.dataFim), 1), "dd/MM")}
+											</span>
+										)}
+									</div>
+								) : null}
+								{event.horario ? (
+									<div className="d-flex align0-items-center gap-3">
+										<span>
+											<strong>Horário: </strong> {TimeFormatter(event.horario)}
+										</span>
+										{event.horarioFim && (
+											<span>
+												<strong>Horário de Fim: </strong> {TimeFormatter(event.horarioFim)}
+											</span>
+										)}
+									</div>
+								) : null}
+
+								{event.modalidade ? (
+									<span>
+										<strong>Modalidade: </strong> {event.modalidade}
+									</span>
+								) : null}
+
+								{event.local ? (
+									<span>
+										<strong>Local: </strong> {event.local}
+									</span>
+								) : null}
+								{event.link ? (
+									<span>
+										<strong>Link: </strong>
+										<a className="text-white" href={event.link} target="_blank" rel="noreferrer">
+											{event.link}
+										</a>
+									</span>
+								) : null}
+							</div>
 										</>
 									}
 								/>

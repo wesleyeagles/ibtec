@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import { User, useUserContext } from "../../Global/Contexts/UserContext";
 // Mutations
@@ -59,7 +60,12 @@ const Layout = () => {
 	// Verifica se o usuário está definido antes de renderizar o conteúdo
 	if (!user) {
 		// Você pode optar por exibir uma mensagem de carregamento ou redirecionar para a página de login
-		return <p>Carregando...</p>;
+		return (
+			<div className="d-flex justify-content-center align-items-center">
+				<Spinner animation="border" role="status" />
+				Carregando...
+			</div>
+		);
 	}
 
 	return (
