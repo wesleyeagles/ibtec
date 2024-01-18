@@ -10,6 +10,7 @@ import CustomSelect from "../../../Components/FormInputs/CustomSelectInput/Custo
 import { Button } from "react-bootstrap";
 import { useUserContext } from "../../../Global/Contexts/UserContext";
 import { addDays } from "date-fns";
+import { BiPlus } from "react-icons/bi";
 
 interface Horario {
 	value: string;
@@ -260,8 +261,27 @@ const EditarEvento = () => {
 								<div className="titulo">
 									<CustomText placeholder="Digite o título do evento" control={methods.control} name="nome" label="Título *" />
 								</div>
+								<div className="nome-evento">
+									<div className="d-flex align-items-end gap-2">
+										<CustomSelect isDisabled options={horarios} placeholder="Em desenvolvimento..." control={methods.control} name="nomeEvento" label="Selecione o evento *" />
+										<Button
+											disabled
+											style={{
+												marginBottom: ".45rem",
+												height: "36px",
+											}}
+											variant="success"
+										>
+											<BiPlus size={"1.5rem"} color="#FFF" />
+										</Button>
+									</div>
+								</div>
 								<div className="sobre">
 									<CustomText placeholder="Digite a descrição do evento" control={methods.control} name="sobre" label="Sobre *" />
+								</div>
+
+								<div className="categoria-evento">
+									<CustomSelect isDisabled options={horarios} placeholder="Em desenvolvimento..." control={methods.control} name="categoriaEvento" label="Categoria *" />
 								</div>
 
 								<div className="carga">

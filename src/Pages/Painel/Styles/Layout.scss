@@ -511,11 +511,11 @@
 			margin-top: 1.5rem;
 			display: grid;
 			grid-template-columns: 12;
-			grid-template-areas: "titulo titulo sobre sobre sobre carga" "data data-fim horario horario-fim modalidade modalidade" "local local local local local local" "alvo alvo objetivos objetivos tematicas tematicas" "link link link imagem imagem imagem";
+			grid-template-areas: "titulo titulo titulo nome-evento sobre sobre sobre carga" "categoria-evento data data data-fim horario horario-fim modalidade modalidade" "local local local local local local local local" "alvo alvo alvo objetivos objetivos objetivos tematicas tematicas" "link link link link imagem imagem imagem imagem";
 			gap: 1rem;
 
 			@media screen and (max-width: 1680px) {
-				grid-template-areas: "titulo titulo sobre sobre sobre carga" "data data data data-fim data-fim data-fim" "horario horario horario horario-fim horario-fim horario-fim" "modalidade modalidade local local local local" "alvo alvo objetivos objetivos tematicas tematicas" "link link link imagem imagem imagem";
+				grid-template-areas: "titulo titulo nome-evento nome-evento sobre sobre sobre carga" "categoria-evento data data data data data-fim data-fim data-fim" "horario horario horario horario horario-fim horario-fim horario-fim horario-fim" "modalidade modalidade modalidade modalidade local local local local" "alvo alvo alvo objetivos objetivos objetivos tematicas tematicas" "link link link link imagem imagem imagem imagem";
 
 			}
 
@@ -544,6 +544,22 @@
 			.form-group {
 				display: flex;
 				flex-direction: column;
+			}
+
+			.nome-evento {
+				grid-area: nome-evento;
+
+				.form-group {
+					width: 100%;
+				}
+			}
+
+			.categoria-evento {
+				grid-area: categoria-evento;
+
+				.form-group {
+					width: 100%;
+				}
 			}
 
 			.titulo {

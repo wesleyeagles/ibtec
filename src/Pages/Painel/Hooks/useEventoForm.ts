@@ -12,6 +12,8 @@ const cadastrarEventoSchema = z.object({
 	sobre: z.string({
 		required_error: "Campo obrigatório",
 	}),
+	nomeEvento: z.string().optional().nullable(),
+	categoriaEvento: z.string().optional().nullable(),
 	publicoAlvo: z.string().optional().nullable(),
 	objetivos: z.string().optional().nullable(),
 	tematicas: z.string().optional().nullable(),
