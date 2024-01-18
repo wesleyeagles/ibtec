@@ -20,7 +20,7 @@ function Calendar() {
 	useEffect(() => {
 		const fetchEvents = async () => {
 			try {
-				const response = await axios.get("https://ibtec-backend.onrender.com/api/event/ultimos-events");
+				const response = await axios.get("https://backend-production-9a06.up.railway.app/api/event/ultimos-events");
 
 				const mappedResponse = response.data.map((event: IEventModel) => ({
 					imagem: event.imagem,
