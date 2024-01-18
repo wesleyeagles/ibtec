@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import { User, useUserContext } from "../../Global/Contexts/UserContext";
+import { Helmet } from "react-helmet";
 // Mutations
 
 const Layout = () => {
@@ -69,27 +70,34 @@ const Layout = () => {
 	}
 
 	return (
-		<div className="container-wrapper">
-			<ToastContainer
-				className={"react-toastify"}
-				style={{
-					top: "80px",
-					right: "60px",
-				}}
-			/>
-			<div className={`layout ${isMenuOpen ? "layout-menu-open" : "layout-menu-close"}`}>
-				<div className="name">
-					<h1>
-						<strong>Admin</strong>IBTEC
-					</h1>
-				</div>
-				<Navbar setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
-				<Navigation setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
-				<div className="outlet-painel">
-					<Outlet />
+		<>
+			<Helmet>
+				<meta charSet="utf-8" />
+				<title>Painel Administrativo || IBTeC</title>
+				<meta name="robots" content="noindex" />
+			</Helmet>
+			<div className="container-wrapper">
+				<ToastContainer
+					className={"react-toastify"}
+					style={{
+						top: "80px",
+						right: "60px",
+					}}
+				/>
+				<div className={`layout ${isMenuOpen ? "layout-menu-open" : "layout-menu-close"}`}>
+					<div className="name">
+						<h1>
+							<strong>Admin</strong>IBTEC
+						</h1>
+					</div>
+					<Navbar setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
+					<Navigation setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
+					<div className="outlet-painel">
+						<Outlet />
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
