@@ -179,6 +179,7 @@ const ListaAssociados = () => {
 							responsive
 							data={filterData()}
 							columns={columns}
+							defaultSortFieldId={3}
 							noDataComponent={
 								<div className="py-5">
 									<h5 className="m-0">Nenhum associado encontrado</h5>
