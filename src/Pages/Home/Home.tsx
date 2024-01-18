@@ -24,7 +24,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TabsComponent from "./Components/TabsComponent";
 import axios from "axios";
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Carousel } from "primereact/carousel";
 import ReactPlayer from "react-player";
@@ -806,7 +806,7 @@ const Home = () => {
 											</div>
 											<div className="content">
 												<div className="date-post">
-													<span>{format(new Date(post.createdAt), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
+													<span>{format(addDays(new Date(post.createdAt), 1), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
 												</div>
 												<div className="label-post">
 													<p>{post.titulo}</p>
