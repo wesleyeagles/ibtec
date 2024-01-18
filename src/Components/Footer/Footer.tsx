@@ -4,9 +4,11 @@ import GridContainer from "../GridContainer/GridContainer";
 import "./Footer.scss";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import { moveTo } from "../../Utils/Utils";
+import { useState } from "react";
 
 const Footer = () => {
 	const isMedia600px = useMediaQuery("(max-width: 600px)");
+	const [locale] = useState("br");
 
 	const scrollToTop = () => {
 		const scrollToTopEasing = (t: number) => t * (2 - t);
@@ -30,8 +32,6 @@ const Footer = () => {
 
 		requestAnimationFrame(scrollToTopAnimation);
 	};
-
-	const locale = "en";
 
 	if (locale === "en") {
 		return (

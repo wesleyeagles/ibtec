@@ -27,7 +27,7 @@ const Navbar = () => {
 				<GridContainer>
 					<div className="navigation-container">
 						<Link to="/">
-							<NavigationLogo size={`${matches600px ? "150px" : "204px"}`} height="96px" />
+							<img src="footer-logo.png" />
 						</Link>
 						<div className="btns-container">
 							<a href="http://dev.ibtec.org.br/areacliente/">
@@ -225,7 +225,9 @@ const Navbar = () => {
 				<GridContainer>
 					<div className="navigation-container">
 						<Link to="/">
-							<NavigationLogo size={`${matches600px ? "150px" : "204px"}`} height="96px" />
+							<img style={{
+								width: "160px"
+							}} src="footer-logo.png" />
 						</Link>
 						<div className="btns-container">
 							<a href="http://dev.ibtec.org.br/areacliente/">
