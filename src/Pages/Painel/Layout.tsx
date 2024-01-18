@@ -39,7 +39,7 @@ const Layout = () => {
 			} else {
 				if (id) {
 					try {
-						const response = await axios.get<User | null>(`https://ibtec-backend.onrender.com/api/user/usuario-por-id/${id}`);
+						const response = await axios.get<User | null>(`https://backend-production-9a06.up.railway.app/api/user/usuario-por-id/${id}`);
 						setUser(response.data);
 					} catch (error) {
 						console.error("Erro ao buscar informações do usuário:", error);
