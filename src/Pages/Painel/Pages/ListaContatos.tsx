@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { addDays, format } from "date-fns";
 import DataTable from "react-data-table-component";
 import ptBR from "date-fns/locale/pt-BR";
@@ -8,9 +9,22 @@ import { toast } from "react-toastify";
 import { TbTrashXFilled } from "react-icons/tb";
 import CustomText from "../../../Components/FormInputs/CustomTextInput/CustomText";
 import usePesquisaNoticiaForm from "../Hooks/usePesquisaNoticiaForm";
+import { CSVLink } from "react-csv";
 
 const ListaContatos = () => {
 	const [data, setData] = useState<any[]>();
+	const [exportData, setExportData] = useState<any[]>();
+
+	const headers = [
+		{ label: "Id", key: "id" },
+		{ label: "Nome", key: "nome" },
+		{ label: "Email", key: "email" },
+		{ label: "Assunto", key: "assunto" },
+		{ label: "Mensagem", key: "mensagem" },
+		{ label: "Empresa", key: "empresa" },
+		{ label: "Telefone", key: "telefone" },
+		{ label: "Data do contato", key: "createdAt" },
+	];
 
 	const { methods } = usePesquisaNoticiaForm();
 
@@ -164,6 +178,30 @@ const ListaContatos = () => {
 		return pesquisaText ? filteredData : data;
 	};
 
+	useEffect(() => {
+		if (data) {
+			setExportData(
+				data.map((item) => {
+					return {
+						...item,
+						createdAt: format(new Date(item.createdAt), "dd'/'MM'/'yyyy", { locale: ptBR }),
+					};
+				})
+			);
+		}
+	}, [data]);
+
+	const today = new Date().toLocaleDateString().replaceAll("/", "-");
+
+	const actionsMemo = React.useMemo(
+		() => (
+			<CSVLink filename={`ListaDeContatos/${today}.csv`} data={exportData!} headers={headers}>
+				<Button variant="primary">Exportar</Button>
+			</CSVLink>
+		),
+		[exportData]
+	);
+
 	return (
 		<>
 			<div className="listagem-noticias">
@@ -184,6 +222,7 @@ const ListaContatos = () => {
 							}
 							striped
 							dense
+							actions={actionsMemo}
 							pagination
 							paginationComponentOptions={{ rowsPerPageText: "Linhas por página" }}
 							paginationRowsPerPageOptions={[10]}
