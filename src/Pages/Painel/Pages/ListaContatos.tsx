@@ -85,49 +85,45 @@ const ListaContatos = () => {
 		{
 			name: "Id",
 			selector: (row: any) => row["id"],
-			width: "7%",
-			minWidth: "2rem",
+			width: "65px",
 			sortable: true,
 		},
 		{
 			name: "Nome",
 			selector: (row: any) => row["nome"],
 			sort: true,
-			width: "20%",
+			width: "200px",
 			sortable: true,
 		},
 		{
 			name: "Email",
 			selector: (row: any) => row["email"],
 			sort: true,
-			width: "20%",
+			width: "280px",
 			sortable: true,
 		},
 		{
 			name: "Telefone",
 			selector: (row: any) => row["telefone"],
 			sort: true,
-			width: "10%",
+			width: "120px",
 			sortable: true,
 		},
 		{
 			name: "Assunto",
 			selector: (row: any) => row["assunto"],
 			sort: true,
-			width: "10%",
 			sortable: true,
 		},
 		{
 			name: "Empresa",
 			selector: (row: any) => row["empresa"],
-			width: "5%",
 			sort: true,
 			sortable: true,
 		},
 		{
 			name: "Mensagem",
 			selector: (row: any) => row["mensagem"],
-			width: "5%",
 			sort: true,
 			sortable: true,
 		},
@@ -137,7 +133,7 @@ const ListaContatos = () => {
 				return format(addDays(new Date(row.createdAt), 1), "dd'/'MM'/'yyyy", { locale: ptBR });
 			},
 			sort: true,
-			width: "15%",
+			width: "150px",
 			sortable: true,
 		},
 		{
@@ -157,7 +153,6 @@ const ListaContatos = () => {
 			),
 			allowOverflow: true,
 			button: true,
-			width: "5%",
 		},
 	];
 
@@ -188,6 +183,7 @@ const ListaContatos = () => {
 								</div>
 							}
 							striped
+							dense
 							pagination
 							paginationComponentOptions={{ rowsPerPageText: "Linhas por página" }}
 							paginationRowsPerPageOptions={[10]}
